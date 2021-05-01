@@ -1,31 +1,81 @@
 /*
 * Shards React v1.0.3 (https://designrevision.com/downloads/shards-react/)
-* Based on: Bootstrap ^4.1.3 (https://getbootstrap.com)
-* Based on: Shards ^2.1.2 (https://designrevision.com/downloads/shards/)
-* Copyright 2017-2019 DesignRevision (https://designrevision.com)
-* Copyright 2017-2019 Catalin Vasile (http://catalin.me)
+* Based on: Bootstrap ^4.6.0 (https://getbootstrap.com)
+* Based on: Shards ^3.0.0 (https://designrevision.com/downloads/shards/)
+* Copyright 2017-2021 DesignRevision (https://designrevision.com)
+* Copyright 2017-2021 Catalin Vasile (http://catalin.me)
 */
 'use strict';
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var pick = _interopDefault(require('lodash.pick'));
-var isFunction = _interopDefault(require('lodash.isfunction'));
-var ReactDatePicker = _interopDefault(require('react-datepicker'));
-var shortid = _interopDefault(require('shortid'));
-var reactTransitionGroup = require('react-transition-group');
-var ReactDOM = _interopDefault(require('react-dom'));
-var reactPopper = require('react-popper');
-var toNumber = _interopDefault(require('lodash.tonumber'));
-var nouislider = _interopDefault(require('nouislider'));
 var React = require('react');
-var React__default = _interopDefault(React);
-var classNames = _interopDefault(require('classnames'));
-var omit = _interopDefault(require('lodash.omit'));
+var classNames = require('classnames');
+var ReactDOM = require('react-dom');
+var omit = require('lodash.omit');
+var pick = require('lodash.pick');
+var isFunction = require('lodash.isfunction');
+var ReactDatePicker = require('react-datepicker');
+var reactPopper = require('react-popper');
+var shortid = require('shortid');
+var reactTransitionGroup = require('react-transition-group');
+var toNumber = require('lodash.tonumber');
+var nouislider = require('nouislider');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+var classNames__default = /*#__PURE__*/_interopDefaultLegacy(classNames);
+var ReactDOM__default = /*#__PURE__*/_interopDefaultLegacy(ReactDOM);
+var omit__default = /*#__PURE__*/_interopDefaultLegacy(omit);
+var pick__default = /*#__PURE__*/_interopDefaultLegacy(pick);
+var isFunction__default = /*#__PURE__*/_interopDefaultLegacy(isFunction);
+var ReactDatePicker__default = /*#__PURE__*/_interopDefaultLegacy(ReactDatePicker);
+var shortid__default = /*#__PURE__*/_interopDefaultLegacy(shortid);
+var toNumber__default = /*#__PURE__*/_interopDefaultLegacy(toNumber);
+var nouislider__default = /*#__PURE__*/_interopDefaultLegacy(nouislider);
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+
+    if (enumerableOnly) {
+      symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+    }
+
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
 
 function _typeof(obj) {
+  "@babel/helpers - typeof";
+
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
     _typeof = function (obj) {
       return typeof obj;
@@ -94,25 +144,6 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
-function _objectSpread(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-    var ownKeys = Object.keys(source);
-
-    if (typeof Object.getOwnPropertySymbols === 'function') {
-      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-      }));
-    }
-
-    ownKeys.forEach(function (key) {
-      _defineProperty(target, key, source[key]);
-    });
-  }
-
-  return target;
-}
-
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
     throw new TypeError("Super expression must either be null or a function");
@@ -125,7 +156,7 @@ function _inherits(subClass, superClass) {
       configurable: true
     }
   });
-  if (superClass) _setPrototypeOf(subClass, superClass);
+  if (superClass) _setPrototypeOf$1(subClass, superClass);
 }
 
 function _getPrototypeOf(o) {
@@ -135,16 +166,29 @@ function _getPrototypeOf(o) {
   return _getPrototypeOf(o);
 }
 
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+function _setPrototypeOf$1(o, p) {
+  _setPrototypeOf$1 = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
     o.__proto__ = p;
     return o;
   };
 
-  return _setPrototypeOf(o, p);
+  return _setPrototypeOf$1(o, p);
 }
 
-function _objectWithoutPropertiesLoose(source, excluded) {
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _objectWithoutPropertiesLoose$1(source, excluded) {
   if (source == null) return {};
   var target = {};
   var sourceKeys = Object.keys(source);
@@ -162,7 +206,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 function _objectWithoutProperties(source, excluded) {
   if (source == null) return {};
 
-  var target = _objectWithoutPropertiesLoose(source, excluded);
+  var target = _objectWithoutPropertiesLoose$1(source, excluded);
 
   var key, i;
 
@@ -196,13 +240,448 @@ function _possibleConstructorReturn(self, call) {
   return _assertThisInitialized(self);
 }
 
-function unwrapExports (x) {
-	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x.default : x;
+function _createSuper(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct();
+
+  return function _createSuperInternal() {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (hasNativeReflectConstruct) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+  return arr2;
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
+
+/** @license React v16.13.1
+ * react-is.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+var b = "function" === typeof Symbol && Symbol["for"],
+    c = b ? Symbol["for"]("react.element") : 60103,
+    d = b ? Symbol["for"]("react.portal") : 60106,
+    e = b ? Symbol["for"]("react.fragment") : 60107,
+    f = b ? Symbol["for"]("react.strict_mode") : 60108,
+    g = b ? Symbol["for"]("react.profiler") : 60114,
+    h = b ? Symbol["for"]("react.provider") : 60109,
+    k = b ? Symbol["for"]("react.context") : 60110,
+    l = b ? Symbol["for"]("react.async_mode") : 60111,
+    m = b ? Symbol["for"]("react.concurrent_mode") : 60111,
+    n = b ? Symbol["for"]("react.forward_ref") : 60112,
+    p = b ? Symbol["for"]("react.suspense") : 60113,
+    q = b ? Symbol["for"]("react.suspense_list") : 60120,
+    r = b ? Symbol["for"]("react.memo") : 60115,
+    t = b ? Symbol["for"]("react.lazy") : 60116,
+    v = b ? Symbol["for"]("react.block") : 60121,
+    w = b ? Symbol["for"]("react.fundamental") : 60117,
+    x = b ? Symbol["for"]("react.responder") : 60118,
+    y = b ? Symbol["for"]("react.scope") : 60119;
+
+function z(a) {
+  if ("object" === _typeof(a) && null !== a) {
+    var u = a.$$typeof;
+
+    switch (u) {
+      case c:
+        switch (a = a.type, a) {
+          case l:
+          case m:
+          case e:
+          case g:
+          case f:
+          case p:
+            return a;
+
+          default:
+            switch (a = a && a.$$typeof, a) {
+              case k:
+              case n:
+              case t:
+              case r:
+              case h:
+                return a;
+
+              default:
+                return u;
+            }
+
+        }
+
+      case d:
+        return u;
+    }
+  }
+}
+
+function A(a) {
+  return z(a) === m;
+}
+
+var AsyncMode = l;
+var ConcurrentMode = m;
+var ContextConsumer = k;
+var ContextProvider = h;
+var Element$1 = c;
+var ForwardRef = n;
+var Fragment = e;
+var Lazy = t;
+var Memo = r;
+var Portal = d;
+var Profiler = g;
+var StrictMode = f;
+var Suspense = p;
+
+var isAsyncMode = function isAsyncMode(a) {
+  return A(a) || z(a) === l;
+};
+
+var isConcurrentMode = A;
+
+var isContextConsumer = function isContextConsumer(a) {
+  return z(a) === k;
+};
+
+var isContextProvider = function isContextProvider(a) {
+  return z(a) === h;
+};
+
+var isElement = function isElement(a) {
+  return "object" === _typeof(a) && null !== a && a.$$typeof === c;
+};
+
+var isForwardRef = function isForwardRef(a) {
+  return z(a) === n;
+};
+
+var isFragment = function isFragment(a) {
+  return z(a) === e;
+};
+
+var isLazy = function isLazy(a) {
+  return z(a) === t;
+};
+
+var isMemo = function isMemo(a) {
+  return z(a) === r;
+};
+
+var isPortal = function isPortal(a) {
+  return z(a) === d;
+};
+
+var isProfiler = function isProfiler(a) {
+  return z(a) === g;
+};
+
+var isStrictMode = function isStrictMode(a) {
+  return z(a) === f;
+};
+
+var isSuspense = function isSuspense(a) {
+  return z(a) === p;
+};
+
+var isValidElementType = function isValidElementType(a) {
+  return "string" === typeof a || "function" === typeof a || a === e || a === m || a === g || a === f || a === p || a === q || "object" === _typeof(a) && null !== a && (a.$$typeof === t || a.$$typeof === r || a.$$typeof === h || a.$$typeof === k || a.$$typeof === n || a.$$typeof === w || a.$$typeof === x || a.$$typeof === y || a.$$typeof === v);
+};
+
+var typeOf = z;
+var reactIs_production_min = {
+  AsyncMode: AsyncMode,
+  ConcurrentMode: ConcurrentMode,
+  ContextConsumer: ContextConsumer,
+  ContextProvider: ContextProvider,
+  Element: Element$1,
+  ForwardRef: ForwardRef,
+  Fragment: Fragment,
+  Lazy: Lazy,
+  Memo: Memo,
+  Portal: Portal,
+  Profiler: Profiler,
+  StrictMode: StrictMode,
+  Suspense: Suspense,
+  isAsyncMode: isAsyncMode,
+  isConcurrentMode: isConcurrentMode,
+  isContextConsumer: isContextConsumer,
+  isContextProvider: isContextProvider,
+  isElement: isElement,
+  isForwardRef: isForwardRef,
+  isFragment: isFragment,
+  isLazy: isLazy,
+  isMemo: isMemo,
+  isPortal: isPortal,
+  isProfiler: isProfiler,
+  isStrictMode: isStrictMode,
+  isSuspense: isSuspense,
+  isValidElementType: isValidElementType,
+  typeOf: typeOf
+};
+
+var reactIs_development = createCommonjsModule(function (module, exports) {
+
+  if (process.env.NODE_ENV !== "production") {
+    (function () {
+      // nor polyfill, then a plain number is used for performance.
+
+      var hasSymbol = typeof Symbol === 'function' && Symbol["for"];
+      var REACT_ELEMENT_TYPE = hasSymbol ? Symbol["for"]('react.element') : 0xeac7;
+      var REACT_PORTAL_TYPE = hasSymbol ? Symbol["for"]('react.portal') : 0xeaca;
+      var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol["for"]('react.fragment') : 0xeacb;
+      var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol["for"]('react.strict_mode') : 0xeacc;
+      var REACT_PROFILER_TYPE = hasSymbol ? Symbol["for"]('react.profiler') : 0xead2;
+      var REACT_PROVIDER_TYPE = hasSymbol ? Symbol["for"]('react.provider') : 0xeacd;
+      var REACT_CONTEXT_TYPE = hasSymbol ? Symbol["for"]('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
+      // (unstable) APIs that have been removed. Can we remove the symbols?
+
+      var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol["for"]('react.async_mode') : 0xeacf;
+      var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol["for"]('react.concurrent_mode') : 0xeacf;
+      var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol["for"]('react.forward_ref') : 0xead0;
+      var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol["for"]('react.suspense') : 0xead1;
+      var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol["for"]('react.suspense_list') : 0xead8;
+      var REACT_MEMO_TYPE = hasSymbol ? Symbol["for"]('react.memo') : 0xead3;
+      var REACT_LAZY_TYPE = hasSymbol ? Symbol["for"]('react.lazy') : 0xead4;
+      var REACT_BLOCK_TYPE = hasSymbol ? Symbol["for"]('react.block') : 0xead9;
+      var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol["for"]('react.fundamental') : 0xead5;
+      var REACT_RESPONDER_TYPE = hasSymbol ? Symbol["for"]('react.responder') : 0xead6;
+      var REACT_SCOPE_TYPE = hasSymbol ? Symbol["for"]('react.scope') : 0xead7;
+
+      function isValidElementType(type) {
+        return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+        type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || _typeof(type) === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
+      }
+
+      function typeOf(object) {
+        if (_typeof(object) === 'object' && object !== null) {
+          var $$typeof = object.$$typeof;
+
+          switch ($$typeof) {
+            case REACT_ELEMENT_TYPE:
+              var type = object.type;
+
+              switch (type) {
+                case REACT_ASYNC_MODE_TYPE:
+                case REACT_CONCURRENT_MODE_TYPE:
+                case REACT_FRAGMENT_TYPE:
+                case REACT_PROFILER_TYPE:
+                case REACT_STRICT_MODE_TYPE:
+                case REACT_SUSPENSE_TYPE:
+                  return type;
+
+                default:
+                  var $$typeofType = type && type.$$typeof;
+
+                  switch ($$typeofType) {
+                    case REACT_CONTEXT_TYPE:
+                    case REACT_FORWARD_REF_TYPE:
+                    case REACT_LAZY_TYPE:
+                    case REACT_MEMO_TYPE:
+                    case REACT_PROVIDER_TYPE:
+                      return $$typeofType;
+
+                    default:
+                      return $$typeof;
+                  }
+
+              }
+
+            case REACT_PORTAL_TYPE:
+              return $$typeof;
+          }
+        }
+
+        return undefined;
+      } // AsyncMode is deprecated along with isAsyncMode
+
+
+      var AsyncMode = REACT_ASYNC_MODE_TYPE;
+      var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+      var ContextConsumer = REACT_CONTEXT_TYPE;
+      var ContextProvider = REACT_PROVIDER_TYPE;
+      var Element = REACT_ELEMENT_TYPE;
+      var ForwardRef = REACT_FORWARD_REF_TYPE;
+      var Fragment = REACT_FRAGMENT_TYPE;
+      var Lazy = REACT_LAZY_TYPE;
+      var Memo = REACT_MEMO_TYPE;
+      var Portal = REACT_PORTAL_TYPE;
+      var Profiler = REACT_PROFILER_TYPE;
+      var StrictMode = REACT_STRICT_MODE_TYPE;
+      var Suspense = REACT_SUSPENSE_TYPE;
+      var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
+
+      function isAsyncMode(object) {
+        {
+          if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+            hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
+
+            console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
+          }
+        }
+        return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
+      }
+
+      function isConcurrentMode(object) {
+        return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
+      }
+
+      function isContextConsumer(object) {
+        return typeOf(object) === REACT_CONTEXT_TYPE;
+      }
+
+      function isContextProvider(object) {
+        return typeOf(object) === REACT_PROVIDER_TYPE;
+      }
+
+      function isElement(object) {
+        return _typeof(object) === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+      }
+
+      function isForwardRef(object) {
+        return typeOf(object) === REACT_FORWARD_REF_TYPE;
+      }
+
+      function isFragment(object) {
+        return typeOf(object) === REACT_FRAGMENT_TYPE;
+      }
+
+      function isLazy(object) {
+        return typeOf(object) === REACT_LAZY_TYPE;
+      }
+
+      function isMemo(object) {
+        return typeOf(object) === REACT_MEMO_TYPE;
+      }
+
+      function isPortal(object) {
+        return typeOf(object) === REACT_PORTAL_TYPE;
+      }
+
+      function isProfiler(object) {
+        return typeOf(object) === REACT_PROFILER_TYPE;
+      }
+
+      function isStrictMode(object) {
+        return typeOf(object) === REACT_STRICT_MODE_TYPE;
+      }
+
+      function isSuspense(object) {
+        return typeOf(object) === REACT_SUSPENSE_TYPE;
+      }
+
+      exports.AsyncMode = AsyncMode;
+      exports.ConcurrentMode = ConcurrentMode;
+      exports.ContextConsumer = ContextConsumer;
+      exports.ContextProvider = ContextProvider;
+      exports.Element = Element;
+      exports.ForwardRef = ForwardRef;
+      exports.Fragment = Fragment;
+      exports.Lazy = Lazy;
+      exports.Memo = Memo;
+      exports.Portal = Portal;
+      exports.Profiler = Profiler;
+      exports.StrictMode = StrictMode;
+      exports.Suspense = Suspense;
+      exports.isAsyncMode = isAsyncMode;
+      exports.isConcurrentMode = isConcurrentMode;
+      exports.isContextConsumer = isContextConsumer;
+      exports.isContextProvider = isContextProvider;
+      exports.isElement = isElement;
+      exports.isForwardRef = isForwardRef;
+      exports.isFragment = isFragment;
+      exports.isLazy = isLazy;
+      exports.isMemo = isMemo;
+      exports.isPortal = isPortal;
+      exports.isProfiler = isProfiler;
+      exports.isStrictMode = isStrictMode;
+      exports.isSuspense = isSuspense;
+      exports.isValidElementType = isValidElementType;
+      exports.typeOf = typeOf;
+    })();
+  }
+});
+reactIs_development.AsyncMode;
+reactIs_development.ConcurrentMode;
+reactIs_development.ContextConsumer;
+reactIs_development.ContextProvider;
+reactIs_development.Element;
+reactIs_development.ForwardRef;
+reactIs_development.Fragment;
+reactIs_development.Lazy;
+reactIs_development.Memo;
+reactIs_development.Portal;
+reactIs_development.Profiler;
+reactIs_development.StrictMode;
+reactIs_development.Suspense;
+reactIs_development.isAsyncMode;
+reactIs_development.isConcurrentMode;
+reactIs_development.isContextConsumer;
+reactIs_development.isContextProvider;
+reactIs_development.isElement;
+reactIs_development.isForwardRef;
+reactIs_development.isFragment;
+reactIs_development.isLazy;
+reactIs_development.isMemo;
+reactIs_development.isPortal;
+reactIs_development.isProfiler;
+reactIs_development.isStrictMode;
+reactIs_development.isSuspense;
+reactIs_development.isValidElementType;
+reactIs_development.typeOf;
+
+var reactIs = createCommonjsModule(function (module) {
+
+  if (process.env.NODE_ENV === 'production') {
+    module.exports = reactIs_production_min;
+  } else {
+    module.exports = reactIs_development;
+  }
+});
 
 /*
 object-assign
@@ -306,16 +785,17 @@ var objectAssign = shouldUseNative() ? Object.assign : function (target, source)
  * LICENSE file in the root directory of this source tree.
  */
 
-var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
-var ReactPropTypesSecret_1 = ReactPropTypesSecret;
+var ReactPropTypesSecret$1 = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+var ReactPropTypesSecret_1 = ReactPropTypesSecret$1;
 
-var printWarning = function printWarning() {};
+var printWarning$1 = function printWarning() {};
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactPropTypesSecret$1 = ReactPropTypesSecret_1;
+  var ReactPropTypesSecret = ReactPropTypesSecret_1;
   var loggedTypeFailures = {};
+  var has$1 = Function.call.bind(Object.prototype.hasOwnProperty);
 
-  printWarning = function printWarning(text) {
+  printWarning$1 = function printWarning(text) {
     var message = 'Warning: ' + text;
 
     if (typeof console !== 'undefined') {
@@ -346,7 +826,7 @@ if (process.env.NODE_ENV !== 'production') {
 function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
   if (process.env.NODE_ENV !== 'production') {
     for (var typeSpecName in typeSpecs) {
-      if (typeSpecs.hasOwnProperty(typeSpecName)) {
+      if (has$1(typeSpecs, typeSpecName)) {
         var error; // Prop type validation may throw. In case they do, we don't want to
         // fail the render phase where it didn't fail before. So we log it.
         // After these have been cleaned up, we'll let them throw.
@@ -360,13 +840,13 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
             throw err;
           }
 
-          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret$1);
+          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
         } catch (ex) {
           error = ex;
         }
 
         if (error && !(error instanceof Error)) {
-          printWarning((componentName || 'React class') + ': type specification of ' + location + ' `' + typeSpecName + '` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a ' + _typeof(error) + '. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).');
+          printWarning$1((componentName || 'React class') + ': type specification of ' + location + ' `' + typeSpecName + '` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a ' + _typeof(error) + '. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).');
         }
 
         if (error instanceof Error && !(error.message in loggedTypeFailures)) {
@@ -374,19 +854,33 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
           // same error.
           loggedTypeFailures[error.message] = true;
           var stack = getStack ? getStack() : '';
-          printWarning('Failed ' + location + ' type: ' + error.message + (stack != null ? stack : ''));
+          printWarning$1('Failed ' + location + ' type: ' + error.message + (stack != null ? stack : ''));
         }
       }
     }
   }
 }
+/**
+ * Resets warning cache when testing.
+ *
+ * @private
+ */
+
+
+checkPropTypes.resetWarningCache = function () {
+  if (process.env.NODE_ENV !== 'production') {
+    loggedTypeFailures = {};
+  }
+};
 
 var checkPropTypes_1 = checkPropTypes;
 
-var printWarning$1 = function printWarning() {};
+var has = Function.call.bind(Object.prototype.hasOwnProperty);
+
+var printWarning = function printWarning() {};
 
 if (process.env.NODE_ENV !== 'production') {
-  printWarning$1 = function printWarning(text) {
+  printWarning = function printWarning(text) {
     var message = 'Warning: ' + text;
 
     if (typeof console !== 'undefined') {
@@ -495,6 +989,7 @@ var factoryWithTypeCheckers = function factoryWithTypeCheckers(isValidElement, t
     any: createAnyTypeChecker(),
     arrayOf: createArrayOfTypeChecker,
     element: createElementTypeChecker(),
+    elementType: createElementTypeTypeChecker(),
     instanceOf: createInstanceTypeChecker,
     node: createNodeChecker(),
     objectOf: createObjectOfTypeChecker,
@@ -562,7 +1057,7 @@ var factoryWithTypeCheckers = function factoryWithTypeCheckers(isValidElement, t
 
           if (!manualPropTypeCallCache[cacheKey] && // Avoid spamming the console because they are often not actionable except for lib authors
           manualPropTypeWarningCount < 3) {
-            printWarning$1('You are manually calling a React.PropTypes validation ' + 'function for the `' + propFullName + '` prop on `' + componentName + '`. This is deprecated ' + 'and will throw in the standalone `prop-types` package. ' + 'You may be seeing this warning due to a third-party PropTypes ' + 'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.');
+            printWarning('You are manually calling a React.PropTypes validation ' + 'function for the `' + propFullName + '` prop on `' + componentName + '`. This is deprecated ' + 'and will throw in the standalone `prop-types` package. ' + 'You may be seeing this warning due to a third-party PropTypes ' + 'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.');
             manualPropTypeCallCache[cacheKey] = true;
             manualPropTypeWarningCount++;
           }
@@ -654,6 +1149,21 @@ var factoryWithTypeCheckers = function factoryWithTypeCheckers(isValidElement, t
     return createChainableTypeChecker(validate);
   }
 
+  function createElementTypeTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+
+      if (!reactIs.isValidElementType(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement type.'));
+      }
+
+      return null;
+    }
+
+    return createChainableTypeChecker(validate);
+  }
+
   function createInstanceTypeChecker(expectedClass) {
     function validate(props, propName, componentName, location, propFullName) {
       if (!(props[propName] instanceof expectedClass)) {
@@ -670,7 +1180,14 @@ var factoryWithTypeCheckers = function factoryWithTypeCheckers(isValidElement, t
 
   function createEnumTypeChecker(expectedValues) {
     if (!Array.isArray(expectedValues)) {
-      process.env.NODE_ENV !== 'production' ? printWarning$1('Invalid argument supplied to oneOf, expected an instance of array.') : void 0;
+      if (process.env.NODE_ENV !== 'production') {
+        if (arguments.length > 1) {
+          printWarning('Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' + 'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).');
+        } else {
+          printWarning('Invalid argument supplied to oneOf, expected an array.');
+        }
+      }
+
       return emptyFunctionThatReturnsNull;
     }
 
@@ -683,8 +1200,16 @@ var factoryWithTypeCheckers = function factoryWithTypeCheckers(isValidElement, t
         }
       }
 
-      var valuesString = JSON.stringify(expectedValues);
-      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + propValue + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+      var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
+        var type = getPreciseType(value);
+
+        if (type === 'symbol') {
+          return String(value);
+        }
+
+        return value;
+      });
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + String(propValue) + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
     }
 
     return createChainableTypeChecker(validate);
@@ -704,7 +1229,7 @@ var factoryWithTypeCheckers = function factoryWithTypeCheckers(isValidElement, t
       }
 
       for (var key in propValue) {
-        if (propValue.hasOwnProperty(key)) {
+        if (has(propValue, key)) {
           var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret_1);
 
           if (error instanceof Error) {
@@ -721,7 +1246,7 @@ var factoryWithTypeCheckers = function factoryWithTypeCheckers(isValidElement, t
 
   function createUnionTypeChecker(arrayOfTypeCheckers) {
     if (!Array.isArray(arrayOfTypeCheckers)) {
-      process.env.NODE_ENV !== 'production' ? printWarning$1('Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
+      process.env.NODE_ENV !== 'production' ? printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
       return emptyFunctionThatReturnsNull;
     }
 
@@ -729,7 +1254,7 @@ var factoryWithTypeCheckers = function factoryWithTypeCheckers(isValidElement, t
       var checker = arrayOfTypeCheckers[i];
 
       if (typeof checker !== 'function') {
-        printWarning$1('Invalid argument supplied to oneOfType. Expected an array of check functions, but ' + 'received ' + getPostfixForTypeWarning(checker) + ' at index ' + i + '.');
+        printWarning('Invalid argument supplied to oneOfType. Expected an array of check functions, but ' + 'received ' + getPostfixForTypeWarning(checker) + ' at index ' + i + '.');
         return emptyFunctionThatReturnsNull;
       }
     }
@@ -881,6 +1406,11 @@ var factoryWithTypeCheckers = function factoryWithTypeCheckers(isValidElement, t
     // Native Symbol.
     if (propType === 'symbol') {
       return true;
+    } // falsy value can't be a Symbol
+
+
+    if (!propValue) {
+      return false;
     } // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
 
 
@@ -968,11 +1498,16 @@ var factoryWithTypeCheckers = function factoryWithTypeCheckers(isValidElement, t
   }
 
   ReactPropTypes.checkPropTypes = checkPropTypes_1;
+  ReactPropTypes.resetWarningCache = checkPropTypes_1.resetWarningCache;
   ReactPropTypes.PropTypes = ReactPropTypes;
   return ReactPropTypes;
 };
 
 function emptyFunction() {}
+
+function emptyFunctionWithReset() {}
+
+emptyFunctionWithReset.resetWarningCache = emptyFunction;
 
 var factoryWithThrowingShims = function factoryWithThrowingShims() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -1003,15 +1538,17 @@ var factoryWithThrowingShims = function factoryWithThrowingShims() {
     any: shim,
     arrayOf: getShim,
     element: shim,
+    elementType: shim,
     instanceOf: getShim,
     node: shim,
     objectOf: getShim,
     oneOf: getShim,
     oneOfType: getShim,
     shape: getShim,
-    exact: getShim
+    exact: getShim,
+    checkPropTypes: emptyFunctionWithReset,
+    resetWarningCache: emptyFunction
   };
-  ReactPropTypes.checkPropTypes = emptyFunction;
   ReactPropTypes.PropTypes = ReactPropTypes;
   return ReactPropTypes;
 };
@@ -1024,16 +1561,11 @@ var propTypes = createCommonjsModule(function (module) {
    * LICENSE file in the root directory of this source tree.
    */
   if (process.env.NODE_ENV !== 'production') {
-    var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol.for && Symbol.for('react.element') || 0xeac7;
-
-    var isValidElement = function isValidElement(object) {
-      return _typeof(object) === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-    }; // By explicitly using `prop-types` you are opting into new development behavior.
+    var ReactIs = reactIs; // By explicitly using `prop-types` you are opting into new development behavior.
     // http://fb.me/prop-types-in-prod
 
-
     var throwOnDirectAccess = true;
-    module.exports = factoryWithTypeCheckers(isValidElement, throwOnDirectAccess);
+    module.exports = factoryWithTypeCheckers(ReactIs.isElement, throwOnDirectAccess);
   } else {
     // By explicitly using `prop-types` you are opting into new production behavior.
     // http://fb.me/prop-types-in-prod
@@ -1041,843 +1573,664 @@ var propTypes = createCommonjsModule(function (module) {
   }
 });
 
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  _setPrototypeOf(subClass, superClass);
+}
+
+var config = {
+  disabled: false
+};
+
+var timeoutsShape = process.env.NODE_ENV !== 'production' ? propTypes.oneOfType([propTypes.number, propTypes.shape({
+  enter: propTypes.number,
+  exit: propTypes.number,
+  appear: propTypes.number
+}).isRequired]) : null;
+process.env.NODE_ENV !== 'production' ? propTypes.oneOfType([propTypes.string, propTypes.shape({
+  enter: propTypes.string,
+  exit: propTypes.string,
+  active: propTypes.string
+}), propTypes.shape({
+  enter: propTypes.string,
+  enterDone: propTypes.string,
+  enterActive: propTypes.string,
+  exit: propTypes.string,
+  exitDone: propTypes.string,
+  exitActive: propTypes.string
+})]) : null;
+
+var TransitionGroupContext = /*#__PURE__*/React__default['default'].createContext(null);
+
+var UNMOUNTED = 'unmounted';
+var EXITED = 'exited';
+var ENTERING = 'entering';
+var ENTERED = 'entered';
+var EXITING = 'exiting';
 /**
- * Copyright (c) 2013-present, Facebook, Inc.
+ * The Transition component lets you describe a transition from one component
+ * state to another _over time_ with a simple declarative API. Most commonly
+ * it's used to animate the mounting and unmounting of a component, but can also
+ * be used to describe in-place transition states as well.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * ---
+ *
+ * **Note**: `Transition` is a platform-agnostic base component. If you're using
+ * transitions in CSS, you'll probably want to use
+ * [`CSSTransition`](https://reactcommunity.org/react-transition-group/css-transition)
+ * instead. It inherits all the features of `Transition`, but contains
+ * additional features necessary to play nice with CSS transitions (hence the
+ * name of the component).
+ *
+ * ---
+ *
+ * By default the `Transition` component does not alter the behavior of the
+ * component it renders, it only tracks "enter" and "exit" states for the
+ * components. It's up to you to give meaning and effect to those states. For
+ * example we can add styles to a component when it enters or exits:
+ *
+ * ```jsx
+ * import { Transition } from 'react-transition-group';
+ *
+ * const duration = 300;
+ *
+ * const defaultStyle = {
+ *   transition: `opacity ${duration}ms ease-in-out`,
+ *   opacity: 0,
+ * }
+ *
+ * const transitionStyles = {
+ *   entering: { opacity: 1 },
+ *   entered:  { opacity: 1 },
+ *   exiting:  { opacity: 0 },
+ *   exited:  { opacity: 0 },
+ * };
+ *
+ * const Fade = ({ in: inProp }) => (
+ *   <Transition in={inProp} timeout={duration}>
+ *     {state => (
+ *       <div style={{
+ *         ...defaultStyle,
+ *         ...transitionStyles[state]
+ *       }}>
+ *         I'm a fade Transition!
+ *       </div>
+ *     )}
+ *   </Transition>
+ * );
+ * ```
+ *
+ * There are 4 main states a Transition can be in:
+ *  - `'entering'`
+ *  - `'entered'`
+ *  - `'exiting'`
+ *  - `'exited'`
+ *
+ * Transition state is toggled via the `in` prop. When `true` the component
+ * begins the "Enter" stage. During this stage, the component will shift from
+ * its current transition state, to `'entering'` for the duration of the
+ * transition and then to the `'entered'` stage once it's complete. Let's take
+ * the following example (we'll use the
+ * [useState](https://reactjs.org/docs/hooks-reference.html#usestate) hook):
+ *
+ * ```jsx
+ * function App() {
+ *   const [inProp, setInProp] = useState(false);
+ *   return (
+ *     <div>
+ *       <Transition in={inProp} timeout={500}>
+ *         {state => (
+ *           // ...
+ *         )}
+ *       </Transition>
+ *       <button onClick={() => setInProp(true)}>
+ *         Click to Enter
+ *       </button>
+ *     </div>
+ *   );
+ * }
+ * ```
+ *
+ * When the button is clicked the component will shift to the `'entering'` state
+ * and stay there for 500ms (the value of `timeout`) before it finally switches
+ * to `'entered'`.
+ *
+ * When `in` is `false` the same thing happens except the state moves from
+ * `'exiting'` to `'exited'`.
  */
-function componentWillMount() {
-  // Call this.constructor.gDSFP to support sub-classes.
-  var state = this.constructor.getDerivedStateFromProps(this.props, this.state);
 
-  if (state !== null && state !== undefined) {
-    this.setState(state);
-  }
-}
+var Transition = /*#__PURE__*/function (_React$Component) {
+  _inheritsLoose(Transition, _React$Component);
 
-function componentWillReceiveProps(nextProps) {
-  // Call this.constructor.gDSFP to support sub-classes.
-  // Use the setState() updater to ensure state isn't stale in certain edge cases.
-  function updater(prevState) {
-    var state = this.constructor.getDerivedStateFromProps(nextProps, prevState);
-    return state !== null && state !== undefined ? state : null;
-  } // Binding "this" is important for shallow renderer support.
+  function Transition(props, context) {
+    var _this;
 
+    _this = _React$Component.call(this, props, context) || this;
+    var parentGroup = context; // In the context of a TransitionGroup all enters are really appears
 
-  this.setState(updater.bind(this));
-}
+    var appear = parentGroup && !parentGroup.isMounting ? props.enter : props.appear;
+    var initialStatus;
+    _this.appearStatus = null;
 
-function componentWillUpdate(nextProps, nextState) {
-  try {
-    var prevProps = this.props;
-    var prevState = this.state;
-    this.props = nextProps;
-    this.state = nextState;
-    this.__reactInternalSnapshotFlag = true;
-    this.__reactInternalSnapshot = this.getSnapshotBeforeUpdate(prevProps, prevState);
-  } finally {
-    this.props = prevProps;
-    this.state = prevState;
-  }
-} // React may warn about cWM/cWRP/cWU methods being deprecated.
-// Add a flag to suppress these warnings for this special case.
-
-
-componentWillMount.__suppressDeprecationWarning = true;
-componentWillReceiveProps.__suppressDeprecationWarning = true;
-componentWillUpdate.__suppressDeprecationWarning = true;
-
-function polyfill(Component) {
-  var prototype = Component.prototype;
-
-  if (!prototype || !prototype.isReactComponent) {
-    throw new Error('Can only polyfill class components');
-  }
-
-  if (typeof Component.getDerivedStateFromProps !== 'function' && typeof prototype.getSnapshotBeforeUpdate !== 'function') {
-    return Component;
-  } // If new component APIs are defined, "unsafe" lifecycles won't be called.
-  // Error if any of these lifecycles are present,
-  // Because they would work differently between older and newer (16.3+) versions of React.
-
-
-  var foundWillMountName = null;
-  var foundWillReceivePropsName = null;
-  var foundWillUpdateName = null;
-
-  if (typeof prototype.componentWillMount === 'function') {
-    foundWillMountName = 'componentWillMount';
-  } else if (typeof prototype.UNSAFE_componentWillMount === 'function') {
-    foundWillMountName = 'UNSAFE_componentWillMount';
-  }
-
-  if (typeof prototype.componentWillReceiveProps === 'function') {
-    foundWillReceivePropsName = 'componentWillReceiveProps';
-  } else if (typeof prototype.UNSAFE_componentWillReceiveProps === 'function') {
-    foundWillReceivePropsName = 'UNSAFE_componentWillReceiveProps';
-  }
-
-  if (typeof prototype.componentWillUpdate === 'function') {
-    foundWillUpdateName = 'componentWillUpdate';
-  } else if (typeof prototype.UNSAFE_componentWillUpdate === 'function') {
-    foundWillUpdateName = 'UNSAFE_componentWillUpdate';
-  }
-
-  if (foundWillMountName !== null || foundWillReceivePropsName !== null || foundWillUpdateName !== null) {
-    var componentName = Component.displayName || Component.name;
-    var newApiName = typeof Component.getDerivedStateFromProps === 'function' ? 'getDerivedStateFromProps()' : 'getSnapshotBeforeUpdate()';
-    throw Error('Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n' + componentName + ' uses ' + newApiName + ' but also contains the following legacy lifecycles:' + (foundWillMountName !== null ? '\n  ' + foundWillMountName : '') + (foundWillReceivePropsName !== null ? '\n  ' + foundWillReceivePropsName : '') + (foundWillUpdateName !== null ? '\n  ' + foundWillUpdateName : '') + '\n\nThe above lifecycles should be removed. Learn more about this warning here:\n' + 'https://fb.me/react-async-component-lifecycle-hooks');
-  } // React <= 16.2 does not support static getDerivedStateFromProps.
-  // As a workaround, use cWM and cWRP to invoke the new static lifecycle.
-  // Newer versions of React will ignore these lifecycles if gDSFP exists.
-
-
-  if (typeof Component.getDerivedStateFromProps === 'function') {
-    prototype.componentWillMount = componentWillMount;
-    prototype.componentWillReceiveProps = componentWillReceiveProps;
-  } // React <= 16.2 does not support getSnapshotBeforeUpdate.
-  // As a workaround, use cWU to invoke the new lifecycle.
-  // Newer versions of React will ignore that lifecycle if gSBU exists.
-
-
-  if (typeof prototype.getSnapshotBeforeUpdate === 'function') {
-    if (typeof prototype.componentDidUpdate !== 'function') {
-      throw new Error('Cannot polyfill getSnapshotBeforeUpdate() for components that do not define componentDidUpdate() on the prototype');
-    }
-
-    prototype.componentWillUpdate = componentWillUpdate;
-    var componentDidUpdate = prototype.componentDidUpdate;
-
-    prototype.componentDidUpdate = function componentDidUpdatePolyfill(prevProps, prevState, maybeSnapshot) {
-      // 16.3+ will not execute our will-update method;
-      // It will pass a snapshot value to did-update though.
-      // Older versions will require our polyfilled will-update value.
-      // We need to handle both cases, but can't just check for the presence of "maybeSnapshot",
-      // Because for <= 15.x versions this might be a "prevContext" object.
-      // We also can't just check "__reactInternalSnapshot",
-      // Because get-snapshot might return a falsy value.
-      // So check for the explicit __reactInternalSnapshotFlag flag to determine behavior.
-      var snapshot = this.__reactInternalSnapshotFlag ? this.__reactInternalSnapshot : maybeSnapshot;
-      componentDidUpdate.call(this, prevProps, prevState, snapshot);
-    };
-  }
-
-  return Component;
-}
-
-var reactLifecyclesCompat_es = /*#__PURE__*/Object.freeze({
-  polyfill: polyfill
-});
-
-var PropTypes = createCommonjsModule(function (module, exports) {
-
-  exports.__esModule = true;
-  exports.transitionTimeout = transitionTimeout;
-  exports.classNamesShape = exports.timeoutsShape = void 0;
-
-  var _propTypes = _interopRequireDefault(propTypes);
-
-  function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-      default: obj
-    };
-  }
-
-  function transitionTimeout(transitionType) {
-    var timeoutPropName = 'transition' + transitionType + 'Timeout';
-    var enabledPropName = 'transition' + transitionType;
-    return function (props) {
-      // If the transition is enabled
-      if (props[enabledPropName]) {
-        // If no timeout duration is provided
-        if (props[timeoutPropName] == null) {
-          return new Error(timeoutPropName + ' wasn\'t supplied to CSSTransitionGroup: ' + 'this can cause unreliable animations and won\'t be supported in ' + 'a future version of React. See ' + 'https://fb.me/react-animation-transition-group-timeout for more ' + 'information.'); // If the duration isn't a number
-        } else if (typeof props[timeoutPropName] !== 'number') {
-          return new Error(timeoutPropName + ' must be a number (in milliseconds)');
-        }
+    if (props["in"]) {
+      if (appear) {
+        initialStatus = EXITED;
+        _this.appearStatus = ENTERING;
+      } else {
+        initialStatus = ENTERED;
       }
-
-      return null;
-    };
-  }
-
-  var timeoutsShape = _propTypes.default.oneOfType([_propTypes.default.number, _propTypes.default.shape({
-    enter: _propTypes.default.number,
-    exit: _propTypes.default.number
-  }).isRequired]);
-
-  exports.timeoutsShape = timeoutsShape;
-
-  var classNamesShape = _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.shape({
-    enter: _propTypes.default.string,
-    exit: _propTypes.default.string,
-    active: _propTypes.default.string
-  }), _propTypes.default.shape({
-    enter: _propTypes.default.string,
-    enterDone: _propTypes.default.string,
-    enterActive: _propTypes.default.string,
-    exit: _propTypes.default.string,
-    exitDone: _propTypes.default.string,
-    exitActive: _propTypes.default.string
-  })]);
-
-  exports.classNamesShape = classNamesShape;
-});
-unwrapExports(PropTypes);
-var PropTypes_1 = PropTypes.transitionTimeout;
-var PropTypes_2 = PropTypes.classNamesShape;
-var PropTypes_3 = PropTypes.timeoutsShape;
-
-var Transition_1 = createCommonjsModule(function (module, exports) {
-
-  exports.__esModule = true;
-  exports.default = exports.EXITING = exports.ENTERED = exports.ENTERING = exports.EXITED = exports.UNMOUNTED = void 0;
-
-  var PropTypes$$1 = _interopRequireWildcard(propTypes);
-
-  var _react = _interopRequireDefault(React__default);
-
-  var _reactDom = _interopRequireDefault(ReactDOM);
-
-  function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-      default: obj
-    };
-  }
-
-  function _interopRequireWildcard(obj) {
-    if (obj && obj.__esModule) {
-      return obj;
     } else {
-      var newObj = {};
-
-      if (obj != null) {
-        for (var key in obj) {
-          if (Object.prototype.hasOwnProperty.call(obj, key)) {
-            var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};
-
-            if (desc.get || desc.set) {
-              Object.defineProperty(newObj, key, desc);
-            } else {
-              newObj[key] = obj[key];
-            }
-          }
-        }
-      }
-
-      newObj.default = obj;
-      return newObj;
-    }
-  }
-
-  function _objectWithoutPropertiesLoose(source, excluded) {
-    if (source == null) return {};
-    var target = {};
-    var sourceKeys = Object.keys(source);
-    var key, i;
-
-    for (i = 0; i < sourceKeys.length; i++) {
-      key = sourceKeys[i];
-      if (excluded.indexOf(key) >= 0) continue;
-      target[key] = source[key];
-    }
-
-    return target;
-  }
-
-  function _inheritsLoose(subClass, superClass) {
-    subClass.prototype = Object.create(superClass.prototype);
-    subClass.prototype.constructor = subClass;
-    subClass.__proto__ = superClass;
-  }
-
-  var UNMOUNTED = 'unmounted';
-  exports.UNMOUNTED = UNMOUNTED;
-  var EXITED = 'exited';
-  exports.EXITED = EXITED;
-  var ENTERING = 'entering';
-  exports.ENTERING = ENTERING;
-  var ENTERED = 'entered';
-  exports.ENTERED = ENTERED;
-  var EXITING = 'exiting';
-  /**
-   * The Transition component lets you describe a transition from one component
-   * state to another _over time_ with a simple declarative API. Most commonly
-   * it's used to animate the mounting and unmounting of a component, but can also
-   * be used to describe in-place transition states as well.
-   *
-   * By default the `Transition` component does not alter the behavior of the
-   * component it renders, it only tracks "enter" and "exit" states for the components.
-   * It's up to you to give meaning and effect to those states. For example we can
-   * add styles to a component when it enters or exits:
-   *
-   * ```jsx
-   * import Transition from 'react-transition-group/Transition';
-   *
-   * const duration = 300;
-   *
-   * const defaultStyle = {
-   *   transition: `opacity ${duration}ms ease-in-out`,
-   *   opacity: 0,
-   * }
-   *
-   * const transitionStyles = {
-   *   entering: { opacity: 0 },
-   *   entered:  { opacity: 1 },
-   * };
-   *
-   * const Fade = ({ in: inProp }) => (
-   *   <Transition in={inProp} timeout={duration}>
-   *     {(state) => (
-   *       <div style={{
-   *         ...defaultStyle,
-   *         ...transitionStyles[state]
-   *       }}>
-   *         I'm a fade Transition!
-   *       </div>
-   *     )}
-   *   </Transition>
-   * );
-   * ```
-   *
-   * As noted the `Transition` component doesn't _do_ anything by itself to its child component.
-   * What it does do is track transition states over time so you can update the
-   * component (such as by adding styles or classes) when it changes states.
-   *
-   * There are 4 main states a Transition can be in:
-   *  - `'entering'`
-   *  - `'entered'`
-   *  - `'exiting'`
-   *  - `'exited'`
-   *
-   * Transition state is toggled via the `in` prop. When `true` the component begins the
-   * "Enter" stage. During this stage, the component will shift from its current transition state,
-   * to `'entering'` for the duration of the transition and then to the `'entered'` stage once
-   * it's complete. Let's take the following example:
-   *
-   * ```jsx
-   * state = { in: false };
-   *
-   * toggleEnterState = () => {
-   *   this.setState({ in: true });
-   * }
-   *
-   * render() {
-   *   return (
-   *     <div>
-   *       <Transition in={this.state.in} timeout={500} />
-   *       <button onClick={this.toggleEnterState}>Click to Enter</button>
-   *     </div>
-   *   );
-   * }
-   * ```
-   *
-   * When the button is clicked the component will shift to the `'entering'` state and
-   * stay there for 500ms (the value of `timeout`) before it finally switches to `'entered'`.
-   *
-   * When `in` is `false` the same thing happens except the state moves from `'exiting'` to `'exited'`.
-   *
-   * ## Timing
-   *
-   * Timing is often the trickiest part of animation, mistakes can result in slight delays
-   * that are hard to pin down. A common example is when you want to add an exit transition,
-   * you should set the desired final styles when the state is `'exiting'`. That's when the
-   * transition to those styles will start and, if you matched the `timeout` prop with the
-   * CSS Transition duration, it will end exactly when the state changes to `'exited'`.
-   *
-   * > **Note**: For simpler transitions the `Transition` component might be enough, but
-   * > take into account that it's platform-agnostic, while the `CSSTransition` component
-   * > [forces reflows](https://github.com/reactjs/react-transition-group/blob/5007303e729a74be66a21c3e2205e4916821524b/src/CSSTransition.js#L208-L215)
-   * > in order to make more complex transitions more predictable. For example, even though
-   * > classes `example-enter` and `example-enter-active` are applied immediately one after
-   * > another, you can still transition from one to the other because of the forced reflow
-   * > (read [this issue](https://github.com/reactjs/react-transition-group/issues/159#issuecomment-322761171)
-   * > for more info). Take this into account when choosing between `Transition` and
-   * > `CSSTransition`.
-   */
-
-  exports.EXITING = EXITING;
-
-  var Transition =
-  /*#__PURE__*/
-  function (_React$Component) {
-    _inheritsLoose(Transition, _React$Component);
-
-    function Transition(props, context) {
-      var _this;
-
-      _this = _React$Component.call(this, props, context) || this;
-      var parentGroup = context.transitionGroup; // In the context of a TransitionGroup all enters are really appears
-
-      var appear = parentGroup && !parentGroup.isMounting ? props.enter : props.appear;
-      var initialStatus;
-      _this.appearStatus = null;
-
-      if (props.in) {
-        if (appear) {
-          initialStatus = EXITED;
-          _this.appearStatus = ENTERING;
-        } else {
-          initialStatus = ENTERED;
-        }
+      if (props.unmountOnExit || props.mountOnEnter) {
+        initialStatus = UNMOUNTED;
       } else {
-        if (props.unmountOnExit || props.mountOnEnter) {
-          initialStatus = UNMOUNTED;
-        } else {
-          initialStatus = EXITED;
-        }
+        initialStatus = EXITED;
       }
-
-      _this.state = {
-        status: initialStatus
-      };
-      _this.nextCallback = null;
-      return _this;
     }
 
-    var _proto = Transition.prototype;
+    _this.state = {
+      status: initialStatus
+    };
+    _this.nextCallback = null;
+    return _this;
+  }
 
-    _proto.getChildContext = function getChildContext() {
+  Transition.getDerivedStateFromProps = function getDerivedStateFromProps(_ref, prevState) {
+    var nextIn = _ref["in"];
+
+    if (nextIn && prevState.status === UNMOUNTED) {
       return {
-        transitionGroup: null // allows for nested Transitions
-
+        status: EXITED
       };
-    };
+    }
 
-    Transition.getDerivedStateFromProps = function getDerivedStateFromProps(_ref, prevState) {
-      var nextIn = _ref.in;
+    return null;
+  } // getSnapshotBeforeUpdate(prevProps) {
+  //   let nextStatus = null
+  //   if (prevProps !== this.props) {
+  //     const { status } = this.state
+  //     if (this.props.in) {
+  //       if (status !== ENTERING && status !== ENTERED) {
+  //         nextStatus = ENTERING
+  //       }
+  //     } else {
+  //       if (status === ENTERING || status === ENTERED) {
+  //         nextStatus = EXITING
+  //       }
+  //     }
+  //   }
+  //   return { nextStatus }
+  // }
+  ;
 
-      if (nextIn && prevState.status === UNMOUNTED) {
-        return {
-          status: EXITED
-        };
-      }
+  var _proto = Transition.prototype;
 
-      return null;
-    }; // getSnapshotBeforeUpdate(prevProps) {
-    //   let nextStatus = null
-    //   if (prevProps !== this.props) {
-    //     const { status } = this.state
-    //     if (this.props.in) {
-    //       if (status !== ENTERING && status !== ENTERED) {
-    //         nextStatus = ENTERING
-    //       }
-    //     } else {
-    //       if (status === ENTERING || status === ENTERED) {
-    //         nextStatus = EXITING
-    //       }
-    //     }
-    //   }
-    //   return { nextStatus }
-    // }
+  _proto.componentDidMount = function componentDidMount() {
+    this.updateStatus(true, this.appearStatus);
+  };
 
+  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
+    var nextStatus = null;
 
-    _proto.componentDidMount = function componentDidMount() {
-      this.updateStatus(true, this.appearStatus);
-    };
-
-    _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
-      var nextStatus = null;
-
-      if (prevProps !== this.props) {
-        var status = this.state.status;
-
-        if (this.props.in) {
-          if (status !== ENTERING && status !== ENTERED) {
-            nextStatus = ENTERING;
-          }
-        } else {
-          if (status === ENTERING || status === ENTERED) {
-            nextStatus = EXITING;
-          }
-        }
-      }
-
-      this.updateStatus(false, nextStatus);
-    };
-
-    _proto.componentWillUnmount = function componentWillUnmount() {
-      this.cancelNextCallback();
-    };
-
-    _proto.getTimeouts = function getTimeouts() {
-      var timeout = this.props.timeout;
-      var exit, enter, appear;
-      exit = enter = appear = timeout;
-
-      if (timeout != null && typeof timeout !== 'number') {
-        exit = timeout.exit;
-        enter = timeout.enter;
-        appear = timeout.appear;
-      }
-
-      return {
-        exit: exit,
-        enter: enter,
-        appear: appear
-      };
-    };
-
-    _proto.updateStatus = function updateStatus(mounting, nextStatus) {
-      if (mounting === void 0) {
-        mounting = false;
-      }
-
-      if (nextStatus !== null) {
-        // nextStatus will always be ENTERING or EXITING.
-        this.cancelNextCallback();
-
-        var node = _reactDom.default.findDOMNode(this);
-
-        if (nextStatus === ENTERING) {
-          this.performEnter(node, mounting);
-        } else {
-          this.performExit(node);
-        }
-      } else if (this.props.unmountOnExit && this.state.status === EXITED) {
-        this.setState({
-          status: UNMOUNTED
-        });
-      }
-    };
-
-    _proto.performEnter = function performEnter(node, mounting) {
-      var _this2 = this;
-
-      var enter = this.props.enter;
-      var appearing = this.context.transitionGroup ? this.context.transitionGroup.isMounting : mounting;
-      var timeouts = this.getTimeouts(); // no enter animation skip right to ENTERED
-      // if we are mounting and running this it means appear _must_ be set
-
-      if (!mounting && !enter) {
-        this.safeSetState({
-          status: ENTERED
-        }, function () {
-          _this2.props.onEntered(node);
-        });
-        return;
-      }
-
-      this.props.onEnter(node, appearing);
-      this.safeSetState({
-        status: ENTERING
-      }, function () {
-        _this2.props.onEntering(node, appearing); // FIXME: appear timeout?
-
-
-        _this2.onTransitionEnd(node, timeouts.enter, function () {
-          _this2.safeSetState({
-            status: ENTERED
-          }, function () {
-            _this2.props.onEntered(node, appearing);
-          });
-        });
-      });
-    };
-
-    _proto.performExit = function performExit(node) {
-      var _this3 = this;
-
-      var exit = this.props.exit;
-      var timeouts = this.getTimeouts(); // no exit animation skip right to EXITED
-
-      if (!exit) {
-        this.safeSetState({
-          status: EXITED
-        }, function () {
-          _this3.props.onExited(node);
-        });
-        return;
-      }
-
-      this.props.onExit(node);
-      this.safeSetState({
-        status: EXITING
-      }, function () {
-        _this3.props.onExiting(node);
-
-        _this3.onTransitionEnd(node, timeouts.exit, function () {
-          _this3.safeSetState({
-            status: EXITED
-          }, function () {
-            _this3.props.onExited(node);
-          });
-        });
-      });
-    };
-
-    _proto.cancelNextCallback = function cancelNextCallback() {
-      if (this.nextCallback !== null) {
-        this.nextCallback.cancel();
-        this.nextCallback = null;
-      }
-    };
-
-    _proto.safeSetState = function safeSetState(nextState, callback) {
-      // This shouldn't be necessary, but there are weird race conditions with
-      // setState callbacks and unmounting in testing, so always make sure that
-      // we can cancel any pending setState callbacks after we unmount.
-      callback = this.setNextCallback(callback);
-      this.setState(nextState, callback);
-    };
-
-    _proto.setNextCallback = function setNextCallback(callback) {
-      var _this4 = this;
-
-      var active = true;
-
-      this.nextCallback = function (event) {
-        if (active) {
-          active = false;
-          _this4.nextCallback = null;
-          callback(event);
-        }
-      };
-
-      this.nextCallback.cancel = function () {
-        active = false;
-      };
-
-      return this.nextCallback;
-    };
-
-    _proto.onTransitionEnd = function onTransitionEnd(node, timeout, handler) {
-      this.setNextCallback(handler);
-
-      if (node) {
-        if (this.props.addEndListener) {
-          this.props.addEndListener(node, this.nextCallback);
-        }
-
-        if (timeout != null) {
-          setTimeout(this.nextCallback, timeout);
-        }
-      } else {
-        setTimeout(this.nextCallback, 0);
-      }
-    };
-
-    _proto.render = function render() {
+    if (prevProps !== this.props) {
       var status = this.state.status;
 
-      if (status === UNMOUNTED) {
-        return null;
+      if (this.props["in"]) {
+        if (status !== ENTERING && status !== ENTERED) {
+          nextStatus = ENTERING;
+        }
+      } else {
+        if (status === ENTERING || status === ENTERED) {
+          nextStatus = EXITING;
+        }
       }
+    }
 
-      var _this$props = this.props,
-          children = _this$props.children,
-          childProps = _objectWithoutPropertiesLoose(_this$props, ["children"]); // filter props for Transtition
+    this.updateStatus(false, nextStatus);
+  };
 
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    this.cancelNextCallback();
+  };
 
-      delete childProps.in;
-      delete childProps.mountOnEnter;
-      delete childProps.unmountOnExit;
-      delete childProps.appear;
-      delete childProps.enter;
-      delete childProps.exit;
-      delete childProps.timeout;
-      delete childProps.addEndListener;
-      delete childProps.onEnter;
-      delete childProps.onEntering;
-      delete childProps.onEntered;
-      delete childProps.onExit;
-      delete childProps.onExiting;
-      delete childProps.onExited;
+  _proto.getTimeouts = function getTimeouts() {
+    var timeout = this.props.timeout;
+    var exit, enter, appear;
+    exit = enter = appear = timeout;
 
-      if (typeof children === 'function') {
-        return children(status, childProps);
+    if (timeout != null && typeof timeout !== 'number') {
+      exit = timeout.exit;
+      enter = timeout.enter; // TODO: remove fallback for next major
+
+      appear = timeout.appear !== undefined ? timeout.appear : enter;
+    }
+
+    return {
+      exit: exit,
+      enter: enter,
+      appear: appear
+    };
+  };
+
+  _proto.updateStatus = function updateStatus(mounting, nextStatus) {
+    if (mounting === void 0) {
+      mounting = false;
+    }
+
+    if (nextStatus !== null) {
+      // nextStatus will always be ENTERING or EXITING.
+      this.cancelNextCallback();
+
+      if (nextStatus === ENTERING) {
+        this.performEnter(mounting);
+      } else {
+        this.performExit();
       }
+    } else if (this.props.unmountOnExit && this.state.status === EXITED) {
+      this.setState({
+        status: UNMOUNTED
+      });
+    }
+  };
 
-      var child = _react.default.Children.only(children);
+  _proto.performEnter = function performEnter(mounting) {
+    var _this2 = this;
 
-      return _react.default.cloneElement(child, childProps);
+    var enter = this.props.enter;
+    var appearing = this.context ? this.context.isMounting : mounting;
+
+    var _ref2 = this.props.nodeRef ? [appearing] : [ReactDOM__default['default'].findDOMNode(this), appearing],
+        maybeNode = _ref2[0],
+        maybeAppearing = _ref2[1];
+
+    var timeouts = this.getTimeouts();
+    var enterTimeout = appearing ? timeouts.appear : timeouts.enter; // no enter animation skip right to ENTERED
+    // if we are mounting and running this it means appear _must_ be set
+
+    if (!mounting && !enter || config.disabled) {
+      this.safeSetState({
+        status: ENTERED
+      }, function () {
+        _this2.props.onEntered(maybeNode);
+      });
+      return;
+    }
+
+    this.props.onEnter(maybeNode, maybeAppearing);
+    this.safeSetState({
+      status: ENTERING
+    }, function () {
+      _this2.props.onEntering(maybeNode, maybeAppearing);
+
+      _this2.onTransitionEnd(enterTimeout, function () {
+        _this2.safeSetState({
+          status: ENTERED
+        }, function () {
+          _this2.props.onEntered(maybeNode, maybeAppearing);
+        });
+      });
+    });
+  };
+
+  _proto.performExit = function performExit() {
+    var _this3 = this;
+
+    var exit = this.props.exit;
+    var timeouts = this.getTimeouts();
+    var maybeNode = this.props.nodeRef ? undefined : ReactDOM__default['default'].findDOMNode(this); // no exit animation skip right to EXITED
+
+    if (!exit || config.disabled) {
+      this.safeSetState({
+        status: EXITED
+      }, function () {
+        _this3.props.onExited(maybeNode);
+      });
+      return;
+    }
+
+    this.props.onExit(maybeNode);
+    this.safeSetState({
+      status: EXITING
+    }, function () {
+      _this3.props.onExiting(maybeNode);
+
+      _this3.onTransitionEnd(timeouts.exit, function () {
+        _this3.safeSetState({
+          status: EXITED
+        }, function () {
+          _this3.props.onExited(maybeNode);
+        });
+      });
+    });
+  };
+
+  _proto.cancelNextCallback = function cancelNextCallback() {
+    if (this.nextCallback !== null) {
+      this.nextCallback.cancel();
+      this.nextCallback = null;
+    }
+  };
+
+  _proto.safeSetState = function safeSetState(nextState, callback) {
+    // This shouldn't be necessary, but there are weird race conditions with
+    // setState callbacks and unmounting in testing, so always make sure that
+    // we can cancel any pending setState callbacks after we unmount.
+    callback = this.setNextCallback(callback);
+    this.setState(nextState, callback);
+  };
+
+  _proto.setNextCallback = function setNextCallback(callback) {
+    var _this4 = this;
+
+    var active = true;
+
+    this.nextCallback = function (event) {
+      if (active) {
+        active = false;
+        _this4.nextCallback = null;
+        callback(event);
+      }
     };
 
-    return Transition;
-  }(_react.default.Component);
+    this.nextCallback.cancel = function () {
+      active = false;
+    };
 
-  Transition.contextTypes = {
-    transitionGroup: PropTypes$$1.object
+    return this.nextCallback;
   };
-  Transition.childContextTypes = {
-    transitionGroup: function transitionGroup() {}
+
+  _proto.onTransitionEnd = function onTransitionEnd(timeout, handler) {
+    this.setNextCallback(handler);
+    var node = this.props.nodeRef ? this.props.nodeRef.current : ReactDOM__default['default'].findDOMNode(this);
+    var doesNotHaveTimeoutOrListener = timeout == null && !this.props.addEndListener;
+
+    if (!node || doesNotHaveTimeoutOrListener) {
+      setTimeout(this.nextCallback, 0);
+      return;
+    }
+
+    if (this.props.addEndListener) {
+      var _ref3 = this.props.nodeRef ? [this.nextCallback] : [node, this.nextCallback],
+          maybeNode = _ref3[0],
+          maybeNextCallback = _ref3[1];
+
+      this.props.addEndListener(maybeNode, maybeNextCallback);
+    }
+
+    if (timeout != null) {
+      setTimeout(this.nextCallback, timeout);
+    }
   };
-  Transition.propTypes = process.env.NODE_ENV !== "production" ? {
-    /**
-     * A `function` child can be used instead of a React element.
-     * This function is called with the current transition status
-     * ('entering', 'entered', 'exiting', 'exited', 'unmounted'), which can be used
-     * to apply context specific props to a component.
-     *
-     * ```jsx
-     * <Transition timeout={150}>
-     *   {(status) => (
-     *     <MyComponent className={`fade fade-${status}`} />
-     *   )}
-     * </Transition>
-     * ```
-     */
-    children: PropTypes$$1.oneOfType([PropTypes$$1.func.isRequired, PropTypes$$1.element.isRequired]).isRequired,
 
-    /**
-     * Show the component; triggers the enter or exit states
-     */
-    in: PropTypes$$1.bool,
+  _proto.render = function render() {
+    var status = this.state.status;
 
-    /**
-     * By default the child component is mounted immediately along with
-     * the parent `Transition` component. If you want to "lazy mount" the component on the
-     * first `in={true}` you can set `mountOnEnter`. After the first enter transition the component will stay
-     * mounted, even on "exited", unless you also specify `unmountOnExit`.
-     */
-    mountOnEnter: PropTypes$$1.bool,
+    if (status === UNMOUNTED) {
+      return null;
+    }
 
-    /**
-     * By default the child component stays mounted after it reaches the `'exited'` state.
-     * Set `unmountOnExit` if you'd prefer to unmount the component after it finishes exiting.
-     */
-    unmountOnExit: PropTypes$$1.bool,
+    var _this$props = this.props,
+        children = _this$props.children;
+        _this$props["in"];
+        _this$props.mountOnEnter;
+        _this$props.unmountOnExit;
+        _this$props.appear;
+        _this$props.enter;
+        _this$props.exit;
+        _this$props.timeout;
+        _this$props.addEndListener;
+        _this$props.onEnter;
+        _this$props.onEntering;
+        _this$props.onEntered;
+        _this$props.onExit;
+        _this$props.onExiting;
+        _this$props.onExited;
+        _this$props.nodeRef;
+        var childProps = _objectWithoutPropertiesLoose(_this$props, ["children", "in", "mountOnEnter", "unmountOnExit", "appear", "enter", "exit", "timeout", "addEndListener", "onEnter", "onEntering", "onEntered", "onExit", "onExiting", "onExited", "nodeRef"]);
 
-    /**
-     * Normally a component is not transitioned if it is shown when the `<Transition>` component mounts.
-     * If you want to transition on the first mount set `appear` to `true`, and the
-     * component will transition in as soon as the `<Transition>` mounts.
-     *
-     * > Note: there are no specific "appear" states. `appear` only adds an additional `enter` transition.
-     */
-    appear: PropTypes$$1.bool,
-
-    /**
-     * Enable or disable enter transitions.
-     */
-    enter: PropTypes$$1.bool,
-
-    /**
-     * Enable or disable exit transitions.
-     */
-    exit: PropTypes$$1.bool,
-
-    /**
-     * The duration of the transition, in milliseconds.
-     * Required unless `addEndListener` is provided
-     *
-     * You may specify a single timeout for all transitions like: `timeout={500}`,
-     * or individually like:
-     *
-     * ```jsx
-     * timeout={{
-     *  enter: 300,
-     *  exit: 500,
-     * }}
-     * ```
-     *
-     * @type {number | { enter?: number, exit?: number }}
-     */
-    timeout: function timeout(props) {
-      var pt = process.env.NODE_ENV !== "production" ? PropTypes.timeoutsShape : {};
-      if (!props.addEndListener) pt = pt.isRequired;
-
-      for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-        args[_key - 1] = arguments[_key];
-      }
-
-      return pt.apply(void 0, [props].concat(args));
-    },
-
-    /**
-     * Add a custom transition end trigger. Called with the transitioning
-     * DOM node and a `done` callback. Allows for more fine grained transition end
-     * logic. **Note:** Timeouts are still used as a fallback if provided.
-     *
-     * ```jsx
-     * addEndListener={(node, done) => {
-     *   // use the css transitionend event to mark the finish of a transition
-     *   node.addEventListener('transitionend', done, false);
-     * }}
-     * ```
-     */
-    addEndListener: PropTypes$$1.func,
-
-    /**
-     * Callback fired before the "entering" status is applied. An extra parameter
-     * `isAppearing` is supplied to indicate if the enter stage is occurring on the initial mount
-     *
-     * @type Function(node: HtmlElement, isAppearing: bool) -> void
-     */
-    onEnter: PropTypes$$1.func,
-
-    /**
-     * Callback fired after the "entering" status is applied. An extra parameter
-     * `isAppearing` is supplied to indicate if the enter stage is occurring on the initial mount
-     *
-     * @type Function(node: HtmlElement, isAppearing: bool)
-     */
-    onEntering: PropTypes$$1.func,
-
-    /**
-     * Callback fired after the "entered" status is applied. An extra parameter
-     * `isAppearing` is supplied to indicate if the enter stage is occurring on the initial mount
-     *
-     * @type Function(node: HtmlElement, isAppearing: bool) -> void
-     */
-    onEntered: PropTypes$$1.func,
-
-    /**
-     * Callback fired before the "exiting" status is applied.
-     *
-     * @type Function(node: HtmlElement) -> void
-     */
-    onExit: PropTypes$$1.func,
-
-    /**
-     * Callback fired after the "exiting" status is applied.
-     *
-     * @type Function(node: HtmlElement) -> void
-     */
-    onExiting: PropTypes$$1.func,
-
-    /**
-     * Callback fired after the "exited" status is applied.
-     *
-     * @type Function(node: HtmlElement) -> void
-     */
-    onExited: PropTypes$$1.func // Name the function so it is clearer in the documentation
-
-  } : {};
-
-  function noop() {}
-
-  Transition.defaultProps = {
-    in: false,
-    mountOnEnter: false,
-    unmountOnExit: false,
-    appear: false,
-    enter: true,
-    exit: true,
-    onEnter: noop,
-    onEntering: noop,
-    onEntered: noop,
-    onExit: noop,
-    onExiting: noop,
-    onExited: noop
+    return (
+      /*#__PURE__*/
+      // allows for nested Transitions
+      React__default['default'].createElement(TransitionGroupContext.Provider, {
+        value: null
+      }, typeof children === 'function' ? children(status, childProps) : /*#__PURE__*/React__default['default'].cloneElement(React__default['default'].Children.only(children), childProps))
+    );
   };
-  Transition.UNMOUNTED = 0;
-  Transition.EXITED = 1;
-  Transition.ENTERING = 2;
-  Transition.ENTERED = 3;
-  Transition.EXITING = 4;
 
-  var _default = (0, reactLifecyclesCompat_es.polyfill)(Transition);
+  return Transition;
+}(React__default['default'].Component);
 
-  exports.default = _default;
-});
-var Transition = unwrapExports(Transition_1);
-var Transition_2 = Transition_1.EXITING;
-var Transition_3 = Transition_1.ENTERED;
-var Transition_4 = Transition_1.ENTERING;
-var Transition_5 = Transition_1.EXITED;
-var Transition_6 = Transition_1.UNMOUNTED;
+Transition.contextType = TransitionGroupContext;
+Transition.propTypes = process.env.NODE_ENV !== "production" ? {
+  /**
+   * A React reference to DOM element that need to transition:
+   * https://stackoverflow.com/a/51127130/4671932
+   *
+   *   - When `nodeRef` prop is used, `node` is not passed to callback functions
+   *      (e.g. `onEnter`) because user already has direct access to the node.
+   *   - When changing `key` prop of `Transition` in a `TransitionGroup` a new
+   *     `nodeRef` need to be provided to `Transition` with changed `key` prop
+   *     (see
+   *     [test/CSSTransition-test.js](https://github.com/reactjs/react-transition-group/blob/13435f897b3ab71f6e19d724f145596f5910581c/test/CSSTransition-test.js#L362-L437)).
+   */
+  nodeRef: propTypes.shape({
+    current: typeof Element === 'undefined' ? propTypes.any : propTypes.instanceOf(Element)
+  }),
+
+  /**
+   * A `function` child can be used instead of a React element. This function is
+   * called with the current transition status (`'entering'`, `'entered'`,
+   * `'exiting'`, `'exited'`), which can be used to apply context
+   * specific props to a component.
+   *
+   * ```jsx
+   * <Transition in={this.state.in} timeout={150}>
+   *   {state => (
+   *     <MyComponent className={`fade fade-${state}`} />
+   *   )}
+   * </Transition>
+   * ```
+   */
+  children: propTypes.oneOfType([propTypes.func.isRequired, propTypes.element.isRequired]).isRequired,
+
+  /**
+   * Show the component; triggers the enter or exit states
+   */
+  "in": propTypes.bool,
+
+  /**
+   * By default the child component is mounted immediately along with
+   * the parent `Transition` component. If you want to "lazy mount" the component on the
+   * first `in={true}` you can set `mountOnEnter`. After the first enter transition the component will stay
+   * mounted, even on "exited", unless you also specify `unmountOnExit`.
+   */
+  mountOnEnter: propTypes.bool,
+
+  /**
+   * By default the child component stays mounted after it reaches the `'exited'` state.
+   * Set `unmountOnExit` if you'd prefer to unmount the component after it finishes exiting.
+   */
+  unmountOnExit: propTypes.bool,
+
+  /**
+   * By default the child component does not perform the enter transition when
+   * it first mounts, regardless of the value of `in`. If you want this
+   * behavior, set both `appear` and `in` to `true`.
+   *
+   * > **Note**: there are no special appear states like `appearing`/`appeared`, this prop
+   * > only adds an additional enter transition. However, in the
+   * > `<CSSTransition>` component that first enter transition does result in
+   * > additional `.appear-*` classes, that way you can choose to style it
+   * > differently.
+   */
+  appear: propTypes.bool,
+
+  /**
+   * Enable or disable enter transitions.
+   */
+  enter: propTypes.bool,
+
+  /**
+   * Enable or disable exit transitions.
+   */
+  exit: propTypes.bool,
+
+  /**
+   * The duration of the transition, in milliseconds.
+   * Required unless `addEndListener` is provided.
+   *
+   * You may specify a single timeout for all transitions:
+   *
+   * ```jsx
+   * timeout={500}
+   * ```
+   *
+   * or individually:
+   *
+   * ```jsx
+   * timeout={{
+   *  appear: 500,
+   *  enter: 300,
+   *  exit: 500,
+   * }}
+   * ```
+   *
+   * - `appear` defaults to the value of `enter`
+   * - `enter` defaults to `0`
+   * - `exit` defaults to `0`
+   *
+   * @type {number | { enter?: number, exit?: number, appear?: number }}
+   */
+  timeout: function timeout(props) {
+    var pt = timeoutsShape;
+    if (!props.addEndListener) pt = pt.isRequired;
+
+    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    return pt.apply(void 0, [props].concat(args));
+  },
+
+  /**
+   * Add a custom transition end trigger. Called with the transitioning
+   * DOM node and a `done` callback. Allows for more fine grained transition end
+   * logic. Timeouts are still used as a fallback if provided.
+   *
+   * **Note**: when `nodeRef` prop is passed, `node` is not passed.
+   *
+   * ```jsx
+   * addEndListener={(node, done) => {
+   *   // use the css transitionend event to mark the finish of a transition
+   *   node.addEventListener('transitionend', done, false);
+   * }}
+   * ```
+   */
+  addEndListener: propTypes.func,
+
+  /**
+   * Callback fired before the "entering" status is applied. An extra parameter
+   * `isAppearing` is supplied to indicate if the enter stage is occurring on the initial mount
+   *
+   * **Note**: when `nodeRef` prop is passed, `node` is not passed.
+   *
+   * @type Function(node: HtmlElement, isAppearing: bool) -> void
+   */
+  onEnter: propTypes.func,
+
+  /**
+   * Callback fired after the "entering" status is applied. An extra parameter
+   * `isAppearing` is supplied to indicate if the enter stage is occurring on the initial mount
+   *
+   * **Note**: when `nodeRef` prop is passed, `node` is not passed.
+   *
+   * @type Function(node: HtmlElement, isAppearing: bool)
+   */
+  onEntering: propTypes.func,
+
+  /**
+   * Callback fired after the "entered" status is applied. An extra parameter
+   * `isAppearing` is supplied to indicate if the enter stage is occurring on the initial mount
+   *
+   * **Note**: when `nodeRef` prop is passed, `node` is not passed.
+   *
+   * @type Function(node: HtmlElement, isAppearing: bool) -> void
+   */
+  onEntered: propTypes.func,
+
+  /**
+   * Callback fired before the "exiting" status is applied.
+   *
+   * **Note**: when `nodeRef` prop is passed, `node` is not passed.
+   *
+   * @type Function(node: HtmlElement) -> void
+   */
+  onExit: propTypes.func,
+
+  /**
+   * Callback fired after the "exiting" status is applied.
+   *
+   * **Note**: when `nodeRef` prop is passed, `node` is not passed.
+   *
+   * @type Function(node: HtmlElement) -> void
+   */
+  onExiting: propTypes.func,
+
+  /**
+   * Callback fired after the "exited" status is applied.
+   *
+   * **Note**: when `nodeRef` prop is passed, `node` is not passed
+   *
+   * @type Function(node: HtmlElement) -> void
+   */
+  onExited: propTypes.func
+} : {}; // Name the function so it is clearer in the documentation
+
+function noop() {}
+
+Transition.defaultProps = {
+  "in": false,
+  mountOnEnter: false,
+  unmountOnExit: false,
+  appear: false,
+  enter: true,
+  exit: true,
+  onEnter: noop,
+  onEntering: noop,
+  onEntered: noop,
+  onExit: noop,
+  onExiting: noop,
+  onExited: noop
+};
+Transition.UNMOUNTED = UNMOUNTED;
+Transition.EXITED = EXITED;
+Transition.ENTERING = ENTERING;
+Transition.ENTERED = ENTERED;
+Transition.EXITING = EXITING;
 
 var _TRANSITION_CLASS_MAP;
 
@@ -1936,12 +2289,12 @@ var Fade = function Fade(props) {
       innerRef = props.innerRef,
       attrs = _objectWithoutProperties(props, ["tag", "baseClass", "baseClassActive", "className", "children", "innerRef"]);
 
-  var transitionProps = pick(attrs, TRANSITION_KEYS);
-  var childProps = omit(attrs, TRANSITION_KEYS);
-  return React__default.createElement(Transition, transitionProps, function (status) {
+  var transitionProps = pick__default['default'](attrs, TRANSITION_KEYS);
+  var childProps = omit__default['default'](attrs, TRANSITION_KEYS);
+  return /*#__PURE__*/React__default['default'].createElement(Transition, transitionProps, function (status) {
     var isActive = status === "entered";
-    var classes = classNames(className, baseClass, isActive && baseClassActive);
-    return React__default.createElement(Tag, _extends({
+    var classes = classNames__default['default'](className, baseClass, isActive && baseClassActive);
+    return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({
       className: classes
     }, childProps, {
       ref: innerRef
@@ -1949,7 +2302,7 @@ var Fade = function Fade(props) {
   });
 };
 
-Fade.propTypes = _objectSpread({}, Transition.propTypes, {
+Fade.propTypes = _objectSpread2(_objectSpread2({}, Transition.propTypes), {}, {
   tag: propTypes.oneOfType([propTypes.string, propTypes.func]),
   baseClass: propTypes.string,
   baseClassActive: propTypes.string,
@@ -1957,7 +2310,7 @@ Fade.propTypes = _objectSpread({}, Transition.propTypes, {
   innerRef: propTypes.oneOfType([propTypes.object, propTypes.string, propTypes.func]),
   children: propTypes.oneOfType([propTypes.arrayOf(propTypes.node), propTypes.node])
 });
-Fade.defaultProps = _objectSpread({}, Transition.defaultProps, {
+Fade.defaultProps = _objectSpread2(_objectSpread2({}, Transition.defaultProps), {}, {
   tag: "div",
   baseClass: "fade",
   baseClassActive: "show",
@@ -1965,7 +2318,7 @@ Fade.defaultProps = _objectSpread({}, Transition.defaultProps, {
   appear: true,
   enter: true,
   exit: true,
-  in: true
+  "in": true
 });
 
 /**
@@ -1985,25 +2338,25 @@ var Alert = function Alert(props) {
       fade = props.fade,
       attrs = _objectWithoutProperties(props, ["className", "closeClassName", "closeAriaLabel", "tag", "theme", "open", "dismissible", "children", "transition", "fade"]);
 
-  var classes = classNames(className, "alert", "alert-".concat(theme), dismissible && "alert-dismissible");
-  var closeClasses = classNames("close", closeClassName);
+  var classes = classNames__default['default'](className, "alert", "alert-".concat(theme), dismissible && "alert-dismissible");
+  var closeClasses = classNames__default['default']("close", closeClassName);
 
-  var alertTransition = _objectSpread({}, Fade.defaultProps, transition, {
+  var alertTransition = _objectSpread2(_objectSpread2(_objectSpread2({}, Fade.defaultProps), transition), {}, {
     baseClass: fade ? transition.baseClass : "",
     timeout: fade ? transition.timeout : 0
   });
 
-  return React__default.createElement(Fade, _extends({}, attrs, alertTransition, {
+  return /*#__PURE__*/React__default['default'].createElement(Fade, _extends({}, attrs, alertTransition, {
     tag: Tag,
     className: classes,
-    in: open,
+    "in": open,
     role: "alert"
-  }), dismissible ? React__default.createElement("button", {
+  }), dismissible ? /*#__PURE__*/React__default['default'].createElement("button", {
     type: "button",
     className: closeClasses,
     "aria-label": closeAriaLabel,
     onClick: dismissible
-  }, React__default.createElement("span", {
+  }, /*#__PURE__*/React__default['default'].createElement("span", {
     "aria-hidden": "true"
   }, "\xD7")) : null, children);
 };
@@ -2065,7 +2418,7 @@ Alert.defaultProps = {
   tag: "div",
   closeAriaLabel: "Close",
   fade: true,
-  transition: _objectSpread({}, Fade.defaultProps, {
+  transition: _objectSpread2(_objectSpread2({}, Fade.defaultProps), {}, {
     unmountOnExit: true
   })
 };
@@ -2082,9 +2435,9 @@ var Badge = function Badge(props) {
       outline = props.outline,
       attrs = _objectWithoutProperties(props, ["tag", "className", "theme", "pill", "outline"]);
 
-  var classes = classNames(className, "badge", theme && !outline && "badge-".concat(theme), outline && "badge-outline-".concat(theme), pill && "badge-pill");
+  var classes = classNames__default['default'](className, "badge", theme && !outline && "badge-".concat(theme), outline && "badge-outline-".concat(theme), pill && "badge-pill");
   Tag = attrs.href && Tag === "span" ? "a" : Tag;
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -2140,12 +2493,12 @@ var Breadcrumb = function Breadcrumb(props) {
       label = props["aria-label"],
       attrs = _objectWithoutProperties(props, ["className", "listClassName", "children", "tag", "listTag", "aria-label"]);
 
-  var classes = classNames(className);
-  var listClasses = classNames("breadcrumb", listClassName);
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className);
+  var listClasses = classNames__default['default']("breadcrumb", listClassName);
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes,
     "aria-label": label
-  }), React__default.createElement(ListTag, {
+  }), /*#__PURE__*/React__default['default'].createElement(ListTag, {
     className: listClasses
   }, children));
 };
@@ -2193,8 +2546,8 @@ var BreadcrumbItem = function BreadcrumbItem(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "active", "tag"]);
 
-  var classes = classNames(className, active && "active", "breadcrumb-item");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, active && "active", "breadcrumb-item");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes,
     "aria-current": active ? "page" : undefined
   }));
@@ -2224,18 +2577,18 @@ BreadcrumbItem.defaultProps = {
  * Buttons are Bootstrap's core component for triggering various actions. In Shards, they're very flxible, support multiple sizes, styles, states and many more.
  */
 
-var Button =
-/*#__PURE__*/
-function (_React$Component) {
+var Button = /*#__PURE__*/function (_React$Component) {
   _inherits(Button, _React$Component);
+
+  var _super = _createSuper(Button);
 
   function Button(props) {
     var _this;
 
     _classCallCheck(this, Button);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Button).call(this, props));
-    _this.onClick = _this.onClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this = _super.call(this, props);
+    _this.onClick = _this.onClick.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2268,10 +2621,10 @@ function (_React$Component) {
           block = _this$props.block,
           attrs = _objectWithoutProperties(_this$props, ["className", "theme", "size", "pill", "outline", "squared", "active", "disabled", "innerRef", "tag", "block"]);
 
-      var classes = classNames(className, "btn", theme && "btn-".concat(outline ? "outline-" : "").concat(theme), size && "btn-".concat(size), pill && "btn-pill", squared && "btn-squared", block && "btn-block", active && "active");
+      var classes = classNames__default['default'](className, "btn", theme && "btn-".concat(outline ? "outline-" : "").concat(theme), size && "btn-".concat(size), pill && "btn-pill", squared && "btn-squared", block && "btn-block", active && "active");
       Tag = attrs.href && Tag === "button" ? "a" : Tag;
       var tagType = Tag === "button" && attrs.onClick ? "button" : undefined;
-      return React__default.createElement(Tag, _extends({
+      return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({
         ref: innerRef,
         type: tagType
       }, attrs, {
@@ -2283,7 +2636,7 @@ function (_React$Component) {
   }]);
 
   return Button;
-}(React__default.Component);
+}(React__default['default'].Component);
 
 Button.propTypes = {
   /**
@@ -2362,8 +2715,8 @@ var ButtonGroup = function ButtonGroup(props) {
       size = props.size,
       attrs = _objectWithoutProperties(props, ["className", "vertical", "size"]);
 
-  var classes = classNames(className, size && "btn-group-".concat(size), vertical ? "btn-group-vertical" : "btn-group");
-  return React__default.createElement("div", _extends({
+  var classes = classNames__default['default'](className, size && "btn-group-".concat(size), vertical ? "btn-group-vertical" : "btn-group");
+  return /*#__PURE__*/React__default['default'].createElement("div", _extends({
     className: classes
   }, attrs));
 };
@@ -2398,8 +2751,8 @@ var ButtonToolbar = function ButtonToolbar(props) {
   var className = props.className,
       attrs = _objectWithoutProperties(props, ["className"]);
 
-  var classes = classNames(className, "btn-toolbar");
-  return React__default.createElement("div", _extends({
+  var classes = classNames__default['default'](className, "btn-toolbar");
+  return /*#__PURE__*/React__default['default'].createElement("div", _extends({
     className: classes
   }, attrs));
 };
@@ -2429,8 +2782,8 @@ var Card = function Card(props) {
       small = props.small,
       attrs = _objectWithoutProperties(props, ["className", "innerRef", "tag", "theme", "outline", "small"]);
 
-  var classes = classNames(className, "card", small && "card-small", theme && "".concat(outline ? "border" : "bg", "-").concat(theme));
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "card", small && "card-small", theme && "".concat(outline ? "border" : "bg", "-").concat(theme));
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes,
     ref: innerRef
   }));
@@ -2477,8 +2830,8 @@ var CardBody = function CardBody(props) {
       children = props.children,
       attrs = _objectWithoutProperties(props, ["className", "tag", "children"]);
 
-  var classes = classNames(className, "card-body");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "card-body");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }), children);
 };
@@ -2508,8 +2861,8 @@ var CardColumns = function CardColumns(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "tag"]);
 
-  var classes = classNames(className, "card-columns");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "card-columns");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -2534,8 +2887,8 @@ var CardFooter = function CardFooter(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "tag"]);
 
-  var classes = classNames(className, "card-footer");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "card-footer");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -2560,8 +2913,8 @@ var CardGroup = function CardGroup(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "tag"]);
 
-  var classes = classNames(className, "card-group");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "card-group");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -2586,8 +2939,8 @@ var CardDeck = function CardDeck(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "tag"]);
 
-  var classes = classNames(className, "card-deck");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "card-deck");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -2612,8 +2965,8 @@ var CardHeader = function CardHeader(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "tag"]);
 
-  var classes = classNames(className, "card-header");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "card-header");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -2650,8 +3003,8 @@ var CardImg = function CardImg(props) {
     cardImgClass = "card-img-bottom";
   }
 
-  cardImgClass = classNames(className, cardImgClass);
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  cardImgClass = classNames__default['default'](className, cardImgClass);
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: cardImgClass
   }));
 };
@@ -2686,8 +3039,8 @@ var CardImgOverlay = function CardImgOverlay(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "tag"]);
 
-  var classes = classNames(className, "card-img-overlay");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "card-img-overlay");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -2713,8 +3066,8 @@ var CardLink = function CardLink(props) {
       innerRef = props.innerRef,
       attrs = _objectWithoutProperties(props, ["className", "tag", "innerRef"]);
 
-  var classes = classNames(className, "card-link");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "card-link");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     ref: innerRef,
     className: classes
   }));
@@ -2745,8 +3098,8 @@ var CardSubtitle = function CardSubtitle(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "tag"]);
 
-  var classes = classNames(className, "card-subtitle", "text-muted");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "card-subtitle", "text-muted");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -2771,8 +3124,8 @@ var CardText = function CardText(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "tag"]);
 
-  var classes = classNames(className, "card-text");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "card-text");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -2797,8 +3150,8 @@ var CardTitle = function CardTitle(props) {
       Tag = props.tag,
       attributes = _objectWithoutProperties(props, ["className", "tag"]);
 
-  var classes = classNames(className, "card-title");
-  return React__default.createElement(Tag, _extends({}, attributes, {
+  var classes = classNames__default['default'](className, "card-title");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attributes, {
     className: classes
   }));
 };
@@ -2833,7 +3186,7 @@ var isRef = function isRef(target) {
   return false;
 };
 var getDOMElements = function getDOMElements(target) {
-  if (isFunction(target)) {
+  if (isFunction__default['default'](target)) {
     return target();
   }
 
@@ -2872,17 +3225,17 @@ var CustomPropTypes = {
  * The `Collapse` component allows you to easily toggle the visibility of your content.
  */
 
-var Collapse =
-/*#__PURE__*/
-function (_React$Component) {
+var Collapse = /*#__PURE__*/function (_React$Component) {
   _inherits(Collapse, _React$Component);
+
+  var _super = _createSuper(Collapse);
 
   function Collapse(props) {
     var _this;
 
     _classCallCheck(this, Collapse);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Collapse).call(this, props));
+    _this = _super.call(this, props);
     _this.state = {
       height: null
     };
@@ -2902,10 +3255,10 @@ function (_React$Component) {
           attrs = _objectWithoutProperties(_this$props, ["tag", "open", "className", "navbar", "children", "innerRef"]);
 
       var height = this.state.height;
-      var transitionProps = pick(attrs, TRANSITION_KEYS);
-      var childProps = omit(attrs, TRANSITION_KEYS);
-      return React__default.createElement(Transition, _extends({}, transitionProps, {
-        in: open,
+      var transitionProps = pick__default['default'](attrs, TRANSITION_KEYS);
+      var childProps = omit__default['default'](attrs, TRANSITION_KEYS);
+      return /*#__PURE__*/React__default['default'].createElement(Transition, _extends({}, transitionProps, {
+        "in": open,
         onEntering: this.onEntering.bind(this),
         onEntered: this.onEntered.bind(this),
         onExit: this.onExit.bind(this),
@@ -2916,9 +3269,9 @@ function (_React$Component) {
           height: height || null,
           display: status !== "exited" && "block"
         };
-        var classes = classNames(className, TRANSITION_CLASS_MAP[status] || "collapse", navbar && "navbar-collapse");
-        return React__default.createElement(Tag, _extends({}, childProps, {
-          style: _objectSpread({}, childProps.style, style),
+        var classes = classNames__default['default'](className, TRANSITION_CLASS_MAP[status] || "collapse", navbar && "navbar-collapse");
+        return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, childProps, {
+          style: _objectSpread2(_objectSpread2({}, childProps.style), style),
           className: classes,
           ref: innerRef
         }), children);
@@ -2968,9 +3321,9 @@ function (_React$Component) {
   }]);
 
   return Collapse;
-}(React__default.Component);
+}(React__default['default'].Component);
 
-Collapse.propTypes = _objectSpread({}, Transition.propTypes, {
+Collapse.propTypes = _objectSpread2(_objectSpread2({}, Transition.propTypes), {}, {
   /**
    * Whether it is open, or not.
    */
@@ -3001,7 +3354,7 @@ Collapse.propTypes = _objectSpread({}, Transition.propTypes, {
    */
   innerRef: propTypes.oneOfType([propTypes.func, propTypes.string, propTypes.object])
 });
-Collapse.defaultProps = _objectSpread({}, Transition.defaultProps, {
+Collapse.defaultProps = _objectSpread2(_objectSpread2({}, Transition.defaultProps), {}, {
   open: false,
   appear: false,
   enter: true,
@@ -3020,8 +3373,8 @@ var Container = function Container(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "fluid", "tag"]);
 
-  var classes = classNames(className, fluid ? "container-fluid" : "container");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, fluid ? "container-fluid" : "container");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -3053,8 +3406,8 @@ var Row = function Row(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["noGutters", "form", "className", "tag"]);
 
-  var classes = classNames(className, noGutters ? 'no-gutters' : null, form ? 'form-row' : 'row');
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, noGutters ? 'no-gutters' : null, form ? 'form-row' : 'row');
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -3122,15 +3475,15 @@ var Col = function Col(props) {
 
     var colSizeInterfix = isXs ? "-" : "-".concat(breakpoint, "-");
     var colClass = makeColumnClass(isXs, breakpoint, columnProp.size);
-    columnClasses.push(classNames((_classNames = {}, _defineProperty(_classNames, colClass, columnProp.size || columnProp.size === ""), _defineProperty(_classNames, "order".concat(colSizeInterfix).concat(columnProp.order), columnProp.order || columnProp.order === 0), _defineProperty(_classNames, "offset".concat(colSizeInterfix).concat(columnProp.offset), columnProp.offset || columnProp.offset === 0), _classNames)));
+    columnClasses.push(classNames__default['default']((_classNames = {}, _defineProperty(_classNames, colClass, columnProp.size || columnProp.size === ""), _defineProperty(_classNames, "order".concat(colSizeInterfix).concat(columnProp.order), columnProp.order || columnProp.order === 0), _defineProperty(_classNames, "offset".concat(colSizeInterfix).concat(columnProp.offset), columnProp.offset || columnProp.offset === 0), _classNames)));
   });
 
   if (!columnClasses.length) {
     columnClasses.push("col");
   }
 
-  var classes = classNames(className, columnClasses);
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, columnClasses);
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -3210,11 +3563,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css = ".react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle, .react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view--down-arrow {\n  margin-left: -8px;\n  position: absolute;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle, .react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view--down-arrow, .react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before,\n.react-datepicker__month-read-view--down-arrow::before,\n.react-datepicker__month-year-read-view--down-arrow::before {\n  box-sizing: content-box;\n  position: absolute;\n  border: 8px solid transparent;\n  height: 0;\n  width: 1px;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before,\n.react-datepicker__month-read-view--down-arrow::before,\n.react-datepicker__month-year-read-view--down-arrow::before {\n  content: \"\";\n  z-index: -1;\n  border-width: 8px;\n  left: -8px;\n  border-bottom-color: #aeaeae;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle {\n  top: 0;\n  margin-top: -8px;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle, .react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle::before {\n  border-top: none;\n  border-bottom-color: #f0f0f0;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] .react-datepicker__triangle::before {\n  top: -1px;\n  border-bottom-color: #aeaeae;\n}\n\n.react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view--down-arrow {\n  bottom: 0;\n  margin-bottom: -8px;\n}\n\n.react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view--down-arrow, .react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before,\n.react-datepicker__month-read-view--down-arrow::before,\n.react-datepicker__month-year-read-view--down-arrow::before {\n  border-bottom: none;\n  border-top-color: #fff;\n}\n\n.react-datepicker-popper[data-placement^=\"top\"] .react-datepicker__triangle::before, .react-datepicker__year-read-view--down-arrow::before,\n.react-datepicker__month-read-view--down-arrow::before,\n.react-datepicker__month-year-read-view--down-arrow::before {\n  bottom: -1px;\n  border-top-color: #aeaeae;\n}\n\n.react-datepicker-wrapper {\n  display: inline-block;\n}\n\n.react-datepicker {\n  font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  font-size: 0.8rem;\n  background-color: #fff;\n  color: #000;\n  border: 1px solid #aeaeae;\n  border-radius: 0.3rem;\n  display: inline-block;\n  position: relative;\n}\n\n.react-datepicker--time-only .react-datepicker__triangle {\n  left: 35px;\n}\n\n.react-datepicker--time-only .react-datepicker__time-container {\n  border-left: 0;\n}\n\n.react-datepicker--time-only .react-datepicker__time {\n  border-radius: 0.3rem;\n}\n\n.react-datepicker--time-only .react-datepicker__time-box {\n  border-radius: 0.3rem;\n}\n\n.react-datepicker__triangle {\n  position: absolute;\n  left: 50px;\n}\n\n.react-datepicker-popper {\n  z-index: 1;\n}\n\n.react-datepicker-popper[data-placement^=\"bottom\"] {\n  margin-top: 10px;\n}\n\n.react-datepicker-popper[data-placement^=\"top\"] {\n  margin-bottom: 10px;\n}\n\n.react-datepicker-popper[data-placement^=\"right\"] {\n  margin-left: 8px;\n}\n\n.react-datepicker-popper[data-placement^=\"right\"] .react-datepicker__triangle {\n  left: auto;\n  right: 42px;\n}\n\n.react-datepicker-popper[data-placement^=\"left\"] {\n  margin-right: 8px;\n}\n\n.react-datepicker-popper[data-placement^=\"left\"] .react-datepicker__triangle {\n  left: 42px;\n  right: auto;\n}\n\n.react-datepicker__header {\n  text-align: center;\n  background-color: #f0f0f0;\n  border-bottom: 1px solid #aeaeae;\n  border-top-left-radius: 0.3rem;\n  border-top-right-radius: 0.3rem;\n  padding-top: 8px;\n  position: relative;\n}\n\n.react-datepicker__header--time {\n  padding-bottom: 8px;\n  padding-left: 5px;\n  padding-right: 5px;\n}\n\n.react-datepicker__year-dropdown-container--select,\n.react-datepicker__month-dropdown-container--select,\n.react-datepicker__month-year-dropdown-container--select,\n.react-datepicker__year-dropdown-container--scroll,\n.react-datepicker__month-dropdown-container--scroll,\n.react-datepicker__month-year-dropdown-container--scroll {\n  display: inline-block;\n  margin: 0 2px;\n}\n\n.react-datepicker__current-month,\n.react-datepicker-time__header {\n  margin-top: 0;\n  color: #000;\n  font-weight: bold;\n  font-size: 0.944rem;\n}\n\n.react-datepicker-time__header {\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n}\n\n.react-datepicker__navigation {\n  background: none;\n  line-height: 1.7rem;\n  text-align: center;\n  cursor: pointer;\n  position: absolute;\n  top: 10px;\n  width: 0;\n  padding: 0;\n  border: 0.45rem solid transparent;\n  z-index: 1;\n  height: 10px;\n  width: 10px;\n  text-indent: -999em;\n  overflow: hidden;\n}\n\n.react-datepicker__navigation--previous {\n  left: 10px;\n  border-right-color: #ccc;\n}\n\n.react-datepicker__navigation--previous:hover {\n  border-right-color: #b3b3b3;\n}\n\n.react-datepicker__navigation--previous--disabled, .react-datepicker__navigation--previous--disabled:hover {\n  border-right-color: #e6e6e6;\n  cursor: default;\n}\n\n.react-datepicker__navigation--next {\n  right: 10px;\n  border-left-color: #ccc;\n}\n\n.react-datepicker__navigation--next--with-time:not(.react-datepicker__navigation--next--with-today-button) {\n  right: 80px;\n}\n\n.react-datepicker__navigation--next:hover {\n  border-left-color: #b3b3b3;\n}\n\n.react-datepicker__navigation--next--disabled, .react-datepicker__navigation--next--disabled:hover {\n  border-left-color: #e6e6e6;\n  cursor: default;\n}\n\n.react-datepicker__navigation--years {\n  position: relative;\n  top: 0;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.react-datepicker__navigation--years-previous {\n  top: 4px;\n  border-top-color: #ccc;\n}\n\n.react-datepicker__navigation--years-previous:hover {\n  border-top-color: #b3b3b3;\n}\n\n.react-datepicker__navigation--years-upcoming {\n  top: -4px;\n  border-bottom-color: #ccc;\n}\n\n.react-datepicker__navigation--years-upcoming:hover {\n  border-bottom-color: #b3b3b3;\n}\n\n.react-datepicker__month-container {\n  float: left;\n}\n\n.react-datepicker__month {\n  margin: 0.4rem;\n  text-align: center;\n}\n\n.react-datepicker__time-container {\n  float: right;\n  border-left: 1px solid #aeaeae;\n  width: 70px;\n}\n\n.react-datepicker__time-container--with-today-button {\n  display: inline;\n  border: 1px solid #aeaeae;\n  border-radius: 0.3rem;\n  position: absolute;\n  right: -72px;\n  top: 0;\n}\n\n.react-datepicker__time-container .react-datepicker__time {\n  position: relative;\n  background: white;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box {\n  width: 70px;\n  overflow-x: hidden;\n  margin: 0 auto;\n  text-align: center;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list {\n  list-style: none;\n  margin: 0;\n  height: calc(195px + (1.7rem / 2));\n  overflow-y: scroll;\n  padding-right: 0px;\n  padding-left: 0px;\n  width: 100%;\n  box-sizing: content-box;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item {\n  height: 30px;\n  padding: 5px 10px;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item:hover {\n  cursor: pointer;\n  background-color: #f0f0f0;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected {\n  background-color: #216ba5;\n  color: white;\n  font-weight: bold;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected:hover {\n  background-color: #216ba5;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--disabled {\n  color: #ccc;\n}\n\n.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--disabled:hover {\n  cursor: default;\n  background-color: transparent;\n}\n\n.react-datepicker__week-number {\n  color: #ccc;\n  display: inline-block;\n  width: 1.7rem;\n  line-height: 1.7rem;\n  text-align: center;\n  margin: 0.166rem;\n}\n\n.react-datepicker__week-number.react-datepicker__week-number--clickable {\n  cursor: pointer;\n}\n\n.react-datepicker__week-number.react-datepicker__week-number--clickable:hover {\n  border-radius: 0.3rem;\n  background-color: #f0f0f0;\n}\n\n.react-datepicker__day-names,\n.react-datepicker__week {\n  white-space: nowrap;\n}\n\n.react-datepicker__day-name,\n.react-datepicker__day,\n.react-datepicker__time-name {\n  color: #000;\n  display: inline-block;\n  width: 1.7rem;\n  line-height: 1.7rem;\n  text-align: center;\n  margin: 0.166rem;\n}\n\n.react-datepicker__day {\n  cursor: pointer;\n}\n\n.react-datepicker__day:hover {\n  border-radius: 0.3rem;\n  background-color: #f0f0f0;\n}\n\n.react-datepicker__day--today {\n  font-weight: bold;\n}\n\n.react-datepicker__day--highlighted {\n  border-radius: 0.3rem;\n  background-color: #3dcc4a;\n  color: #fff;\n}\n\n.react-datepicker__day--highlighted:hover {\n  background-color: #32be3f;\n}\n\n.react-datepicker__day--highlighted-custom-1 {\n  color: magenta;\n}\n\n.react-datepicker__day--highlighted-custom-2 {\n  color: green;\n}\n\n.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range {\n  border-radius: 0.3rem;\n  background-color: #216ba5;\n  color: #fff;\n}\n\n.react-datepicker__day--selected:hover, .react-datepicker__day--in-selecting-range:hover, .react-datepicker__day--in-range:hover {\n  background-color: #1d5d90;\n}\n\n.react-datepicker__day--keyboard-selected {\n  border-radius: 0.3rem;\n  background-color: #2a87d0;\n  color: #fff;\n}\n\n.react-datepicker__day--keyboard-selected:hover {\n  background-color: #1d5d90;\n}\n\n.react-datepicker__day--in-selecting-range:not(.react-datepicker__day--in-range) {\n  background-color: rgba(33, 107, 165, 0.5);\n}\n\n.react-datepicker__month--selecting-range .react-datepicker__day--in-range:not(.react-datepicker__day--in-selecting-range) {\n  background-color: #f0f0f0;\n  color: #000;\n}\n\n.react-datepicker__day--disabled {\n  cursor: default;\n  color: #ccc;\n}\n\n.react-datepicker__day--disabled:hover {\n  background-color: transparent;\n}\n\n.react-datepicker__input-container {\n  position: relative;\n  display: inline-block;\n}\n\n.react-datepicker__year-read-view,\n.react-datepicker__month-read-view,\n.react-datepicker__month-year-read-view {\n  border: 1px solid transparent;\n  border-radius: 0.3rem;\n}\n\n.react-datepicker__year-read-view:hover,\n.react-datepicker__month-read-view:hover,\n.react-datepicker__month-year-read-view:hover {\n  cursor: pointer;\n}\n\n.react-datepicker__year-read-view:hover .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__year-read-view:hover .react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-read-view:hover .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view:hover .react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view:hover .react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-year-read-view:hover .react-datepicker__month-read-view--down-arrow {\n  border-top-color: #b3b3b3;\n}\n\n.react-datepicker__year-read-view--down-arrow,\n.react-datepicker__month-read-view--down-arrow,\n.react-datepicker__month-year-read-view--down-arrow {\n  border-top-color: #ccc;\n  float: right;\n  margin-left: 20px;\n  top: 8px;\n  position: relative;\n  border-width: 0.45rem;\n}\n\n.react-datepicker__year-dropdown,\n.react-datepicker__month-dropdown,\n.react-datepicker__month-year-dropdown {\n  background-color: #f0f0f0;\n  position: absolute;\n  width: 50%;\n  left: 25%;\n  top: 30px;\n  z-index: 1;\n  text-align: center;\n  border-radius: 0.3rem;\n  border: 1px solid #aeaeae;\n}\n\n.react-datepicker__year-dropdown:hover,\n.react-datepicker__month-dropdown:hover,\n.react-datepicker__month-year-dropdown:hover {\n  cursor: pointer;\n}\n\n.react-datepicker__year-dropdown--scrollable,\n.react-datepicker__month-dropdown--scrollable,\n.react-datepicker__month-year-dropdown--scrollable {\n  height: 150px;\n  overflow-y: scroll;\n}\n\n.react-datepicker__year-option,\n.react-datepicker__month-option,\n.react-datepicker__month-year-option {\n  line-height: 20px;\n  width: 100%;\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.react-datepicker__year-option:first-of-type,\n.react-datepicker__month-option:first-of-type,\n.react-datepicker__month-year-option:first-of-type {\n  border-top-left-radius: 0.3rem;\n  border-top-right-radius: 0.3rem;\n}\n\n.react-datepicker__year-option:last-of-type,\n.react-datepicker__month-option:last-of-type,\n.react-datepicker__month-year-option:last-of-type {\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n  border-bottom-left-radius: 0.3rem;\n  border-bottom-right-radius: 0.3rem;\n}\n\n.react-datepicker__year-option:hover,\n.react-datepicker__month-option:hover,\n.react-datepicker__month-year-option:hover {\n  background-color: #ccc;\n}\n\n.react-datepicker__year-option:hover .react-datepicker__navigation--years-upcoming,\n.react-datepicker__month-option:hover .react-datepicker__navigation--years-upcoming,\n.react-datepicker__month-year-option:hover .react-datepicker__navigation--years-upcoming {\n  border-bottom-color: #b3b3b3;\n}\n\n.react-datepicker__year-option:hover .react-datepicker__navigation--years-previous,\n.react-datepicker__month-option:hover .react-datepicker__navigation--years-previous,\n.react-datepicker__month-year-option:hover .react-datepicker__navigation--years-previous {\n  border-top-color: #b3b3b3;\n}\n\n.react-datepicker__year-option--selected,\n.react-datepicker__month-option--selected,\n.react-datepicker__month-year-option--selected {\n  position: absolute;\n  left: 15px;\n}\n\n.react-datepicker__close-icon {\n  background-color: transparent;\n  border: 0;\n  cursor: pointer;\n  outline: 0;\n  padding: 0;\n  vertical-align: middle;\n  position: absolute;\n  height: 16px;\n  width: 16px;\n  top: 25%;\n  right: 7px;\n}\n\n.react-datepicker__close-icon::after {\n  background-color: #216ba5;\n  border-radius: 50%;\n  bottom: 0;\n  box-sizing: border-box;\n  color: #fff;\n  content: \"\\00d7\";\n  cursor: pointer;\n  font-size: 12px;\n  height: 16px;\n  width: 16px;\n  line-height: 1;\n  margin: -8px auto 0;\n  padding: 2px;\n  position: absolute;\n  right: 0px;\n  text-align: center;\n}\n\n.react-datepicker__today-button {\n  background: #f0f0f0;\n  border-top: 1px solid #aeaeae;\n  cursor: pointer;\n  text-align: center;\n  font-weight: bold;\n  padding: 5px 0;\n  clear: left;\n}\n\n.react-datepicker__portal {\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(0, 0, 0, 0.8);\n  left: 0;\n  top: 0;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  z-index: 2147483647;\n}\n\n.react-datepicker__portal .react-datepicker__day-name,\n.react-datepicker__portal .react-datepicker__day,\n.react-datepicker__portal .react-datepicker__time-name {\n  width: 3rem;\n  line-height: 3rem;\n}\n\n@media (max-width: 400px), (max-height: 550px) {\n  .react-datepicker__portal .react-datepicker__day-name,\n  .react-datepicker__portal .react-datepicker__day,\n  .react-datepicker__portal .react-datepicker__time-name {\n    width: 2rem;\n    line-height: 2rem;\n  }\n}\n\n.react-datepicker__portal .react-datepicker__current-month,\n.react-datepicker__portal .react-datepicker-time__header {\n  font-size: 1.44rem;\n}\n\n.react-datepicker__portal .react-datepicker__navigation {\n  border: 0.81rem solid transparent;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--previous {\n  border-right-color: #ccc;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--previous:hover {\n  border-right-color: #b3b3b3;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--previous--disabled, .react-datepicker__portal .react-datepicker__navigation--previous--disabled:hover {\n  border-right-color: #e6e6e6;\n  cursor: default;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--next {\n  border-left-color: #ccc;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--next:hover {\n  border-left-color: #b3b3b3;\n}\n\n.react-datepicker__portal .react-datepicker__navigation--next--disabled, .react-datepicker__portal .react-datepicker__navigation--next--disabled:hover {\n  border-left-color: #e6e6e6;\n  cursor: default;\n}\n";
-styleInject(css);
-
-var css$1 = "/**\n * Datepicker Styles\n */\n\n.react-datepicker {\n  border: none;\n}\n\n.react-datepicker-popper,\n.react-datepicker {\n  z-index: 1000;\n}\n\n.react-datepicker__month-container {\n  border: none;\n  box-shadow: 0 0.5rem 4rem rgba(0, 0, 0, 0.11), 0 10px 20px rgba(0, 0, 0, 0.05),\n    0 2px 3px rgba(0, 0, 0, 0.06);\n}\n\n.react-datepicker__header {\n  border: none;\n  background: #fff;\n  padding-top: 20px;\n}\n\n.react-datepicker__day-name,\n.react-datepicker__day,\n.react-datepicker__time-name,\n.react-datepicker__current-month {\n  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,\n    Helvetica Neue, Arial, sans-serif;\n  color: #5a6169;\n}\n\n.react-datepicker__day--disabled {\n  color: #ddd;\n}\n\n.react-datepicker__day--disabled:hover {\n  background: transparent !important;\n}\n\n.react-datepicker__day {\n  transition: all 0.25s cubic-bezier(0.27, 0.01, 0.38, 1.06);\n}\n\n.react-datepicker__day:hover {\n  background-color: #eceeef;\n}\n\n.react-datepicker__current-month {\n  font-weight: 600;\n}\n\n.react-datepicker__day,\n.react-datepicker__day:hover,\n.react-datepicker__day--keyboard-selected {\n  border-radius: 50%;\n}\n\n.react-datepicker__day--highlighted {\n  background: #e6f2ff;\n}\n\n.react-datepicker__day--keyboard-selected,\n.react-datepicker__day--selected {\n  color: #fff;\n  background: #007bff;\n}\n\n.react-datepicker__day--keyboard-selected:hover,\n.react-datepicker__day--selected:hover {\n  background: #006fe6;\n}\n\n.react-datepicker__header,\n.react-datepicker__month-container {\n  border-bottom-left-radius: 0.375rem;\n  border-bottom-right-radius: 0.375rem;\n}\n\n.react-datepicker__header {\n  border-top-left-radius: 0.375rem;\n  border-top-right-radius: 0.375rem;\n}\n\n.react-datepicker {\n  border-radius: 0.375rem;\n}\n\n.react-datepicker__navigation {\n  top: 25px;\n}\n\n.react-datepicker__triangle:before {\n  border-bottom-color: #e3e3e3 !important;\n}\n\n.react-datepicker__month {\n  padding: 10px 15px;\n}\n\n/* Datepicker & Input Groups */\n\n.input-group > .react-datepicker-wrapper .form-control {\n  position: relative;\n}\n\n.input-group > .react-datepicker-wrapper:not(:first-child) .form-control {\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\n\n.input-group > .react-datepicker-wrapper:not(:last-child) .form-control {\n  border-top-right-radius: 0;\n  border-bottom-right-radius: 0;\n}\n\n.input-group > .react-datepicker-wrapper ~ .react-datepicker-wrapper input {\n  margin-left: -1px;\n}\n\n.input-group\n  > .react-datepicker-wrapper\n  ~ .react-datepicker-wrapper\n  ~ .input-group-append {\n  margin-left: -2px;\n}\n\n.input-group > .react-datepicker-wrapper .form-control:focus {\n  z-index: 3;\n}\n";
-styleInject(css$1);
+var css_248z = "/**\n * Datepicker Styles\n */\n\n.react-datepicker {\n  border: none;\n}\n\n.react-datepicker-popper,\n.react-datepicker {\n  z-index: 1000;\n}\n\n.react-datepicker__month-container {\n  border: none;\n  box-shadow: 0 0.5rem 4rem rgba(0, 0, 0, 0.11), 0 10px 20px rgba(0, 0, 0, 0.05),\n    0 2px 3px rgba(0, 0, 0, 0.06);\n}\n\n.react-datepicker__header {\n  border: none;\n  background: #fff;\n  padding-top: 20px;\n}\n\n.react-datepicker__day-name,\n.react-datepicker__day,\n.react-datepicker__time-name,\n.react-datepicker__current-month {\n  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,\n    Helvetica Neue, Arial, sans-serif;\n  color: #5a6169;\n}\n\n.react-datepicker__day--disabled {\n  color: #ddd;\n}\n\n.react-datepicker__day--disabled:hover {\n  background: transparent !important;\n}\n\n.react-datepicker__day {\n  transition: all 0.25s cubic-bezier(0.27, 0.01, 0.38, 1.06);\n}\n\n.react-datepicker__day:hover {\n  background-color: #eceeef;\n}\n\n.react-datepicker__current-month {\n  font-weight: 600;\n}\n\n.react-datepicker__day,\n.react-datepicker__day:hover,\n.react-datepicker__day--keyboard-selected {\n  border-radius: 50%;\n}\n\n.react-datepicker__day--highlighted {\n  background: #e6f2ff;\n}\n\n.react-datepicker__day--keyboard-selected,\n.react-datepicker__day--selected {\n  color: #fff;\n  background: #007bff;\n}\n\n.react-datepicker__day--keyboard-selected:hover,\n.react-datepicker__day--selected:hover {\n  background: #006fe6;\n}\n\n.react-datepicker__header,\n.react-datepicker__month-container {\n  border-bottom-left-radius: 0.375rem;\n  border-bottom-right-radius: 0.375rem;\n}\n\n.react-datepicker__header {\n  border-top-left-radius: 0.375rem;\n  border-top-right-radius: 0.375rem;\n}\n\n.react-datepicker {\n  border-radius: 0.375rem;\n}\n\n.react-datepicker__navigation {\n  top: 25px;\n}\n\n.react-datepicker__triangle:before {\n  border-bottom-color: #e3e3e3 !important;\n}\n\n.react-datepicker__month {\n  padding: 10px 15px;\n}\n\n/* Datepicker & Input Groups */\n\n.input-group > .react-datepicker-wrapper .form-control {\n  position: relative;\n}\n\n.input-group > .react-datepicker-wrapper:not(:first-child) .form-control {\n  border-top-left-radius: 0;\n  border-bottom-left-radius: 0;\n}\n\n.input-group > .react-datepicker-wrapper:not(:last-child) .form-control {\n  border-top-right-radius: 0;\n  border-bottom-right-radius: 0;\n}\n\n.input-group > .react-datepicker-wrapper ~ .react-datepicker-wrapper input {\n  margin-left: -1px;\n}\n\n.input-group\n  > .react-datepicker-wrapper\n  ~ .react-datepicker-wrapper\n  ~ .input-group-append {\n  margin-left: -2px;\n}\n\n.input-group > .react-datepicker-wrapper .form-control:focus {\n  z-index: 3;\n}\n";
+styleInject(css_248z);
 
 /**
  * The `DatePicker` component is a wrapper for the [react-datepicker](https://github.com/Hacker0x01/react-datepicker) component.
@@ -3227,22 +3577,22 @@ var DatePicker = function DatePicker(props) {
       size = props.size,
       attrs = _objectWithoutProperties(props, ["className", "size"]);
 
-  var classes = classNames(className, "form-control", size && "form-control-".concat(size));
+  var classes = classNames__default['default'](className, "form-control", size && "form-control-".concat(size));
 
   if (!attrs.dropdownMode) {
     attrs.dropdownMode = "select";
   }
 
-  return React__default.createElement(ReactDatePicker, _extends({}, props, {
+  return /*#__PURE__*/React__default['default'].createElement(ReactDatePicker__default['default'], _extends({}, props, {
     className: classes
   }));
 };
 
-DatePicker.propTypes = _objectSpread({}, ReactDatePicker.propTypes, {
+DatePicker.propTypes = _objectSpread2(_objectSpread2({}, ReactDatePicker__default['default'].propTypes), {
   size: propTypes.string
 });
 
-var DropdownContext = React__default.createContext({
+var DropdownContext = /*#__PURE__*/React__default['default'].createContext({
   toggle: function toggle() {},
   open: false,
   direction: "down",
@@ -3253,149 +3603,110 @@ var DropdownContext = React__default.createContext({
  * You can use dropdowns to display accessible contextual overlays for displaying lists of links and more.
  */
 
-var Dropdown =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Dropdown, _React$Component);
+var Dropdown = function Dropdown(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      dropup = _ref.dropup,
+      open = _ref.open,
+      group = _ref.group,
+      size = _ref.size,
+      nav = _ref.nav,
+      setActiveFromChild = _ref.setActiveFromChild,
+      active = _ref.active,
+      addonType = _ref.addonType,
+      attrs = _objectWithoutProperties(_ref, ["className", "children", "dropup", "open", "group", "size", "nav", "setActiveFromChild", "active", "addonType"]);
 
-  function Dropdown(props) {
-    var _this;
+  var ref = React.useRef();
 
-    _classCallCheck(this, Dropdown);
+  var toggle = function toggle(e) {
+    if (attrs.disabled) {
+      return e && e.preventDefault();
+    }
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Dropdown).call(this, props));
-    _this.handleListeners = _this.handleListeners.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.addListeners = _this.addListeners.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.removeListeners = _this.removeListeners.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleDocumentClick = _this.handleDocumentClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.getContainer = _this.getContainer.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.toggle = _this.toggle.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    return _this;
+    return attrs.toggle(e);
+  };
+
+  React.useEffect(function () {
+    var handleDocumentClick = function handleDocumentClick(e) {
+      if (e && (e.which === 3 || e.type === 'keyup' && e.which !== KEYCODES.TAB)) return;
+
+      if (ref.current && ref.current.contains(e.target) && ref.current !== e.target && (e.type !== 'keyup' || e.which === KEYCODES.TAB)) {
+        return;
+      }
+
+      toggle(e);
+    };
+
+    if (open) {
+      EVENTS.CLICK.forEach(function (e) {
+        return document.addEventListener(e, handleDocumentClick, true);
+      });
+    }
+
+    return function () {
+      return EVENTS.CLICK.forEach(function (e) {
+        return document.removeEventListener(e, handleDocumentClick, true);
+      });
+    };
+  }, [open, ref]);
+  var subItemIsActive = false;
+
+  if (setActiveFromChild) {
+    React__default['default'].Children.map(children[1].props.children, function (dropdownItem) {
+      if (dropdownItem && dropdownItem.props.active) subItemIsActive = true;
+    });
   }
 
-  _createClass(Dropdown, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.handleListeners();
+  var direction = attrs.direction === 'down' && dropup ? 'up' : attrs.direction;
+  attrs.tag = attrs.tag || (nav ? 'li' : 'div');
+  return /*#__PURE__*/React__default['default'].createElement(DropdownContext.Provider, {
+    value: {
+      toggle: toggle,
+      open: open,
+      direction: direction,
+      nav: nav
     }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      this.removeListeners();
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps) {
-      if (this.props.open !== prevProps.open) {
-        this.handleListeners();
-      }
-    }
-  }, {
-    key: "handleListeners",
-    value: function handleListeners() {
-      if (this.props.open) {
-        this.addListeners();
-        return;
-      }
-
-      this.removeListeners();
-    }
-  }, {
-    key: "addListeners",
-    value: function addListeners() {
-      var _this2 = this;
-
-      EVENTS.CLICK.forEach(function (e) {
-        return document.addEventListener(e, _this2.handleDocumentClick, true);
-      });
-    }
-  }, {
-    key: "removeListeners",
-    value: function removeListeners() {
-      var _this3 = this;
-
-      EVENTS.CLICK.forEach(function (e) {
-        return document.removeEventListener(e, _this3.handleDocumentClick, true);
-      });
-    }
-  }, {
-    key: "getContainer",
-    value: function getContainer() {
-      return ReactDOM.findDOMNode(this); // eslint-disable-line react/no-find-dom-node
-    }
-  }, {
-    key: "handleDocumentClick",
-    value: function handleDocumentClick(e) {
-      if (e && (e.which === 3 || e.type === "keyup" && e.which !== KEYCODES.TAB)) return;
-      var container = this.getContainer();
-
-      if (container.contains(e.target) && container !== e.target && (e.type !== "keyup" || e.which === KEYCODES.TAB)) {
-        return;
-      }
-
-      this.toggle(e);
-    }
-  }, {
-    key: "toggle",
-    value: function toggle(e) {
-      if (this.props.disabled) {
-        return e && e.preventDefault();
-      }
-
-      return this.props.toggle(e);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var props = omit(this.props, ["toggle", "disabled", "inNavbar", "direction"]);
-
-      var className = props.className,
-          children = props.children,
-          dropup = props.dropup,
-          open = props.open,
-          group = props.group,
-          size = props.size,
-          nav = props.nav,
-          setActiveFromChild = props.setActiveFromChild,
-          active = props.active,
-          addonType = props.addonType,
-          attrs = _objectWithoutProperties(props, ["className", "children", "dropup", "open", "group", "size", "nav", "setActiveFromChild", "active", "addonType"]);
-
-      var direction = this.props.direction === "down" && dropup ? "up" : this.props.direction;
-      attrs.tag = attrs.tag || (nav ? "li" : "div");
-      var subItemIsActive = false;
-
-      if (setActiveFromChild) {
-        React__default.Children.map(this.props.children[1].props.children, function (dropdownItem) {
-          if (dropdownItem && dropdownItem.props.active) subItemIsActive = true;
-        });
-      }
-
-      var classes = classNames(className, direction !== "down" && "drop".concat(direction), nav && active && "active", setActiveFromChild && subItemIsActive && "active", addonType && "input-group-".concat(addonType), group && "btn-group", !!size && "btn-group-".concat(size), !group && !addonType && "dropdown", open && "show", nav && "nav-item");
-      var toggle = this.toggle;
-      return React__default.createElement(DropdownContext.Provider, {
-        value: {
-          toggle: toggle,
-          open: open,
-          direction: direction,
-          nav: nav
-        }
-      }, React__default.createElement(reactPopper.Manager, attrs, React__default.createElement(DropdownContext.Consumer, null, function () {
-        return React__default.createElement("div", {
-          className: classes
-        }, children);
-      })));
-    }
-  }]);
-
-  return Dropdown;
-}(React__default.Component);
-
+  }, /*#__PURE__*/React__default['default'].createElement(reactPopper.Manager, omit__default['default'].apply(void 0, _toConsumableArray(attrs).concat([['toggle', 'disabled', 'inNavbar', 'direction']])), /*#__PURE__*/React__default['default'].createElement(DropdownContext.Consumer, null, function () {
+    return /*#__PURE__*/React__default['default'].createElement("div", {
+      className: classNames__default['default'](className, direction !== 'down' && "drop".concat(direction), nav && active && 'active', setActiveFromChild && subItemIsActive && 'active', addonType && "input-group-".concat(addonType), group && 'btn-group', !!size && "btn-group-".concat(size), !group && !addonType && 'dropdown', open && 'show', nav && 'nav-item')
+    }, children);
+  })));
+};
 Dropdown.propTypes = {
+  /**
+   * The class name.
+   */
+  className: propTypes.string,
+
+  /**
+   * The children nodes.
+   */
+  children: propTypes.oneOfType([propTypes.arrayOf(propTypes.node), propTypes.node]),
+
+  /**
+   * The size.
+   */
+  size: propTypes.string,
+
   /**
    * Whether it is open, or not.
    */
   open: propTypes.bool,
+
+  /**
+   * Whether it is active from child, or not.
+   */
+  setActiveFromChild: propTypes.bool,
+
+  /**
+   * Whether it is active, or not.
+   */
+  active: propTypes.bool,
+
+  /**
+   * Whether it is grouped, or not.
+   */
+  group: propTypes.bool,
 
   /**
    * Whether it is disabled, or not.
@@ -3423,6 +3734,11 @@ Dropdown.propTypes = {
   tag: propTypes.string,
 
   /**
+   * The component's addon type.
+   */
+  addonType: propTypes.string,
+
+  /**
    * Whether it is located inside a Nav, or not.
    */
   nav: propTypes.bool,
@@ -3430,7 +3746,7 @@ Dropdown.propTypes = {
   /**
    * The direction.
    */
-  direction: propTypes.oneOf(["up", "down", "left", "right"])
+  direction: propTypes.oneOf(['up', 'down', 'left', 'right'])
 };
 Dropdown.defaultProps = {
   open: false,
@@ -3438,18 +3754,18 @@ Dropdown.defaultProps = {
   nav: false
 };
 
-var DropdownToggle =
-/*#__PURE__*/
-function (_React$Component) {
+var DropdownToggle = /*#__PURE__*/function (_React$Component) {
   _inherits(DropdownToggle, _React$Component);
+
+  var _super = _createSuper(DropdownToggle);
 
   function DropdownToggle(props) {
     var _this;
 
     _classCallCheck(this, DropdownToggle);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(DropdownToggle).call(this, props));
-    _this.onClick = _this.onClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this = _super.call(this, props);
+    _this.onClick = _this.onClick.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -3486,8 +3802,8 @@ function (_React$Component) {
           attrs = _objectWithoutProperties(_this$props, ["className", "theme", "caret", "split", "nav", "tag"]);
 
       var ariaLabel = attrs["aria-label"] || "Toggle Dropdown";
-      var classes = classNames(className, (caret || split) && "dropdown-toggle", split && "dropdown-toggle-split", nav && "nav-link");
-      var children = attrs.children || React__default.createElement("span", {
+      var classes = classNames__default['default'](className, (caret || split) && "dropdown-toggle", split && "dropdown-toggle-split", nav && "nav-link");
+      var children = attrs.children || /*#__PURE__*/React__default['default'].createElement("span", {
         className: "sr-only"
       }, ariaLabel);
       var Tag;
@@ -3503,8 +3819,8 @@ function (_React$Component) {
       }
 
       if (this.context.inNavbar) {
-        return React__default.createElement(reactPopper.Reference, null, function () {
-          return React__default.createElement(Tag, _extends({}, attrs, {
+        return /*#__PURE__*/React__default['default'].createElement(reactPopper.Reference, null, function () {
+          return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
             className: classes,
             onClick: _this2.onClick,
             "aria-expanded": _this2.context.isOpen
@@ -3512,8 +3828,8 @@ function (_React$Component) {
         });
       }
 
-      return React__default.createElement(reactPopper.Reference, null, function () {
-        return React__default.createElement(Tag, _extends({}, attrs, {
+      return /*#__PURE__*/React__default['default'].createElement(reactPopper.Reference, null, function () {
+        return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
           className: classes,
           onClick: _this2.onClick,
           "aria-expanded": _this2.context.isOpen
@@ -3523,7 +3839,7 @@ function (_React$Component) {
   }]);
 
   return DropdownToggle;
-}(React__default.Component);
+}(React__default['default'].Component);
 
 DropdownToggle.propTypes = {
   /**
@@ -3582,15 +3898,15 @@ DropdownToggle.defaultProps = {
 };
 DropdownToggle.contextType = DropdownContext;
 
-var DropdownMenu =
-/*#__PURE__*/
-function (_React$Component) {
+var DropdownMenu = /*#__PURE__*/function (_React$Component) {
   _inherits(DropdownMenu, _React$Component);
+
+  var _super = _createSuper(DropdownMenu);
 
   function DropdownMenu() {
     _classCallCheck(this, DropdownMenu);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(DropdownMenu).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(DropdownMenu, [{
@@ -3609,22 +3925,22 @@ function (_React$Component) {
           persist = _this$props.persist,
           attrs = _objectWithoutProperties(_this$props, ["className", "children", "right", "tag", "flip", "small", "modifiers", "persist"]);
 
-      var classes = classNames(className, "dropdown-menu", small && "dropdown-menu-small", right && "dropdown-menu-right", this.context.open && "show");
+      var classes = classNames__default['default'](className, "dropdown-menu", small && "dropdown-menu-small", right && "dropdown-menu-right", this.context.open && "show");
 
       if (persist || this.context.open && !this.context.inNavbar) {
         var pos1 = DROPDOWN_POSITION_MAP[this.context.direction.toUpperCase()] || "bottom";
         var pos2 = right ? "end" : "start";
         attrs.placement = "".concat(pos1, "-").concat(pos2);
         attrs.component = Tag;
-        attrs.modifiers = !flip ? _objectSpread({}, modifiers, {
+        attrs.modifiers = !flip ? _objectSpread2(_objectSpread2({}, modifiers), {
           flip: {
             enabled: false
           }
         }) : modifiers;
-        return React__default.createElement(reactPopper.Popper, attrs, function (_ref) {
+        return /*#__PURE__*/React__default['default'].createElement(reactPopper.Popper, attrs, function (_ref) {
           var ref = _ref.ref,
               placement = _ref.placement;
-          return React__default.createElement("div", {
+          return /*#__PURE__*/React__default['default'].createElement("div", {
             ref: ref,
             className: classes,
             "x-placement": placement,
@@ -3635,7 +3951,7 @@ function (_React$Component) {
         });
       }
 
-      return React__default.createElement(Tag, _extends({
+      return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({
         tabIndex: "-1",
         role: "menu"
       }, attrs, {
@@ -3645,7 +3961,7 @@ function (_React$Component) {
   }]);
 
   return DropdownMenu;
-}(React__default.Component);
+}(React__default['default'].Component);
 
 DropdownMenu.propTypes = {
   /**
@@ -3694,19 +4010,19 @@ DropdownMenu.defaultProps = {
 };
 DropdownMenu.contextType = DropdownContext;
 
-var DropdownItem =
-/*#__PURE__*/
-function (_React$Component) {
+var DropdownItem = /*#__PURE__*/function (_React$Component) {
   _inherits(DropdownItem, _React$Component);
+
+  var _super = _createSuper(DropdownItem);
 
   function DropdownItem(props) {
     var _this;
 
     _classCallCheck(this, DropdownItem);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(DropdownItem).call(this, props));
-    _this.onClick = _this.onClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.getTabIndex = _this.getTabIndex.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this = _super.call(this, props);
+    _this.onClick = _this.onClick.bind(_assertThisInitialized(_this));
+    _this.getTabIndex = _this.getTabIndex.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -3738,7 +4054,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _omit = omit(this.props, ["toggle"]),
+      var _omit = omit__default['default'](this.props, ["toggle"]),
           className = _omit.className,
           divider = _omit.divider,
           Tag = _omit.tag,
@@ -3747,7 +4063,7 @@ function (_React$Component) {
           attrs = _objectWithoutProperties(_omit, ["className", "divider", "tag", "header", "active"]);
 
       var tabIndex = this.getTabIndex();
-      var classes = classNames(className, attrs.disabled && "disabled", !divider && !header && "dropdown-item", header && "dropdown-header", divider && "dropdown-divider", active && "active");
+      var classes = classNames__default['default'](className, attrs.disabled && "disabled", !divider && !header && "dropdown-item", header && "dropdown-header", divider && "dropdown-divider", active && "active");
 
       if (Tag === "button") {
         if (header) {
@@ -3759,7 +4075,7 @@ function (_React$Component) {
         }
       }
 
-      return React__default.createElement(Tag, _extends({
+      return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({
         type: Tag === "button" && (attrs.onClick || attrs.toggle) ? "button" : undefined
       }, attrs, {
         tabIndex: tabIndex,
@@ -3770,7 +4086,7 @@ function (_React$Component) {
   }]);
 
   return DropdownItem;
-}(React__default.Component);
+}(React__default['default'].Component);
 
 DropdownItem.propTypes = {
   /**
@@ -3828,19 +4144,19 @@ DropdownItem.contextType = DropdownContext;
  * Examples and usage guidelines for form controls.
  */
 
-var Form =
-/*#__PURE__*/
-function (_React$Component) {
+var Form = /*#__PURE__*/function (_React$Component) {
   _inherits(Form, _React$Component);
+
+  var _super = _createSuper(Form);
 
   function Form(props) {
     var _this;
 
     _classCallCheck(this, Form);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Form).call(this, props));
-    _this.getRef = _this.getRef.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.submit = _this.submit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this = _super.call(this, props);
+    _this.getRef = _this.getRef.bind(_assertThisInitialized(_this));
+    _this.submit = _this.submit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -3870,8 +4186,8 @@ function (_React$Component) {
           innerRef = _this$props.innerRef,
           attrs = _objectWithoutProperties(_this$props, ["className", "tag", "inline", "innerRef"]);
 
-      var classes = classNames(className, inline && "form-inline");
-      return React__default.createElement(Tag, _extends({}, attrs, {
+      var classes = classNames__default['default'](className, inline && "form-inline");
+      return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
         ref: innerRef,
         className: classes
       }));
@@ -3879,7 +4195,7 @@ function (_React$Component) {
   }]);
 
   return Form;
-}(React__default.Component);
+}(React__default['default'].Component);
 
 Form.propTypes = {
   /**
@@ -3919,8 +4235,8 @@ var FormFeedback = function FormFeedback(props) {
       attrs = _objectWithoutProperties(props, ["className", "valid", "tooltip", "tag"]);
 
   var validMode = tooltip ? "tooltip" : "feedback";
-  var classes = classNames(className, valid ? "valid-".concat(validMode) : "invalid-".concat(validMode));
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, valid ? "valid-".concat(validMode) : "invalid-".concat(validMode));
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -3960,18 +4276,18 @@ FormFeedback.defaultProps = {
  * The `FormCheckbox` component is a wrapper over Bootstrap's [custom checkbox component](https://getbootstrap.com/docs/4.1/components/forms/#checkboxes-and-radios-1).
  */
 
-var FormCheckbox =
-/*#__PURE__*/
-function (_React$Component) {
+var FormCheckbox = /*#__PURE__*/function (_React$Component) {
   _inherits(FormCheckbox, _React$Component);
+
+  var _super = _createSuper(FormCheckbox);
 
   function FormCheckbox(props) {
     var _this;
 
     _classCallCheck(this, FormCheckbox);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(FormCheckbox).call(this, props));
-    _this.getRef = _this.getRef.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this = _super.call(this, props);
+    _this.getRef = _this.getRef.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -3999,31 +4315,31 @@ function (_React$Component) {
           _id = _this$props.id,
           attrs = _objectWithoutProperties(_this$props, ["className", "children", "inline", "valid", "invalid", "innerRef", "toggle", "small", "id"]);
 
-      var labelClasses = classNames(className, "custom-control", !toggle ? "custom-checkbox" : "custom-toggle", toggle && small && "custom-toggle-sm", inline && "custom-control-inline", valid && "is-valid", invalid && "is-invalid");
-      var inputClasses = classNames("custom-control-input", valid && "is-valid", invalid && "is-invalid");
+      var labelClasses = classNames__default['default'](className, "custom-control", !toggle ? "custom-checkbox" : "custom-toggle", toggle && small && "custom-toggle-sm", inline && "custom-control-inline", valid && "is-valid", invalid && "is-invalid");
+      var inputClasses = classNames__default['default']("custom-control-input", valid && "is-valid", invalid && "is-invalid");
 
-      var id = _id || "dr-checkbox-".concat(shortid.generate());
+      var id = _id || "dr-checkbox-".concat(shortid__default['default'].generate());
 
-      return React__default.createElement("label", {
+      return /*#__PURE__*/React__default['default'].createElement("label", {
         className: labelClasses
-      }, React__default.createElement("input", _extends({}, attrs, {
+      }, /*#__PURE__*/React__default['default'].createElement("input", _extends({}, attrs, {
         ref: innerRef,
         id: id,
         type: "checkbox",
         className: inputClasses
-      })), React__default.createElement("label", {
+      })), /*#__PURE__*/React__default['default'].createElement("label", {
         id: id,
         className: "custom-control-label",
         "aria-hidden": "true",
         onClick: this.props.onChange
-      }), React__default.createElement("span", {
+      }), /*#__PURE__*/React__default['default'].createElement("span", {
         className: "custom-control-description"
       }, children));
     }
   }]);
 
   return FormCheckbox;
-}(React__default.Component);
+}(React__default['default'].Component);
 
 FormCheckbox.defaultProps = {
   onChange: function onChange() {}
@@ -4088,8 +4404,8 @@ var FormGroup = function FormGroup(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "row", "disabled", "check", "inline", "tag"]);
 
-  var classes = classNames(className, row && "row", check ? "form-check" : "form-group", check && inline && "form-check-inline", check && disabled && "disabled");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, row && "row", check ? "form-check" : "form-group", check && inline && "form-check-inline", check && disabled && "disabled");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -4138,20 +4454,20 @@ FormGroup.defaultProps = {
  * The form input allows you to create various text style inputs such as `text`, `password`, `email`, `number`, `url`, `search` and more.
  */
 
-var FormInput =
-/*#__PURE__*/
-function (_React$Component) {
+var FormInput = /*#__PURE__*/function (_React$Component) {
   _inherits(FormInput, _React$Component);
+
+  var _super = _createSuper(FormInput);
 
   function FormInput(props) {
     var _this;
 
     _classCallCheck(this, FormInput);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(FormInput).call(this, props));
+    _this = _super.call(this, props);
     _this.ref = null;
-    _this.getRef = _this.getRef.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.focus = _this.focus.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.getRef = _this.getRef.bind(_assertThisInitialized(_this));
+    _this.focus = _this.focus.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -4183,8 +4499,8 @@ function (_React$Component) {
           innerRef = _this$props.innerRef,
           attrs = _objectWithoutProperties(_this$props, ["className", "plaintext", "size", "invalid", "valid", "innerRef"]);
 
-      var classes = classNames(className, plaintext ? "form-control-plaintext" : "form-control", plaintext && "w-100", size && "form-control-".concat(size), valid && "is-valid", invalid && "is-invalid");
-      return React__default.createElement("input", _extends({}, attrs, {
+      var classes = classNames__default['default'](className, plaintext ? "form-control-plaintext" : "form-control", plaintext && "w-100", size && "form-control-".concat(size), valid && "is-valid", invalid && "is-invalid");
+      return /*#__PURE__*/React__default['default'].createElement("input", _extends({}, attrs, {
         ref: innerRef,
         className: classes
       }));
@@ -4192,7 +4508,7 @@ function (_React$Component) {
   }]);
 
   return FormInput;
-}(React__default.Component);
+}(React__default['default'].Component);
 
 FormInput.propTypes = {
   /**
@@ -4241,18 +4557,18 @@ FormInput.propTypes = {
   innerRef: propTypes.oneOfType([propTypes.object, propTypes.func, propTypes.string])
 };
 
-var FormRadio =
-/*#__PURE__*/
-function (_React$Component) {
+var FormRadio = /*#__PURE__*/function (_React$Component) {
   _inherits(FormRadio, _React$Component);
+
+  var _super = _createSuper(FormRadio);
 
   function FormRadio(props) {
     var _this;
 
     _classCallCheck(this, FormRadio);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(FormRadio).call(this, props));
-    _this.getRef = _this.getRef.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this = _super.call(this, props);
+    _this.getRef = _this.getRef.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -4279,32 +4595,32 @@ function (_React$Component) {
           _id = _this$props.id,
           attrs = _objectWithoutProperties(_this$props, ["className", "children", "inline", "valid", "invalid", "innerRef", "onChange", "id"]);
 
-      var labelClasses = classNames("custom-control", "custom-radio", inline && "custom-control-inline", valid && "is-valid", invalid && "is-invalid");
-      var inputClasses = classNames(className, "custom-control-input", valid && "is-valid", invalid && "is-invalid");
+      var labelClasses = classNames__default['default']("custom-control", "custom-radio", inline && "custom-control-inline", valid && "is-valid", invalid && "is-invalid");
+      var inputClasses = classNames__default['default'](className, "custom-control-input", valid && "is-valid", invalid && "is-invalid");
 
-      var id = _id || "dr-radio-".concat(shortid.generate());
+      var id = _id || "dr-radio-".concat(shortid__default['default'].generate());
 
-      return React__default.createElement("label", {
+      return /*#__PURE__*/React__default['default'].createElement("label", {
         className: labelClasses
-      }, React__default.createElement("input", _extends({}, attrs, {
+      }, /*#__PURE__*/React__default['default'].createElement("input", _extends({}, attrs, {
         ref: innerRef,
         id: id,
         type: "radio",
         className: inputClasses,
         onChange: onChange
-      })), React__default.createElement("label", {
+      })), /*#__PURE__*/React__default['default'].createElement("label", {
         id: id,
         className: "custom-control-label",
         "aria-hidden": "true",
         onClick: onChange
-      }), React__default.createElement("span", {
+      }), /*#__PURE__*/React__default['default'].createElement("span", {
         className: "custom-control-description"
       }, children));
     }
   }]);
 
   return FormRadio;
-}(React__default.Component);
+}(React__default['default'].Component);
 
 FormRadio.defaultProps = {
   onChange: function onChange() {}
@@ -4350,18 +4666,18 @@ FormRadio.propTypes = {
  * The `FormSelect` component is a wrapper over Bootstrap's [custom select component](https://getbootstrap.com/docs/4.1/components/forms/#select-menu).
  */
 
-var FormSelect =
-/*#__PURE__*/
-function (_React$Component) {
+var FormSelect = /*#__PURE__*/function (_React$Component) {
   _inherits(FormSelect, _React$Component);
+
+  var _super = _createSuper(FormSelect);
 
   function FormSelect(props) {
     var _this;
 
     _classCallCheck(this, FormSelect);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(FormSelect).call(this, props));
-    _this.getRef = _this.getRef.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this = _super.call(this, props);
+    _this.getRef = _this.getRef.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -4386,8 +4702,8 @@ function (_React$Component) {
           innerRef = _this$props.innerRef,
           attrs = _objectWithoutProperties(_this$props, ["className", "children", "size", "valid", "invalid", "innerRef"]);
 
-      var classes = classNames(className, "form-control", "custom-select", valid && "is-valid", invalid && "is-invalid", size && "form-control-".concat(size), size && "custom-select-".concat(size));
-      return React__default.createElement("select", _extends({}, attrs, {
+      var classes = classNames__default['default'](className, "form-control", "custom-select", valid && "is-valid", invalid && "is-invalid", size && "form-control-".concat(size), size && "custom-select-".concat(size));
+      return /*#__PURE__*/React__default['default'].createElement("select", _extends({}, attrs, {
         className: classes,
         ref: innerRef
       }), children);
@@ -4395,7 +4711,7 @@ function (_React$Component) {
   }]);
 
   return FormSelect;
-}(React__default.Component);
+}(React__default['default'].Component);
 
 FormSelect.propTypes = {
   /**
@@ -4433,18 +4749,18 @@ FormSelect.propTypes = {
  * The `FormTextarea` component allows you to easily create multi-line text inputs.
  */
 
-var FormTextarea =
-/*#__PURE__*/
-function (_React$Component) {
+var FormTextarea = /*#__PURE__*/function (_React$Component) {
   _inherits(FormTextarea, _React$Component);
+
+  var _super = _createSuper(FormTextarea);
 
   function FormTextarea(props) {
     var _this;
 
     _classCallCheck(this, FormTextarea);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(FormTextarea).call(this, props));
-    _this.getRef = _this.getRef.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this = _super.call(this, props);
+    _this.getRef = _this.getRef.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -4470,8 +4786,8 @@ function (_React$Component) {
           invalid = _this$props.invalid,
           attrs = _objectWithoutProperties(_this$props, ["className", "children", "innerRef", "plaintext", "size", "valid", "invalid"]);
 
-      var classes = classNames(className, children, plaintext ? "form-control-plaintext" : "form-control", plaintext && "w-100", size && "form-control-".concat(size), valid && "is-valid", invalid && "is-invalid");
-      return React__default.createElement("textarea", _extends({}, attrs, {
+      var classes = classNames__default['default'](className, children, plaintext ? "form-control-plaintext" : "form-control", plaintext && "w-100", size && "form-control-".concat(size), valid && "is-valid", invalid && "is-invalid");
+      return /*#__PURE__*/React__default['default'].createElement("textarea", _extends({}, attrs, {
         className: classes,
         ref: innerRef
       }));
@@ -4479,7 +4795,7 @@ function (_React$Component) {
   }]);
 
   return FormTextarea;
-}(React__default.Component);
+}(React__default['default'].Component);
 
 FormTextarea.propTypes = {
   /**
@@ -4529,8 +4845,8 @@ var InputGroup = function InputGroup(props) {
       seamless = props.seamless,
       attrs = _objectWithoutProperties(props, ["className", "tag", "size", "seamless"]);
 
-  var classes = classNames(className, "input-group", seamless && "input-group-seamless", size && "input-group-".concat(size));
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "input-group", seamless && "input-group-seamless", size && "input-group-".concat(size));
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -4570,8 +4886,8 @@ var InputGroupText = function InputGroupText(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "tag"]);
 
-  var classes = classNames(className, "input-group-text");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "input-group-text");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -4598,15 +4914,15 @@ var InputGroupAddon = function InputGroupAddon(props) {
       type = props.type,
       attrs = _objectWithoutProperties(props, ["className", "children", "tag", "type"]);
 
-  var classes = classNames(className, "input-group-".concat(type));
+  var classes = classNames__default['default'](className, "input-group-".concat(type));
 
   if (typeof children === "string") {
-    return React__default.createElement(Tag, _extends({}, attrs, {
+    return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
       className: classes
-    }), React__default.createElement(InputGroupText, null, children));
+    }), /*#__PURE__*/React__default['default'].createElement(InputGroupText, null, children));
   }
 
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }), children);
 };
@@ -4647,8 +4963,8 @@ var ListGroup = function ListGroup(props) {
       small = props.small,
       attrs = _objectWithoutProperties(props, ["className", "tag", "flush", "small"]);
 
-  var classes = classNames(className, "list-group", small && "list-group-sm", flush && "list-group-flush");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "list-group", small && "list-group-sm", flush && "list-group-flush");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -4687,7 +5003,7 @@ var ListGroupItem = function ListGroupItem(props) {
       theme = props.theme,
       attrs = _objectWithoutProperties(props, ["className", "tag", "active", "action", "disabled", "theme"]);
 
-  var classes = classNames(className, active && "active", disabled && "disabled", action && "list-group-item-action", theme && "list-group-item-".concat(theme), "list-group-item");
+  var classes = classNames__default['default'](className, active && "active", disabled && "disabled", action && "list-group-item-action", theme && "list-group-item-".concat(theme), "list-group-item");
 
   if (disabled) {
     attrs.onClick = function (e) {
@@ -4695,7 +5011,7 @@ var ListGroupItem = function ListGroupItem(props) {
     };
   }
 
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -4740,8 +5056,8 @@ var ListGroupItemHeading = function ListGroupItemHeading(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "tag"]);
 
-  var classes = classNames(className, "list-group-item-heading");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "list-group-item-heading");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -4766,8 +5082,8 @@ var ListGroupItemText = function ListGroupItemText(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "tag"]);
 
-  var classes = classNames(className, "list-group-item-text");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "list-group-item-text");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -4791,24 +5107,24 @@ ListGroupItemText.defaultProps = {
  * Creating flexible modal dialogs can be achieved using the `Modal` component. They feature a series of helpful subcomponents, sizes and various other options that you can use to customize the display and behavior of your modals.
  */
 
-var Modal =
-/*#__PURE__*/
-function (_React$Component) {
+var Modal = /*#__PURE__*/function (_React$Component) {
   _inherits(Modal, _React$Component);
+
+  var _super = _createSuper(Modal);
 
   function Modal(props) {
     var _this;
 
     _classCallCheck(this, Modal);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Modal).call(this, props));
+    _this = _super.call(this, props);
     _this.state = {
       open: _this.props.open || false
     };
-    _this.handleOnEntered = _this.handleOnEntered.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleOnExit = _this.handleOnExit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleOnExited = _this.handleOnExited.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleBackdropClick = _this.handleBackdropClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleOnEntered = _this.handleOnEntered.bind(_assertThisInitialized(_this));
+    _this.handleOnExit = _this.handleOnExit.bind(_assertThisInitialized(_this));
+    _this.handleOnExited = _this.handleOnExited.bind(_assertThisInitialized(_this));
+    _this.handleBackdropClick = _this.handleBackdropClick.bind(_assertThisInitialized(_this));
     _this.modalContent = null;
     return _this;
   }
@@ -4893,8 +5209,8 @@ function (_React$Component) {
           centered = _this$props3.centered,
           className = _this$props3.className; // open, showModal, hideModal, hiddenModal, toggle
 
-      var backdropClasses = classNames("modal-backdrop", fade ? "fade" : "show", backdropClassName);
-      var modalClasses = classNames("modal", fade && "fade", modalClassName, fade && (animation || position && position.split("-").slice(-1)[0] || "top"));
+      var backdropClasses = classNames__default['default']("modal-backdrop", fade ? "fade" : "show", backdropClassName);
+      var modalClasses = classNames__default['default']("modal", fade && "fade", modalClassName, fade && (animation || position && position.split("-").slice(-1)[0] || "top"));
       var modalAttrs = {
         "aria-hidden": true,
         id: id || undefined,
@@ -4904,11 +5220,11 @@ function (_React$Component) {
           display: "block"
         }
       };
-      var modalDialogClasses = classNames("modal-dialog", className, size && "modal-".concat(size), centered && "modal-dialog-centered", position && "modal-".concat(position));
-      var contentClasses = classNames("modal-content", modalContentClassName);
-      return React__default.createElement(React.Fragment, null, backdrop && React__default.createElement(reactTransitionGroup.Transition, {
+      var modalDialogClasses = classNames__default['default']("modal-dialog", className, size && "modal-".concat(size), centered && "modal-dialog-centered", position && "modal-".concat(position));
+      var contentClasses = classNames__default['default']("modal-content", modalContentClassName);
+      return /*#__PURE__*/React__default['default'].createElement(React.Fragment, null, backdrop && /*#__PURE__*/React__default['default'].createElement(reactTransitionGroup.Transition, {
         timeout: fade ? TIMEOUT.FADE : 0,
-        in: this.state.open,
+        "in": this.state.open,
         appear: this.state.open,
         mountOnEnter: true,
         unmountOnExit: true,
@@ -4919,11 +5235,11 @@ function (_React$Component) {
           return _this2.handleOnExit("backdrop", node);
         },
         onExited: this.handleOnExited
-      }, React__default.createElement("div", {
+      }, /*#__PURE__*/React__default['default'].createElement("div", {
         className: backdropClasses
-      })), React__default.createElement(reactTransitionGroup.Transition, {
+      })), /*#__PURE__*/React__default['default'].createElement(reactTransitionGroup.Transition, {
         timeout: fade ? TIMEOUT.FADE : 0,
-        in: this.state.open,
+        "in": this.state.open,
         appear: this.state.open,
         mountOnEnter: true,
         unmountOnExit: true,
@@ -4934,12 +5250,12 @@ function (_React$Component) {
         onExit: function onExit(node) {
           return _this2.handleOnExit("modal", node);
         }
-      }, React__default.createElement("div", _extends({
+      }, /*#__PURE__*/React__default['default'].createElement("div", _extends({
         className: modalClasses
-      }, modalAttrs), React__default.createElement("div", {
+      }, modalAttrs), /*#__PURE__*/React__default['default'].createElement("div", {
         className: modalDialogClasses,
         role: "document"
-      }, React__default.createElement("div", {
+      }, /*#__PURE__*/React__default['default'].createElement("div", {
         ref: function ref(el) {
           return _this2.modalContent = el;
         },
@@ -4949,7 +5265,7 @@ function (_React$Component) {
   }]);
 
   return Modal;
-}(React__default.Component);
+}(React__default['default'].Component);
 
 Modal.propTypes = {
   /**
@@ -5059,8 +5375,8 @@ var ModalBody = function ModalBody(props) {
       children = props.children,
       attrs = _objectWithoutProperties(props, ["className", "children"]);
 
-  var classes = classNames("modal-body", className);
-  return React__default.createElement("div", _extends({
+  var classes = classNames__default['default']("modal-body", className);
+  return /*#__PURE__*/React__default['default'].createElement("div", _extends({
     className: classes
   }, attrs), children);
 };
@@ -5086,24 +5402,24 @@ var ModalHeader = function ModalHeader(props) {
       titleClass = props.titleClass,
       attrs = _objectWithoutProperties(props, ["className", "children", "toggle", "tag", "closeAriaLabel", "titleClass"]);
 
-  var classes = classNames("modal-header", className);
-  var titleClasses = classNames("modal-title", titleClass);
+  var classes = classNames__default['default']("modal-header", className);
+  var titleClasses = classNames__default['default']("modal-title", titleClass);
   var closeButton = null;
 
   if (toggle) {
-    closeButton = React__default.createElement("button", {
+    closeButton = /*#__PURE__*/React__default['default'].createElement("button", {
       type: "button",
       onClick: toggle,
       className: "close",
       "aria-label": closeAriaLabel
-    }, React__default.createElement("span", {
+    }, /*#__PURE__*/React__default['default'].createElement("span", {
       "aria-hidden": "true"
     }, String.fromCharCode(215)));
   }
 
-  return React__default.createElement("div", _extends({
+  return /*#__PURE__*/React__default['default'].createElement("div", _extends({
     className: classes
-  }, attrs), React__default.createElement(Tag, {
+  }, attrs), /*#__PURE__*/React__default['default'].createElement(Tag, {
     className: titleClasses
   }, children), closeButton);
 };
@@ -5149,8 +5465,8 @@ var ModalFooter = function ModalFooter(props) {
       children = props.children,
       attrs = _objectWithoutProperties(props, ["className", "children"]);
 
-  var classes = classNames("modal-footer", className);
-  return React__default.createElement("div", _extends({
+  var classes = classNames__default['default']("modal-footer", className);
+  return /*#__PURE__*/React__default['default'].createElement("div", _extends({
     className: classes
   }, attrs), children);
 };
@@ -5194,8 +5510,8 @@ var Nav = function Nav(props) {
     verticalClass = "flex-".concat(vertical, "-column");
   }
 
-  var classes = classNames(className, navbar ? "navbar-nav" : "nav", horizontal && "justify-content-".concat(horizontal), verticalClass, tabs && "nav-tabs", card && tabs && "card-header-tabs", pills && "nav-pills", card && pills && "card-header-pills", justified && "nav-justified", fill && "nav-fill");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, navbar ? "navbar-nav" : "nav", horizontal && "justify-content-".concat(horizontal), verticalClass, tabs && "nav-tabs", card && tabs && "card-header-tabs", pills && "nav-pills", card && pills && "card-header-pills", justified && "nav-justified", fill && "nav-fill");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -5263,8 +5579,8 @@ var NavItem = function NavItem(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "active", "disabled", "tag"]);
 
-  var classes = classNames(className, "nav-item", active && "active", disabled && "disabled");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "nav-item", active && "active", disabled && "disabled");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -5294,18 +5610,18 @@ NavItem.defaultProps = {
   tag: "li"
 };
 
-var NavLink =
-/*#__PURE__*/
-function (_React$Component) {
+var NavLink = /*#__PURE__*/function (_React$Component) {
   _inherits(NavLink, _React$Component);
+
+  var _super = _createSuper(NavLink);
 
   function NavLink(props) {
     var _this;
 
     _classCallCheck(this, NavLink);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(NavLink).call(this, props));
-    _this.handleOnClick = _this.handleOnClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this = _super.call(this, props);
+    _this.handleOnClick = _this.handleOnClick.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -5336,8 +5652,8 @@ function (_React$Component) {
           innerRef = _this$props.innerRef,
           attrs = _objectWithoutProperties(_this$props, ["className", "active", "disabled", "tag", "innerRef"]);
 
-      var classes = classNames(className, "nav-link", disabled && "disabled", active && "active");
-      return React__default.createElement(Tag, _extends({}, attrs, {
+      var classes = classNames__default['default'](className, "nav-link", disabled && "disabled", active && "active");
+      return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
         ref: innerRef,
         onClick: this.handleOnClick,
         className: classes
@@ -5346,7 +5662,7 @@ function (_React$Component) {
   }]);
 
   return NavLink;
-}(React__default.Component);
+}(React__default['default'].Component);
 
 NavLink.propTypes = {
   /**
@@ -5412,8 +5728,8 @@ var Navbar = function Navbar(props) {
     expandClass = "navbar-expand-".concat(expand);
   }
 
-  var classes = classNames(className, "navbar", expandClass, type === "light" && "navbar-light", type === "dark" && "navbar-dark", theme && "bg-".concat(theme), fixed && "fixed-".concat(fixed), sticky && "sticky-".concat(sticky));
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "navbar", expandClass, type === "light" && "navbar-light", type === "dark" && "navbar-dark", theme && "bg-".concat(theme), fixed && "fixed-".concat(fixed), sticky && "sticky-".concat(sticky));
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -5474,8 +5790,8 @@ var NavbarBrand = function NavbarBrand(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "tag"]);
 
-  var classes = classNames(className, "navbar-brand");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "navbar-brand");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -5501,10 +5817,10 @@ var NavbarToggler = function NavbarToggler(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "children", "tag"]);
 
-  var classes = classNames(className, "navbar-toggler");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "navbar-toggler");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
-  }), children || React__default.createElement("span", {
+  }), children || /*#__PURE__*/React__default['default'].createElement("span", {
     className: "navbar-toggler-icon"
   }));
 };
@@ -5535,20 +5851,20 @@ NavbarToggler.defaultProps = {
   type: "button"
 };
 
-var PopperManager =
-/*#__PURE__*/
-function (_React$Component) {
+var PopperManager = /*#__PURE__*/function (_React$Component) {
   _inherits(PopperManager, _React$Component);
+
+  var _super = _createSuper(PopperManager);
 
   function PopperManager(props) {
     var _this;
 
     _classCallCheck(this, PopperManager);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(PopperManager).call(this, props));
-    _this.handlePlacementChange = _this.handlePlacementChange.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.setTargetNode = _this.setTargetNode.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.getReferenceElement = _this.getReferenceElement.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this = _super.call(this, props);
+    _this.handlePlacementChange = _this.handlePlacementChange.bind(_assertThisInitialized(_this));
+    _this.setTargetNode = _this.setTargetNode.bind(_assertThisInitialized(_this));
+    _this.getReferenceElement = _this.getReferenceElement.bind(_assertThisInitialized(_this));
     _this._element = null;
     _this.state = {
       placement: null
@@ -5593,29 +5909,29 @@ function (_React$Component) {
     key: "renderChildren",
     value: function renderChildren() {
       var _this$props = this.props,
-          children = _this$props.children,
-          open = _this$props.open,
-          target = _this$props.target,
-          offset = _this$props.offset,
+          children = _this$props.children;
+          _this$props.open;
+          _this$props.target;
+          var offset = _this$props.offset,
           placementPrefix = _this$props.placementPrefix,
           noArrow = _this$props.noArrow,
           arrowClassName = _this$props.arrowClassName,
-          className = _this$props.className,
-          container = _this$props.container,
-          modifiers = _this$props.modifiers,
+          className = _this$props.className;
+          _this$props.container;
+          var modifiers = _this$props.modifiers,
           boundariesElement = _this$props.boundariesElement,
           flip = _this$props.flip,
-          fallbackPlacement = _this$props.fallbackPlacement,
-          tag = _this$props.tag,
-          attrs = _objectWithoutProperties(_this$props, ["children", "open", "target", "offset", "placementPrefix", "noArrow", "arrowClassName", "className", "container", "modifiers", "boundariesElement", "flip", "fallbackPlacement", "tag"]);
+          fallbackPlacement = _this$props.fallbackPlacement;
+          _this$props.tag;
+          var attrs = _objectWithoutProperties(_this$props, ["children", "open", "target", "offset", "placementPrefix", "noArrow", "arrowClassName", "className", "container", "modifiers", "boundariesElement", "flip", "fallbackPlacement", "tag"]);
 
       var _placement = this.state.placement || attrs.placement;
 
-      var _className = classNames(className, placementPrefix ? "".concat(placementPrefix, "-").concat(_placement) : _placement);
+      var _className = classNames__default['default'](className, placementPrefix ? "".concat(placementPrefix, "-").concat(_placement) : _placement);
 
-      var _arrowClassName = classNames('arrow', arrowClassName);
+      var _arrowClassName = classNames__default['default']('arrow', arrowClassName);
 
-      var _modifiers = _objectSpread({
+      var _modifiers = _objectSpread2({
         offset: {
           offset: offset
         },
@@ -5633,7 +5949,7 @@ function (_React$Component) {
         }
       }, modifiers);
 
-      return React__default.createElement(reactPopper.Popper, _extends({
+      return /*#__PURE__*/React__default['default'].createElement(reactPopper.Popper, _extends({
         referenceElement: this.getReferenceElement(),
         modifiers: _modifiers,
         placement: _placement
@@ -5642,12 +5958,12 @@ function (_React$Component) {
             style = _ref.style,
             placement = _ref.placement,
             arrowProps = _ref.arrowProps;
-        return React__default.createElement("div", {
+        return /*#__PURE__*/React__default['default'].createElement("div", {
           ref: ref,
           className: _className,
           style: style,
           "data-placement": placement
-        }, children, !noArrow && React__default.createElement("div", {
+        }, children, !noArrow && /*#__PURE__*/React__default['default'].createElement("div", {
           ref: arrowProps.ref,
           style: arrowProps.style,
           className: _arrowClassName
@@ -5672,12 +5988,12 @@ function (_React$Component) {
       }
 
       var containerNode = this.getContainerNode();
-      return ReactDOM.createPortal(React__default.createElement("div", null, this.renderChildren()), containerNode);
+      return /*#__PURE__*/ReactDOM__default['default'].createPortal( /*#__PURE__*/React__default['default'].createElement("div", null, this.renderChildren()), containerNode);
     }
   }]);
 
   return PopperManager;
-}(React__default.Component);
+}(React__default['default'].Component);
 
 PopperManager.propTypes = {
   /**
@@ -5766,25 +6082,25 @@ PopperManager.defaultProps = {
  * Popovers are powerful elements similar to tooltips and powered by Popper.js that can be applies to any interactive element.
  */
 
-var Popover =
-/*#__PURE__*/
-function (_React$Component) {
+var Popover = /*#__PURE__*/function (_React$Component) {
   _inherits(Popover, _React$Component);
+
+  var _super = _createSuper(Popover);
 
   function Popover(props) {
     var _this;
 
     _classCallCheck(this, Popover);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Popover).call(this, props));
-    _this.show = _this.show.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.hide = _this.hide.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.maybeShow = _this.maybeShow.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.toggle = _this.toggle.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.addListeners = _this.addListeners.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.removeListeners = _this.removeListeners.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.getDelay = _this.getDelay.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this = _super.call(this, props);
+    _this.show = _this.show.bind(_assertThisInitialized(_this));
+    _this.hide = _this.hide.bind(_assertThisInitialized(_this));
+    _this.maybeShow = _this.maybeShow.bind(_assertThisInitialized(_this));
+    _this.toggle = _this.toggle.bind(_assertThisInitialized(_this));
+    _this.addListeners = _this.addListeners.bind(_assertThisInitialized(_this));
+    _this.removeListeners = _this.removeListeners.bind(_assertThisInitialized(_this));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    _this.getDelay = _this.getDelay.bind(_assertThisInitialized(_this));
     _this._target = null;
     _this._hideTimeout = null;
     _this._showTimeout = null;
@@ -5920,9 +6236,9 @@ function (_React$Component) {
         return null;
       }
 
-      var classes = classNames("popover-inner", innerClassName);
-      var popperClasses = classNames("popover", "show", className);
-      return React__default.createElement(PopperManager, {
+      var classes = classNames__default['default']("popover-inner", innerClassName);
+      var popperClasses = classNames__default['default']("popover", "show", className);
+      return /*#__PURE__*/React__default['default'].createElement(PopperManager, {
         className: popperClasses,
         target: target,
         container: container,
@@ -5934,14 +6250,14 @@ function (_React$Component) {
         placement: placement,
         placementPrefix: placementPrefix,
         boundariesElement: boundariesElement
-      }, React__default.createElement("div", _extends({}, attrs, {
+      }, /*#__PURE__*/React__default['default'].createElement("div", _extends({}, attrs, {
         className: classes
       })));
     }
   }]);
 
   return Popover;
-}(React__default.Component);
+}(React__default['default'].Component);
 
 Popover.propTypes = {
   /**
@@ -6039,8 +6355,8 @@ var PopoverBody = function PopoverBody(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "tag"]);
 
-  var classes = classNames(className, "popover-body");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "popover-body");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -6065,8 +6381,8 @@ var PopoverHeader = function PopoverHeader(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["className", "tag"]);
 
-  var classes = classNames(className, "popover-header");
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  var classes = classNames__default['default'](className, "popover-header");
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: classes
   }));
 };
@@ -6104,10 +6420,10 @@ var Progress = function Progress(props) {
       Tag = props.tag,
       attrs = _objectWithoutProperties(props, ["children", "className", "barClassName", "value", "max", "animated", "striped", "theme", "bar", "multi", "tag"]);
 
-  var percent = toNumber(value) / toNumber(max) * 100;
-  var progressClasses = classNames(className, "progress");
-  var progressBarClasses = classNames("progress-bar", bar ? className || barClassName : barClassName, animated && "progress-bar-animated", theme && "bg-".concat(theme), (striped || animated) && "progress-bar-striped");
-  var ProgressBar = multi ? children : React__default.createElement("div", {
+  var percent = toNumber__default['default'](value) / toNumber__default['default'](max) * 100;
+  var progressClasses = classNames__default['default'](className, "progress");
+  var progressBarClasses = classNames__default['default']("progress-bar", bar ? className || barClassName : barClassName, animated && "progress-bar-animated", theme && "bg-".concat(theme), (striped || animated) && "progress-bar-striped");
+  var ProgressBar = multi ? children : /*#__PURE__*/React__default['default'].createElement("div", {
     className: progressBarClasses,
     style: {
       width: "".concat(percent, "%")
@@ -6122,7 +6438,7 @@ var Progress = function Progress(props) {
     return ProgressBar;
   }
 
-  return React__default.createElement(Tag, _extends({}, attrs, {
+  return /*#__PURE__*/React__default['default'].createElement(Tag, _extends({}, attrs, {
     className: progressClasses
   }), ProgressBar);
 };
@@ -6194,15 +6510,15 @@ Progress.defaultProps = {
  * The slider component is powered behind the scenes by the [NoUiSlider](https://refreshless.com/nouislider/) library.
  */
 
-var Slider =
-/*#__PURE__*/
-function (_React$Component) {
+var Slider = /*#__PURE__*/function (_React$Component) {
   _inherits(Slider, _React$Component);
+
+  var _super = _createSuper(Slider);
 
   function Slider() {
     _classCallCheck(this, Slider);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Slider).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(Slider, [{
@@ -6236,7 +6552,7 @@ function (_React$Component) {
   }, {
     key: "createSlider",
     value: function createSlider() {
-      var slider = this.slider = nouislider.create(this.sliderContainer, _objectSpread({}, this.props));
+      var slider = this.slider = nouislider__default['default'].create(this.sliderContainer, _objectSpread2({}, this.props));
 
       if (this.props.onUpdate) {
         slider.on("update", this.props.onUpdate);
@@ -6270,8 +6586,8 @@ function (_React$Component) {
       var _this$props = this.props,
           className = _this$props.className,
           theme = _this$props.theme;
-      var classes = classNames(className, theme && "slider-".concat(theme));
-      return React__default.createElement("div", {
+      var classes = classNames__default['default'](className, theme && "slider-".concat(theme));
+      return /*#__PURE__*/React__default['default'].createElement("div", {
         className: classes,
         ref: function ref(slider) {
           _this.sliderContainer = slider;
@@ -6281,7 +6597,7 @@ function (_React$Component) {
   }]);
 
   return Slider;
-}(React__default.Component);
+}(React__default['default'].Component);
 
 Slider.propTypes = {
   className: propTypes.string,
@@ -6314,27 +6630,27 @@ Slider.propTypes = {
  * Tooltips are powerful components powered behind the scenes by Popper.js that can be attached to any element.
  */
 
-var Tooltip =
-/*#__PURE__*/
-function (_React$Component) {
+var Tooltip = /*#__PURE__*/function (_React$Component) {
   _inherits(Tooltip, _React$Component);
+
+  var _super = _createSuper(Tooltip);
 
   function Tooltip(props) {
     var _this;
 
     _classCallCheck(this, Tooltip);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Tooltip).call(this, props));
-    _this.addListeners = _this.addListeners.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.removeListeners = _this.removeListeners.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleMouseEnter = _this.handleMouseEnter.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleMouseLeave = _this.handleMouseLeave.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleMouseOverContent = _this.handleMouseOverContent.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleMouseLeaveContent = _this.handleMouseLeaveContent.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.show = _this.show.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.hide = _this.hide.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.toggle = _this.toggle.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this = _super.call(this, props);
+    _this.addListeners = _this.addListeners.bind(_assertThisInitialized(_this));
+    _this.removeListeners = _this.removeListeners.bind(_assertThisInitialized(_this));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    _this.handleMouseEnter = _this.handleMouseEnter.bind(_assertThisInitialized(_this));
+    _this.handleMouseLeave = _this.handleMouseLeave.bind(_assertThisInitialized(_this));
+    _this.handleMouseOverContent = _this.handleMouseOverContent.bind(_assertThisInitialized(_this));
+    _this.handleMouseLeaveContent = _this.handleMouseLeaveContent.bind(_assertThisInitialized(_this));
+    _this.show = _this.show.bind(_assertThisInitialized(_this));
+    _this.hide = _this.hide.bind(_assertThisInitialized(_this));
+    _this.toggle = _this.toggle.bind(_assertThisInitialized(_this));
     _this._target = null;
     _this._hideTimeout = null;
     _this._showTimeout = null;
@@ -6379,9 +6695,6 @@ function (_React$Component) {
               return _this2._target.addEventListener(e, _this2);
             });
             break;
-
-          default:
-            break;
         }
       }, this);
     }
@@ -6424,9 +6737,6 @@ function (_React$Component) {
 
         case "focusout":
           this.hide(e);
-          break;
-
-        default:
           break;
       }
     }
@@ -6535,7 +6845,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _props = omit(this.props, ["trigger", "disabled", "delay", "toggle", "autohide"]);
+      var _props = omit__default['default'](this.props, ["trigger", "disabled", "delay", "toggle", "autohide"]);
 
       var target = _props.target,
           container = _props.container,
@@ -6555,9 +6865,9 @@ function (_React$Component) {
         return null;
       }
 
-      var classes = classNames("tooltip-inner", innerClassName);
-      var popperClasses = classNames("tooltip", "show", className);
-      return React__default.createElement(PopperManager, {
+      var classes = classNames__default['default']("tooltip-inner", innerClassName);
+      var popperClasses = classNames__default['default']("tooltip", "show", className);
+      return /*#__PURE__*/React__default['default'].createElement(PopperManager, {
         container: container,
         className: popperClasses,
         arrowClassName: arrowClassName,
@@ -6569,7 +6879,7 @@ function (_React$Component) {
         placementPrefix: placementPrefix,
         modifiers: modifiers,
         offset: offset
-      }, React__default.createElement("div", _extends({}, attrs, {
+      }, /*#__PURE__*/React__default['default'].createElement("div", _extends({}, attrs, {
         className: classes,
         role: "tooltip",
         "aria-hidden": open,
@@ -6580,7 +6890,7 @@ function (_React$Component) {
   }]);
 
   return Tooltip;
-}(React__default.Component);
+}(React__default['default'].Component);
 
 Tooltip.propTypes = {
   /**
@@ -6696,6 +7006,7 @@ exports.ButtonToolbar = ButtonToolbar;
 exports.Card = Card;
 exports.CardBody = CardBody;
 exports.CardColumns = CardColumns;
+exports.CardDeck = CardDeck;
 exports.CardFooter = CardFooter;
 exports.CardGroup = CardGroup;
 exports.CardHeader = CardHeader;
@@ -6704,21 +7015,19 @@ exports.CardImgOverlay = CardImgOverlay;
 exports.CardLink = CardLink;
 exports.CardSubtitle = CardSubtitle;
 exports.CardText = CardText;
-exports.CardDeck = CardDeck;
 exports.CardTitle = CardTitle;
+exports.Col = Col;
 exports.Collapse = Collapse;
 exports.Container = Container;
-exports.Row = Row;
-exports.Col = Col;
 exports.DatePicker = DatePicker;
 exports.Dropdown = Dropdown;
-exports.DropdownToggle = DropdownToggle;
-exports.DropdownMenu = DropdownMenu;
 exports.DropdownItem = DropdownItem;
+exports.DropdownMenu = DropdownMenu;
+exports.DropdownToggle = DropdownToggle;
 exports.Fade = Fade;
 exports.Form = Form;
-exports.FormFeedback = FormFeedback;
 exports.FormCheckbox = FormCheckbox;
+exports.FormFeedback = FormFeedback;
 exports.FormGroup = FormGroup;
 exports.FormInput = FormInput;
 exports.FormRadio = FormRadio;
@@ -6733,8 +7042,8 @@ exports.ListGroupItemHeading = ListGroupItemHeading;
 exports.ListGroupItemText = ListGroupItemText;
 exports.Modal = Modal;
 exports.ModalBody = ModalBody;
-exports.ModalHeader = ModalHeader;
 exports.ModalFooter = ModalFooter;
+exports.ModalHeader = ModalHeader;
 exports.Nav = Nav;
 exports.NavItem = NavItem;
 exports.NavLink = NavLink;
@@ -6745,6 +7054,7 @@ exports.Popover = Popover;
 exports.PopoverBody = PopoverBody;
 exports.PopoverHeader = PopoverHeader;
 exports.Progress = Progress;
+exports.Row = Row;
 exports.Slider = Slider;
 exports.Tooltip = Tooltip;
 //# sourceMappingURL=shards-react.common.js.map
