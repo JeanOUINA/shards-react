@@ -78,7 +78,7 @@ if (setActiveFromChild) {
 
   return (
     <DropdownContext.Provider value={{toggle, open, direction, nav}}>
-      <Manager {...omit(...attrs, [
+      <Manager {...omit(attrs, [
         'toggle',
         'disabled',
         'inNavbar',
