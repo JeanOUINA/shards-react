@@ -2,12 +2,7 @@
   "name": "shards-react",
   "version": "1.0.5",
   "description": "A free, beautiful and modern React UI kit powered by Bootstrap 4 and the Shards UI kit.",
-  "main": "dist/shards-react.common.js",
-  "jsnext:main": "dist/shards-react.es.js",
-  "module": "dist/shards-react.es.js",
-  "jsdelivr": "dist/shards-react.umd.min.js",
-  "unpkg": "dist/shards-react.umd.min.js",
-  "cdn": "dist/shards-react.umd.min.js",
+  "main": "components/index.js",
   "contributors": [
     {
       "name": "Catalin Vasile",
