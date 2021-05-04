@@ -2,7 +2,7 @@
 // Definitions by: Jan Rahtkens <https://github.com/BendaCoding>
 // TypeScript Version: 3.6
 
-const React = import('react');
+import React from "react"
 
 type Tag = keyof JSX.IntrinsicElements | React.ComponentType<any>;
 
