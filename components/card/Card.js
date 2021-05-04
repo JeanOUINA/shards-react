@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 
 /**
@@ -24,37 +24,6 @@ const Card = props => {
   );
 
   return <Tag {...attrs} className={classes} ref={innerRef} />;
-};
-
-Card.propTypes = {
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * The theme color.
-   */
-  theme: PropTypes.string,
-  /**
-   * Whether it is outline, or not.
-   */
-  outline: PropTypes.bool,
-  /**
-   * The component tag.
-   */
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  /**
-   * Whether the card is small, or not.
-   */
-  small: PropTypes.bool,
-  /**
-   * The inner ref.
-   */
-  innerRef: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
-    PropTypes.func
-  ])
 };
 
 Card.defaultProps = {

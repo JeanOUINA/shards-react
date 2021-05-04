@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 import Transition from "react-transition-group/Transition";
 import omit from "lodash.omit";
@@ -41,24 +41,7 @@ const Fade = props => {
       }}
     </Transition>
   );
-};
-
-Fade.propTypes = {
-  ...Transition.propTypes,
-  tag: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  baseClass: PropTypes.string,
-  baseClassActive: PropTypes.string,
-  className: PropTypes.string,
-  innerRef: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string,
-    PropTypes.func
-  ]),
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ])
-};
+}
 
 Fade.defaultProps = {
   ...Transition.defaultProps,

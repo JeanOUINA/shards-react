@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 import shortid from "shortid";
 
@@ -72,48 +72,5 @@ class FormCheckbox extends React.Component {
 FormCheckbox.defaultProps = {
   onChange: () => {}
 }
-
-FormCheckbox.propTypes = {
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * The children nodes.
-   */
-  children: PropTypes.node,
-  /**
-   * Whether it is inline, or not.
-   */
-  inline: PropTypes.bool,
-  /**
-   * Whether it is valid, or not.
-   */
-  valid: PropTypes.bool,
-  /**
-   * Whether it is invalid, or not.
-   */
-  invalid: PropTypes.bool,
-  /**
-   * Whether it is a toggle button, or not.
-   */
-  toggle: PropTypes.bool,
-  /**
-   * Whether it is small (toggle), or not.
-   */
-  small: PropTypes.bool,
-  /**
-   * The onChange handler.
-   */
-  onChange: PropTypes.func,
-  /**
-   * The inner ref.
-   */
-  innerRef: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.func,
-    PropTypes.string
-  ])
-};
 
 export default FormCheckbox;

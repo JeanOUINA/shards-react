@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Manager } from 'react-popper';
 import omit from 'lodash.omit';
@@ -103,72 +102,6 @@ if (setActiveFromChild) {
       </Manager>
     </DropdownContext.Provider>
   );
-};
-
-Dropdown.propTypes = {
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * The children nodes.
-   */
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]),
-  /**
-   * The size.
-   */
-  size: PropTypes.string,
-  /**
-   * Whether it is open, or not.
-   */
-  open: PropTypes.bool,
-  /**
-   * Whether it is active from child, or not.
-   */
-  setActiveFromChild: PropTypes.bool,
-  /**
-   * Whether it is active, or not.
-   */
-  active: PropTypes.bool,
-  /**
-   * Whether it is grouped, or not.
-   */
-  group: PropTypes.bool,
-  /**
-   * Whether it is disabled, or not.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * The toggle function.
-   */
-  toggle: PropTypes.func,
-  /**
-   * Whether it is located inside a navbar, or not.
-   */
-  inNavbar: PropTypes.bool,
-  /**
-   * Whether it is a drop-up, or not.
-   */
-  dropup: PropTypes.bool,
-  /**
-   * The component's tag type.
-   */
-  tag: PropTypes.string,
-  /**
-   * The component's addon type.
-   */
-  addonType: PropTypes.string,
-  /**
-   * Whether it is located inside a Nav, or not.
-   */
-  nav: PropTypes.bool,
-  /**
-   * The direction.
-   */
-  direction: PropTypes.oneOf([ 'up', 'down', 'left', 'right' ])
 };
 
 Dropdown.defaultProps = {

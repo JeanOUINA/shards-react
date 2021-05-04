@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 import omit from "lodash.omit";
 
@@ -78,45 +78,6 @@ class DropdownItem extends React.Component {
     );
   }
 }
-
-DropdownItem.propTypes = {
-  /**
-   * The children nodes.
-   */
-  children: PropTypes.node,
-  /**
-   * Whether it is active, or not.
-   */
-  active: PropTypes.bool,
-  /**
-   * Whether it is disabled, or not.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * Whether it is a divider, or not.
-   */
-  divider: PropTypes.bool,
-  /**
-   * Whether it is a dropdown header item, or not.
-   */
-  header: PropTypes.bool,
-  /**
-   * The function that should be triggered on click.
-   */
-  onClick: PropTypes.func,
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * Whether it should toggle the dropdown, or not.
-   */
-  toggle: PropTypes.bool,
-  /**
-   * The component's tag type.
-   */
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
-};
 
 DropdownItem.defaultProps = {
   tag: "button",

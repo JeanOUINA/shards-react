@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 
 /**
@@ -10,20 +10,6 @@ const ButtonToolbar = props => {
   const classes = classNames(className, "btn-toolbar");
 
   return <div className={classes} {...attrs} />;
-};
-
-ButtonToolbar.propTypes = {
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * The children nodes.
-   */
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ])
 };
 
 export default ButtonToolbar;

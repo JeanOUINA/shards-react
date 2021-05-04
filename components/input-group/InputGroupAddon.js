@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 
 import InputGroupText from "./InputGroupText";
@@ -22,25 +22,6 @@ const InputGroupAddon = props => {
       {children}
     </Tag>
   );
-};
-
-InputGroupAddon.propTypes = {
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * The children nodes.
-   */
-  children: PropTypes.node,
-  /**
-   * The addon type.
-   */
-  type: PropTypes.oneOf(INPUT_GROUP_ADDON_TYPES).isRequired,
-  /**
-   * The component's tag type.
-   */
-  tag: PropTypes.string
 };
 
 InputGroupAddon.defaultProps = {

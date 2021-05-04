@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 
 class NavLink extends React.Component {
@@ -51,41 +51,6 @@ class NavLink extends React.Component {
     );
   }
 }
-
-NavLink.propTypes = {
-  /**
-   * Whether it is disabled, or not.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * Whether it is active, or not.
-   */
-  active: PropTypes.bool,
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * The function that should be triggered on click.
-   */
-  onClick: PropTypes.func,
-  /**
-   * The href attribute value.
-   */
-  href: PropTypes.any,
-  /**
-   * The component's tag type.
-   */
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  /**
-   * The inner ref.
-   */
-  innerRef: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.func,
-    PropTypes.string
-  ])
-};
 
 NavLink.defaultProps = {
   tag: "a"

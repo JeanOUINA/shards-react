@@ -1,9 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 
 import { BREAKPOINTS } from "../constants";
-import { CustomPropTypes } from "../utils";
 
 const makeColumnClass = function(isXs, breakpoint, colSize) {
   if (colSize === true || colSize === "") {
@@ -58,41 +57,6 @@ const Col = props => {
   const classes = classNames(className, columnClasses);
 
   return <Tag {...attrs} className={classes} />;
-};
-
-Col.propTypes = {
-  /**
-   * Col number or config object for xs viewports.
-   */
-  xs: CustomPropTypes.column,
-  /**
-   * Col number or config object for sm viewports.
-   */
-  sm: CustomPropTypes.column,
-  /**
-   * Col number or config object for md viewports.
-   */
-  md: CustomPropTypes.column,
-  /**
-   * Col number or config object for lg viewports.
-   */
-  lg: CustomPropTypes.column,
-  /**
-   * Col number or config object for xl viewports.
-   */
-  xl: CustomPropTypes.column,
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * The available breakpoints.
-   */
-  breakpoints: PropTypes.array,
-  /**
-   * The component tag type.
-   */
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 Col.defaultProps = {

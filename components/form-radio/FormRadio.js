@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 import shortid from "shortid";
 
@@ -67,41 +67,6 @@ class FormRadio extends React.Component {
 
 FormRadio.defaultProps = {
   onChange: () => {}
-};
-
-FormRadio.propTypes = {
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * The children.
-   */
-  children: PropTypes.node,
-  /**
-   * Whether it is inline, or not.
-   */
-  inline: PropTypes.bool,
-  /**
-   * Whether it is valid, or not.
-   */
-  valid: PropTypes.bool,
-  /**
-   * The function that should run on change.
-   */
-  onChange: PropTypes.func,
-  /**
-   * Whether it is invalid, or not.
-   */
-  invalid: PropTypes.bool,
-  /**
-   * The inner ref.
-   */
-  innerRef: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.func,
-    PropTypes.string
-  ])
 };
 
 export default FormRadio;

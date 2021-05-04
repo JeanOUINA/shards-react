@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import { Reference } from "react-popper";
 import classNames from "classnames";
 import Button from "../button";
@@ -89,49 +89,6 @@ class DropdownToggle extends React.Component {
     );
   }
 }
-
-DropdownToggle.propTypes = {
-  /**
-   * Whether it should display a caret, or not.
-   */
-  caret: PropTypes.bool,
-  /**
-   * The theme color.
-   */
-  theme: PropTypes.string,
-  /**
-   * The children nodes.
-   */
-  children: PropTypes.node,
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * Whether it is disabled, or not.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * The function that should be triggered on click.
-   */
-  onClick: PropTypes.func,
-  /**
-   * The aria-haspopup attribute.
-   */
-  "aria-haspopup": PropTypes.bool,
-  /**
-   * Whether it is split, or not.
-   */
-  split: PropTypes.bool,
-  /**
-   * Whether it is located inside a nav, or not.
-   */
-  nav: PropTypes.bool,
-  /**
-   * The component's tag type.
-   */
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
-};
 
 DropdownToggle.defaultProps = {
   "aria-haspopup": true,

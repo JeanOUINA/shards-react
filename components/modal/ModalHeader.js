@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 
 const ModalHeader = props => {
@@ -36,36 +36,6 @@ const ModalHeader = props => {
       {closeButton}
     </div>
   );
-};
-
-ModalHeader.propTypes = {
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * The toggle function.
-   */
-  toggle: PropTypes.func,
-  /**
-   * The component's tag type.
-   */
-  tag: PropTypes.string,
-  /**
-   * The close button's aria label.
-   */
-  closeAriaLabel: PropTypes.string,
-  /**
-   * The class for the modal title.
-   */
-  titleClass: PropTypes.string,
-  /**
-   * The children nodes.
-   */
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ])
 };
 
 ModalHeader.defaultProps = {

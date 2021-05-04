@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 
 /**
@@ -15,25 +15,6 @@ const ButtonGroup = props => {
   );
 
   return <div className={classes} {...attrs} />;
-};
-
-ButtonGroup.propTypes = {
-  /**
-   * The children nodes.
-   */
-  children: PropTypes.node,
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * The size.
-   */
-  size: PropTypes.string,
-  /**
-   * Whether it is vertical, or not.
-   */
-  vertical: PropTypes.bool
 };
 
 export default ButtonGroup;

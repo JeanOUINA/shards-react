@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 import toNumber from "lodash.tonumber";
 
@@ -56,53 +56,6 @@ const Progress = props => {
       {ProgressBar}
     </Tag>
   );
-};
-
-Progress.propTypes = {
-  /**
-   * The children nodes.
-   */
-  children: PropTypes.node,
-  /**
-   * Whether it is a bar, or not.
-   */
-  bar: PropTypes.bool,
-  /**
-   * Whether there are multiple progress bars nested, or not.
-   */
-  multi: PropTypes.bool,
-  /**
-   * The component's tag type.
-   */
-  tag: PropTypes.string,
-  /**
-   * Whether it is animated, or not.
-   */
-  animated: PropTypes.bool,
-  /**
-   * Whether it is striped, or not.
-   */
-  striped: PropTypes.bool,
-  /**
-   * The theme color.
-   */
-  theme: PropTypes.string,
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * The class name for the bar element.
-   */
-  barClassName: PropTypes.string,
-  /**
-   * The value.
-   */
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /**
-   * The max value.
-   */
-  max: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 Progress.defaultProps = {

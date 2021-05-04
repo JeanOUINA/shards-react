@@ -1,9 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 
 import PopperManager from "../../utils/PopperManager";
-import { CustomPropTypes, getTarget } from "../utils";
+import { getTarget } from "../utils";
 import { EVENTS, TIMEOUT } from "../constants";
 
 /**
@@ -167,89 +167,6 @@ class Popover extends React.Component {
     );
   }
 }
-
-Popover.propTypes = {
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-
-  /**
-   * The target element.
-   */
-  target: CustomPropTypes.target.isRequired,
-
-  /**
-   * The popover container.
-   */
-  container: CustomPropTypes.target,
-
-  /**
-   * Popper modifiers object.
-   */
-  modifiers: PropTypes.object,
-
-  /**
-   * Whether the popover is open, or not.
-   */
-  open: PropTypes.bool,
-
-  /**
-   * The inner class name.
-   */
-  innerClassName: PropTypes.string,
-
-  /**
-   * Whether the popover is disabled, or not.
-   */
-  disabled: PropTypes.bool,
-
-  /**
-   * Whether to hide the arrow, or not.
-   */
-  noArrow: PropTypes.bool,
-
-  /**
-   * The arrow class name.
-   */
-  arrowClassName: PropTypes.string,
-
-  /**
-   * The boundaries element for the Popover instance.
-   */
-  boundariesElement: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-
-  /**
-   * The popover placement.
-   */
-  placement: PropTypes.string,
-
-  /**
-   * The placement prefix.
-   */
-  placementPrefix: PropTypes.string,
-
-  /**
-   * The popover offset.
-   */
-  offset: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-
-  /**
-   * The toggle function.
-   */
-  toggle: PropTypes.func.isRequired,
-
-  /**
-   * The show/hide delay in ms.
-   */
-  delay: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.shape({
-      show: PropTypes.number,
-      hide: PropTypes.number
-    })
-  ])
-};
 
 Popover.defaultProps = {
   open: false,

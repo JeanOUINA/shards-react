@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 
 /**
@@ -48,36 +48,5 @@ class FormSelect extends React.Component {
     );
   }
 }
-
-FormSelect.propTypes = {
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * The children nodes.
-   */
-  children: PropTypes.node,
-  /**
-   * The size.
-   */
-  size: PropTypes.string,
-  /**
-   * Whether it is valid, or not.
-   */
-  valid: PropTypes.bool,
-  /**
-   * Whether it is invalid, or not.
-   */
-  invalid: PropTypes.bool,
-  /**
-   * The inner ref.
-   */
-  innerRef: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.func,
-    PropTypes.string
-  ])
-};
 
 export default FormSelect;

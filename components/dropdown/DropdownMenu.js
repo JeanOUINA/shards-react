@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 import { Popper } from "react-popper";
 
@@ -70,41 +70,6 @@ class DropdownMenu extends React.Component {
     );
   }
 }
-
-DropdownMenu.propTypes = {
-  /**
-   * The component tag.
-   */
-  tag: PropTypes.string,
-  /**
-   * The children nodes.
-   */
-  children: PropTypes.node.isRequired,
-  /**
-   * Whether it is positioned on the right side, or not.
-   */
-  right: PropTypes.bool,
-  /**
-   * Whether it should flip, or not.
-   */
-  flip: PropTypes.bool,
-  /**
-   * Whether the dropdown is small, or not.
-   */
-  small: PropTypes.bool,
-  /**
-   * The modifiers config object.
-   */
-  modifiers: PropTypes.object,
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * Whether it should persist, or not.
-   */
-  persist: PropTypes.bool
-};
 
 DropdownMenu.defaultProps = {
   tag: "div",

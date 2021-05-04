@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 
 /**
@@ -15,25 +15,6 @@ const ListGroup = props => {
   );
 
   return <Tag {...attrs} className={classes} />;
-};
-
-ListGroup.propTypes = {
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * Whether the list group should be flushed, or not.
-   */
-  flush: PropTypes.bool,
-  /**
-   * Whether the list group is small, or not.
-   */
-  small: PropTypes.bool,
-  /**
-   * The component's tag type.
-   */
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 ListGroup.defaultProps = {

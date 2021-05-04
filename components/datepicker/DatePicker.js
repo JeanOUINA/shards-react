@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import ReactDatePicker from "react-datepicker";
 import classNames from "classnames";
 
@@ -24,13 +24,6 @@ const DatePicker = props => {
   }
 
   return <ReactDatePicker {...props} className={classes} />;
-};
-
-DatePicker.propTypes = {
-  ...ReactDatePicker.propTypes,
-  ...{
-    size: PropTypes.string
-  }
 };
 
 export default DatePicker;

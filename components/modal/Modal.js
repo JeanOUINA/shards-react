@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 import { Transition } from "react-transition-group";
 
@@ -165,88 +165,6 @@ class Modal extends React.Component {
     );
   }
 }
-
-Modal.propTypes = {
-  /**
-   * The id.
-   */
-  id: PropTypes.string,
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * Whether it is open, or not.
-   */
-  open: PropTypes.bool,
-  /**
-   * Whether it should fade, or not.
-   */
-  fade: PropTypes.bool,
-  /**
-   * Whether it should display a backdrop, or not.
-   */
-  backdrop: PropTypes.bool,
-  /**
-   * The function that should be triggered when the modal is shown.
-   */
-  showModal: PropTypes.func,
-  /**
-   * The function that should be triggered when the modal is set to hide.
-   */
-  hideModal: PropTypes.func,
-  /**
-   * The function that should be triggered when the modal is finally hidden.
-   */
-  hiddenModal: PropTypes.func,
-  /**
-   * Whether it should be centered, or not.
-   */
-  centered: PropTypes.bool,
-  /**
-   * The class name for the backdrop element.
-   */
-  backdropClassName: PropTypes.string,
-  /**
-   * The toggle function.
-   */
-  toggle: PropTypes.func,
-  /**
-   * The class name for the modal.
-   */
-  modalClassName: PropTypes.string,
-  /**
-   *
-   */
-  animation: PropTypes.bool,
-  /**
-   * The position.
-   */
-  position: PropTypes.string,
-  /**
-   * The size.
-   */
-  size: PropTypes.string,
-  /**
-   * The tab index.
-   */
-  tabIndex: PropTypes.string,
-  /**
-   * The class name for the modal content.
-   */
-  modalContentClassName: PropTypes.string,
-  /**
-   * The role attribute for the modal.
-   */
-  role: PropTypes.string,
-  /**
-   * The children nodes.
-   */
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ])
-};
 
 Modal.defaultProps = {
   open: false,

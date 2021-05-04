@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 
 /**
@@ -15,29 +15,6 @@ const InputGroup = props => {
   );
 
   return <Tag {...attrs} className={classes} />;
-};
-
-InputGroup.propTypes = {
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * The children nodes.
-   */
-  children: PropTypes.node,
-  /**
-   * The size.
-   */
-  size: PropTypes.string,
-  /**
-   * Whether it is seamless, or not.
-   */
-  seamless: PropTypes.bool,
-  /**
-   * The tag type.
-   */
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 InputGroup.defaultProps = {

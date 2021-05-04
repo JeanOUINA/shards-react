@@ -39,7 +39,6 @@ const globals = {
   'react-dom': 'ReactDOM',
   'react-transition-group': 'ReactTransitionGroup',
   'react-popper': 'ReactPopper',
-  'prop-types': 'PropTypes',
   'lodash.pick': 'pick',
   'lodash.omit': 'omit',
   'lodash.isfunction': 'isFunction',

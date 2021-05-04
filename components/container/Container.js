@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+
 import React from "react";
 import classNames from "classnames";
 
@@ -13,21 +13,6 @@ const Container = props => {
   );
 
   return <Tag {...attrs} className={classes} />;
-};
-
-Container.propTypes = {
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * Whether it is fluid, or not.
-   */
-  fluid: PropTypes.bool,
-  /**
-   * The component's tag type.
-   */
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 Container.defaultProps = {

@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 
 /**
@@ -27,32 +27,6 @@ const Breadcrumb = props => {
   );
 };
 
-Breadcrumb.propTypes = {
-  /**
-   * The breadcrumb list class name.
-   */
-  listClassName: PropTypes.string,
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * The aria label value.
-   */
-  "aria-label": PropTypes.string,
-  /**
-   * The children nodes.
-   */
-  children: PropTypes.node,
-  /**
-   * The component tag name.
-   */
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  /**
-   * The breadcrumb list tag.
-   */
-  listTag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
-};
 
 Breadcrumb.defaultProps = {
   "aria-label": "breadcrumb",

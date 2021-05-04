@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 import nouislider from "nouislider";
 
@@ -76,40 +76,5 @@ class Slider extends React.Component {
     );
   }
 }
-
-Slider.propTypes = {
-  className: PropTypes.string,
-  theme: PropTypes.string,
-  animate: PropTypes.bool,
-  behaviour: PropTypes.string,
-  cssPrefix: PropTypes.string,
-  disabled: PropTypes.bool,
-  limit: PropTypes.number,
-  margin: PropTypes.number,
-  onChange: PropTypes.func,
-  onEnd: PropTypes.func,
-  onSet: PropTypes.func,
-  onSlide: PropTypes.func,
-  onStart: PropTypes.func,
-  onUpdate: PropTypes.func,
-  pips: PropTypes.object,
-  range: PropTypes.object.isRequired,
-  start: PropTypes.arrayOf(PropTypes.number).isRequired,
-  step: PropTypes.number,
-  direction: PropTypes.oneOf(["ltr", "rtl"]),
-  orientation: PropTypes.oneOf(["horizontal", "vertical"]),
-  connect: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.bool),
-    PropTypes.bool
-  ]),
-  tooltips: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.arrayOf(
-      PropTypes.shape({
-        to: PropTypes.func
-      })
-    )
-  ])
-};
 
 export default Slider;

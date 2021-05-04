@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 import Transition from "react-transition-group/Transition";
 import pick from "lodash.pick";
@@ -98,41 +98,6 @@ class Collapse extends React.Component {
     this.props.onExited(node);
   }
 }
-
-Collapse.propTypes = {
-  ...Transition.propTypes,
-  /**
-   * Whether it is open, or not.
-   */
-  open: PropTypes.bool,
-  /**
-   * The children components.
-   */
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]),
-  /**
-   * The element tag type.
-   */
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  /**
-   * The class name.
-   */
-  className: PropTypes.node,
-  /**
-   * Whether it is located inside a navbar, or not.
-   */
-  navbar: PropTypes.bool,
-  /**
-   * The inner ref.
-   */
-  innerRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.string,
-    PropTypes.object
-  ])
-};
 
 Collapse.defaultProps = {
   ...Transition.defaultProps,

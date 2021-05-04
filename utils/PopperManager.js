@@ -1,10 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import { Popper } from 'react-popper'
 import classNames from 'classnames'
 
-import { getTarget, CustomPropTypes } from '../components/utils'
+import { getTarget } from '../components/utils'
 
 class PopperManager extends React.Component {
   constructor(props) {
@@ -138,87 +137,6 @@ class PopperManager extends React.Component {
       <div>{this.renderChildren()}</div>
     ), containerNode)
   }
-}
-
-PopperManager.propTypes = {
-  /**
-   * The target.
-   */
-  target: CustomPropTypes.target.isRequired,
-
-  /**
-   * The container.
-   */
-  container: CustomPropTypes.target,
-
-  /**
-   * The children.
-   */
-  children: PropTypes.node.isRequired,
-
-  /**
-   * Whether the Popper is open, or not.
-   */
-  open: PropTypes.bool,
-
-  /**
-   * Whether the Popper should flip, or not.
-   */
-  flip: PropTypes.bool,
-
-  /**
-   * The Popper offset.
-   */
-  offset: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
-
-  /**
-   * The Popper fallback placement.
-   */
-  fallbackPlacement: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array
-  ]),
-
-  /**
-   * The Popper placement prefix.
-   */
-  placementPrefix: PropTypes.string,
-
-  /**
-   * The Popper's arrow className.
-   */
-  arrowClassName: PropTypes.string,
-
-  /**
-   * Whether to hide the arrow, or not.
-   */
-  noArrow: PropTypes.bool,
-
-  /**
-   * The Popper class name.
-   */
-  className: PropTypes.string,
-
-  /**
-   * The component tag.
-   */
-  tag: PropTypes.string,
-
-  /**
-   * The modifiers object.
-   */
-  modifiers: PropTypes.object,
-
-  /**
-   * The boundaries element for the Popper instance.
-   */
-  boundariesElement: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element
-  ])
 }
 
 PopperManager.defaultProps = {

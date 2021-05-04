@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 
 /**
@@ -34,36 +34,6 @@ class Form extends React.Component {
     return <Tag {...attrs} ref={innerRef} className={classes} />;
   }
 }
-
-Form.propTypes = {
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * Whether it is inline, or not.
-   */
-  inline: PropTypes.bool,
-  /**
-   * The children nodes.
-   */
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]),
-  /**
-   * The inner ref.
-   */
-  innerRef: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.func,
-    PropTypes.string
-  ]),
-  /**
-   * The component's tag type.
-   */
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
-};
 
 Form.defaultProps = {
   tag: "form"

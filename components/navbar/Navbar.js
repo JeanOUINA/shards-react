@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 
 /**
@@ -39,45 +39,6 @@ const Navbar = props => {
   );
 
   return <Tag {...attrs} className={classes} />;
-};
-
-Navbar.propTypes = {
-  /**
-   * Whether it is full, or not.
-   */
-  full: PropTypes.bool,
-  /**
-   * Whether it is fixed, or not.
-   */
-  fixed: PropTypes.string,
-  /**
-   * Whether it is sticky, or not.
-   */
-  sticky: PropTypes.string,
-  /**
-   * The theme color.
-   */
-  theme: PropTypes.string,
-  /**
-   * The role attribute.
-   */
-  role: PropTypes.string,
-  /**
-   * The class name attribute.
-   */
-  className: PropTypes.string,
-  /**
-   * The navbar type.
-   */
-  type: PropTypes.oneOf(["dark", "light"]),
-  /**
-   * The component's tag type.
-   */
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  /**
-   * Whether it should expand, or not.
-   */
-  expand: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
 };
 
 Navbar.defaultProps = {

@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 
 import { INPUT_TYPES, AUTOCOMPLETE_TYPES } from "../constants";
@@ -55,52 +55,5 @@ class FormInput extends React.Component {
     return <input {...attrs} ref={innerRef} className={classes} autoComplete={autoComplete} />;
   }
 }
-
-FormInput.propTypes = {
-  /**
-   * The class name.
-   */
-  className: PropTypes.string,
-  /**
-   * The children nodes.
-   */
-  children: PropTypes.node,
-  /**
-   * Whether it is inline, or not.
-   */
-  inline: PropTypes.bool,
-  /**
-   * The input type.
-   */
-  type: PropTypes.oneOf(INPUT_TYPES),
-  /**
-   * Whether it is plaintext, or not.
-   */
-  plaintext: PropTypes.bool,
-  /**
-   * Whether it is plaintext, or not.
-   */
-  autoComplete: PropTypes.oneOf(AUTOCOMPLETE_TYPES),
-  /**
-   * The input's size.
-   */
-  size: PropTypes.string,
-  /**
-   * Whether it is valid, or not.
-   */
-  valid: PropTypes.bool,
-  /**
-   * Whether it is invalid, or not.
-   */
-  invalid: PropTypes.bool,
-  /**
-   * The inner ref.
-   */
-  innerRef: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.func,
-    PropTypes.string
-  ])
-};
 
 export default FormInput;

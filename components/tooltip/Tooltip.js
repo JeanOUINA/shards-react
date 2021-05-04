@@ -1,10 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import classNames from "classnames";
 import omit from "lodash.omit";
 
-import { getTarget, CustomPropTypes } from "../utils";
-import { TIMEOUT, EVENTS, POPPER_PLACEMENTS } from "../constants";
+import { getTarget } from "../utils";
+import { TIMEOUT, EVENTS } from "../constants";
 import PopperManager from "../../utils/PopperManager";
 
 /**
@@ -271,99 +271,6 @@ class Tooltip extends React.Component {
     );
   }
 }
-
-Tooltip.propTypes = {
-  /**
-   * The target element.
-   */
-  target: CustomPropTypes.target.isRequired,
-
-  /**
-   * The tooltip container.
-   */
-  container: CustomPropTypes.target,
-
-  /**
-   * The trigger(s) (click, hover, focus).
-   */
-  trigger: PropTypes.string,
-
-  /**
-   * Whether the tooltip is open, or not.
-   */
-  open: PropTypes.bool,
-
-  /**
-   * Whether the tooltip is disabled, or not.
-   */
-  disabled: PropTypes.bool,
-
-  /**
-   * The tooltip class name.
-   */
-  className: PropTypes.string,
-
-  /**
-   * The arrow class name.
-   */
-  arrowClassName: PropTypes.string,
-
-  /**
-   * The tooltip inner class name.
-   */
-  innerClassName: PropTypes.string,
-
-  /**
-   * The tooltip offset.
-   */
-  offset: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-
-  /**
-   * The show/hide delay in ms.
-   */
-  delay: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.shape({
-      show: PropTypes.number,
-      hide: PropTypes.number
-    })
-  ]),
-
-  /**
-   * The boundaries element for the tooltip instance.
-   */
-  boundariesElement: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-
-  /**
-   * The tooltip placement.
-   */
-  placement: PropTypes.oneOf(POPPER_PLACEMENTS),
-
-  /**
-   * The placement prefix.
-   */
-  placementPrefix: PropTypes.string,
-
-  /**
-   * Whether to hide the arrow, or not.
-   */
-  noArrow: PropTypes.bool,
-
-  /**
-   * The toggle function.
-   */
-  toggle: PropTypes.func.isRequired,
-
-  /**
-   * Popper modifiers object.
-   */
-  modifiers: PropTypes.object,
-
-  /**
-   * Whether the tooltip should auto-hide, or not.
-   */
-  autohide: PropTypes.bool
-};
 
 Tooltip.defaultProps = {
   trigger: "hover",
