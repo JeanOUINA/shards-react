@@ -311,6 +311,10 @@ interface CollapseProps extends BaseProps {
    * The inner ref.
    */
   innerRef?: InnerRef;
+
+  right?: boolean
+
+  small?: boolean
 }
 
 export declare const Collapse: React.ComponentType<CollapseProps>;
@@ -398,6 +402,8 @@ interface DropdownProps extends BaseProps {
    * The direction.
    */
   direction?: Direction;
+  
+  to?: string
 }
 
 export declare const Dropdown: React.ComponentType<any>;
@@ -489,6 +495,8 @@ export interface DropdownToggleProps extends BaseProps {
    * The component's tag type.
    */
   tag?: Tag;
+
+
 }
 
 export declare const DropdownToggle: React.ComponentType<DropdownToggleProps>;
@@ -915,6 +923,8 @@ export interface NavItemProps extends BaseProps {
    * Whether it is disabled, or not.
    */
   disabled?: boolean;
+
+  caret?: boolean
 }
 
 export declare const NavItem: React.ComponentType<NavItemProps>;
@@ -944,6 +954,8 @@ export interface NavLinkProps extends BaseProps {
    * The inner ref.
    */
   innerRef?: InnerRef;
+
+  to?: string
 }
 
 export declare const NavLink: React.ComponentType<NavLinkProps>;
@@ -981,7 +993,9 @@ export interface NavbarProps extends BaseProps {
 
 export declare const Navbar: React.ComponentType<NavbarProps>;
 
-export interface NavbarBrandProps extends BaseProps {}
+export interface NavbarBrandProps extends BaseProps {
+  href?: string
+}
 
 export declare const NavbarBrand: React.ComponentType<NavbarBrandProps>;
 
