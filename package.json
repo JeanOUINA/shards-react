@@ -2,7 +2,12 @@
   "name": "shards-react",
   "version": "1.0.5",
   "description": "A free, beautiful and modern React UI kit powered by Bootstrap 4 and the Shards UI kit.",
-  "main": "components/index.js",
+  "main": "dist/shards-react.common.js",
+  "jsnext:main": "dist/shards-react.es.js",
+  "module": "dist/shards-react.es.js",
+  "jsdelivr": "dist/shards-react.umd.min.js",
+  "unpkg": "dist/shards-react.umd.min.js",
+  "cdn": "dist/shards-react.umd.min.js",
   "contributors": [
     {
       "name": "Catalin Vasile",
@@ -17,7 +22,8 @@
     "prebuild": "npm run clean && npm run lint",
     "build": "rollup --c build/rollup.config.js",
     "lint": "echo eslint disabled sorry",
-    "clean": "rimraf dist/*"
+    "clean": "rimraf dist/*",
+    "install": "npm run build"
   },
   "author": "DesignRevision <contact@designrevision.com>",
   "license": "MIT",
